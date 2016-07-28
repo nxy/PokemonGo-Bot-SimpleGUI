@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace PokemonGo.RocketAPI.GUI
+﻿namespace PokemonGo.RocketAPI.GUI
 {
     partial class ConsoleForm
     {
@@ -30,31 +28,30 @@ namespace PokemonGo.RocketAPI.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.boxConsole = new TextBox();
+            this.boxConsole = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // boxConsole
             // 
-            this.boxConsole.Dock = DockStyle.Fill;
+            this.boxConsole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.boxConsole.Location = new System.Drawing.Point(0, 0);
             this.boxConsole.Multiline = true;
             this.boxConsole.Name = "boxConsole";
             this.boxConsole.Size = new System.Drawing.Size(1044, 61);
             this.boxConsole.TabIndex = 0;
-            this.boxConsole.ScrollBars = ScrollBars.Vertical;
             // 
             // ConsoleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1044, 61);
             this.Controls.Add(this.boxConsole);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "ConsoleForm";
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Console";
-            this.FormClosing += new FormClosingEventHandler(this.ConsoleForm_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsoleForm_FormClosing);
             this.Load += new System.EventHandler(this.ConsoleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -63,6 +60,6 @@ namespace PokemonGo.RocketAPI.GUI
 
         #endregion
 
-        public TextBox boxConsole;
+        public System.Windows.Forms.TextBox boxConsole;
     }
 }

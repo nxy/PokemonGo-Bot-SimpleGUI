@@ -94,22 +94,22 @@
             // lbItemsInventory
             // 
             this.lbItemsInventory.AutoSize = true;
-            this.lbItemsInventory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbItemsInventory.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbItemsInventory.Location = new System.Drawing.Point(8, 86);
             this.lbItemsInventory.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
             this.lbItemsInventory.Name = "lbItemsInventory";
-            this.lbItemsInventory.Size = new System.Drawing.Size(95, 28);
+            this.lbItemsInventory.Size = new System.Drawing.Size(100, 30);
             this.lbItemsInventory.TabIndex = 4;
             this.lbItemsInventory.Text = "Inventory";
             // 
             // lbPokemonsInventory
             // 
             this.lbPokemonsInventory.AutoSize = true;
-            this.lbPokemonsInventory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPokemonsInventory.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPokemonsInventory.Location = new System.Drawing.Point(8, 46);
             this.lbPokemonsInventory.Margin = new System.Windows.Forms.Padding(5, 15, 3, 0);
             this.lbPokemonsInventory.Name = "lbPokemonsInventory";
-            this.lbPokemonsInventory.Size = new System.Drawing.Size(94, 28);
+            this.lbPokemonsInventory.Size = new System.Drawing.Size(99, 30);
             this.lbPokemonsInventory.TabIndex = 3;
             this.lbPokemonsInventory.Text = "Pokemon";
             // 
@@ -117,10 +117,10 @@
             // 
             this.lbExperience.AutoSize = true;
             this.lbExperience.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbExperience.Location = new System.Drawing.Point(98, 103);
+            this.lbExperience.Location = new System.Drawing.Point(80, 103);
             this.lbExperience.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.lbExperience.Name = "lbExperience";
-            this.lbExperience.Size = new System.Drawing.Size(144, 37);
+            this.lbExperience.Size = new System.Drawing.Size(113, 30);
             this.lbExperience.TabIndex = 2;
             this.lbExperience.Text = "Experience";
             // 
@@ -131,18 +131,18 @@
             this.lbLevel.Location = new System.Drawing.Point(14, 103);
             this.lbLevel.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.lbLevel.Name = "lbLevel";
-            this.lbLevel.Size = new System.Drawing.Size(78, 37);
+            this.lbLevel.Size = new System.Drawing.Size(60, 30);
             this.lbLevel.TabIndex = 1;
             this.lbLevel.Text = "Level";
             // 
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.Location = new System.Drawing.Point(9, 56);
             this.lbName.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(377, 46);
+            this.lbName.Size = new System.Drawing.Size(388, 47);
             this.lbName.TabIndex = 0;
             this.lbName.Text = "PokemonTrainerName";
             // 
@@ -181,94 +181,85 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(6, 165);
             this.label11.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 28);
+            this.label11.Size = new System.Drawing.Size(109, 30);
             this.label11.TabIndex = 19;
             this.label11.Text = "Capture %";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(211, 85);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(30, 28);
+            this.label10.Size = new System.Drawing.Size(32, 30);
             this.label10.TabIndex = 9;
             this.label10.Text = "of";
             // 
             // boxPokemonName
             // 
             this.boxPokemonName.Enabled = false;
-            this.boxPokemonName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxPokemonName.Location = new System.Drawing.Point(136, 125);
             this.boxPokemonName.Name = "boxPokemonName";
-            this.boxPokemonName.Size = new System.Drawing.Size(185, 34);
+            this.boxPokemonName.Size = new System.Drawing.Size(185, 35);
             this.boxPokemonName.TabIndex = 11;
             this.boxPokemonName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // boxPokestopCount
             // 
             this.boxPokestopCount.Enabled = false;
-            this.boxPokestopCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxPokestopCount.Location = new System.Drawing.Point(262, 85);
             this.boxPokestopCount.Name = "boxPokestopCount";
-            this.boxPokestopCount.Size = new System.Drawing.Size(59, 34);
+            this.boxPokestopCount.Size = new System.Drawing.Size(59, 35);
             this.boxPokestopCount.TabIndex = 8;
             this.boxPokestopCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // boxPokemonCaughtProb
             // 
             this.boxPokemonCaughtProb.Enabled = false;
-            this.boxPokemonCaughtProb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxPokemonCaughtProb.Location = new System.Drawing.Point(136, 167);
             this.boxPokemonCaughtProb.Name = "boxPokemonCaughtProb";
-            this.boxPokemonCaughtProb.Size = new System.Drawing.Size(185, 34);
+            this.boxPokemonCaughtProb.Size = new System.Drawing.Size(185, 35);
             this.boxPokemonCaughtProb.TabIndex = 18;
             this.boxPokemonCaughtProb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // boxPokestopInit
             // 
             this.boxPokestopInit.Enabled = false;
-            this.boxPokestopInit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxPokestopInit.Location = new System.Drawing.Point(136, 85);
             this.boxPokestopInit.Name = "boxPokestopInit";
-            this.boxPokestopInit.Size = new System.Drawing.Size(57, 34);
+            this.boxPokestopInit.Size = new System.Drawing.Size(57, 35);
             this.boxPokestopInit.TabIndex = 3;
             this.boxPokestopInit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(6, 125);
             this.label15.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 28);
+            this.label15.Size = new System.Drawing.Size(99, 30);
             this.label15.TabIndex = 10;
             this.label15.Text = "Pokemon";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(6, 85);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 28);
+            this.label7.Size = new System.Drawing.Size(97, 30);
             this.label7.TabIndex = 2;
             this.label7.Text = "Pokestop";
             // 
             // boxPokestopName
             // 
             this.boxPokestopName.Enabled = false;
-            this.boxPokestopName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxPokestopName.Location = new System.Drawing.Point(11, 45);
             this.boxPokestopName.Name = "boxPokestopName";
-            this.boxPokestopName.Size = new System.Drawing.Size(310, 34);
+            this.boxPokestopName.Size = new System.Drawing.Size(310, 35);
             this.boxPokestopName.TabIndex = 1;
             this.boxPokestopName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -293,7 +284,7 @@
             this.MainMap.GrayScaleMode = false;
             this.MainMap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.MainMap.LevelsKeepInMemmory = 5;
-            this.MainMap.Location = new System.Drawing.Point(3, 38);
+            this.MainMap.Location = new System.Drawing.Point(3, 31);
             this.MainMap.MarkersEnabled = true;
             this.MainMap.MaxZoom = 2;
             this.MainMap.MinZoom = 2;
@@ -306,13 +297,12 @@
             this.MainMap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.MainMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.MainMap.ShowTileGridLines = false;
-            this.MainMap.Size = new System.Drawing.Size(340, 276);
+            this.MainMap.Size = new System.Drawing.Size(340, 283);
             this.MainMap.TabIndex = 0;
             this.MainMap.Zoom = 0D;
             // 
             // mainMenuStrip
             // 
-            this.mainMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.applicationToolStripMenuItem,
             this.myPokemonToolStripMenuItem,
@@ -321,7 +311,7 @@
             this.aboutToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(1044, 28);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1044, 24);
             this.mainMenuStrip.TabIndex = 9;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -333,7 +323,7 @@
             this.showStatisticsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
-            this.applicationToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.applicationToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.applicationToolStripMenuItem.Text = "PoGo Bot";
             // 
             // farmingToolStripMenuItem
@@ -342,41 +332,41 @@
             this.startToolStripMenuItem,
             this.stopToolStripMenuItem});
             this.farmingToolStripMenuItem.Name = "farmingToolStripMenuItem";
-            this.farmingToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.farmingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.farmingToolStripMenuItem.Text = "Farming";
             // 
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(115, 26);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.startToolStripMenuItem.Text = "Start";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(115, 26);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
             // displayConsoleToolStripMenuItem
             // 
             this.displayConsoleToolStripMenuItem.Name = "displayConsoleToolStripMenuItem";
-            this.displayConsoleToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.displayConsoleToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.displayConsoleToolStripMenuItem.Text = "Display Console";
             this.displayConsoleToolStripMenuItem.Click += new System.EventHandler(this.displayConsoleToolStripMenuItem_Click);
             // 
             // showStatisticsToolStripMenuItem
             // 
             this.showStatisticsToolStripMenuItem.Name = "showStatisticsToolStripMenuItem";
-            this.showStatisticsToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.showStatisticsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.showStatisticsToolStripMenuItem.Text = "Display Statistics";
             this.showStatisticsToolStripMenuItem.Click += new System.EventHandler(this.showStatisticsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -387,27 +377,27 @@
             this.evolveAllPokemonwCandyToolStripMenuItem,
             this.transferDuplicatePokemonToolStripMenuItem});
             this.myPokemonToolStripMenuItem.Name = "myPokemonToolStripMenuItem";
-            this.myPokemonToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.myPokemonToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.myPokemonToolStripMenuItem.Text = "My Pokemon";
             // 
             // viewMyPokemonsToolStripMenuItem
             // 
             this.viewMyPokemonsToolStripMenuItem.Name = "viewMyPokemonsToolStripMenuItem";
-            this.viewMyPokemonsToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+            this.viewMyPokemonsToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.viewMyPokemonsToolStripMenuItem.Text = "Open Pokemon Bag";
             this.viewMyPokemonsToolStripMenuItem.Click += new System.EventHandler(this.viewMyPokemonsToolStripMenuItem_Click);
             // 
             // evolveAllPokemonwCandyToolStripMenuItem
             // 
             this.evolveAllPokemonwCandyToolStripMenuItem.Name = "evolveAllPokemonwCandyToolStripMenuItem";
-            this.evolveAllPokemonwCandyToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+            this.evolveAllPokemonwCandyToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.evolveAllPokemonwCandyToolStripMenuItem.Text = "Evolve All Pokemon (w/Candy)";
             this.evolveAllPokemonwCandyToolStripMenuItem.Click += new System.EventHandler(this.evolveAllPokemonwCandyToolStripMenuItem_Click);
             // 
             // transferDuplicatePokemonToolStripMenuItem
             // 
             this.transferDuplicatePokemonToolStripMenuItem.Name = "transferDuplicatePokemonToolStripMenuItem";
-            this.transferDuplicatePokemonToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+            this.transferDuplicatePokemonToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.transferDuplicatePokemonToolStripMenuItem.Text = "Transfer Duplicate Pokemon";
             this.transferDuplicatePokemonToolStripMenuItem.Click += new System.EventHandler(this.transferDuplicatePokemonToolStripMenuItem_Click);
             // 
@@ -417,7 +407,7 @@
             this.useItemsToolStripMenuItem,
             this.recycleItemsToolStripMenuItem});
             this.myInventoryToolStripMenuItem.Name = "myInventoryToolStripMenuItem";
-            this.myInventoryToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.myInventoryToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.myInventoryToolStripMenuItem.Text = "My Inventory";
             // 
             // useItemsToolStripMenuItem
@@ -426,48 +416,48 @@
             this.luckyEgg0ToolStripMenuItem,
             this.incence0ToolStripMenuItem});
             this.useItemsToolStripMenuItem.Name = "useItemsToolStripMenuItem";
-            this.useItemsToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.useItemsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.useItemsToolStripMenuItem.Text = "Use Item(s)";
             // 
             // luckyEgg0ToolStripMenuItem
             // 
             this.luckyEgg0ToolStripMenuItem.Name = "luckyEgg0ToolStripMenuItem";
-            this.luckyEgg0ToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.luckyEgg0ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.luckyEgg0ToolStripMenuItem.Text = "Lucky Egg";
             this.luckyEgg0ToolStripMenuItem.Click += new System.EventHandler(this.luckyEgg0ToolStripMenuItem_Click);
             // 
             // incence0ToolStripMenuItem
             // 
             this.incence0ToolStripMenuItem.Name = "incence0ToolStripMenuItem";
-            this.incence0ToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.incence0ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.incence0ToolStripMenuItem.Text = "Incence";
             this.incence0ToolStripMenuItem.Click += new System.EventHandler(this.incence0ToolStripMenuItem_Click);
             // 
             // recycleItemsToolStripMenuItem
             // 
             this.recycleItemsToolStripMenuItem.Name = "recycleItemsToolStripMenuItem";
-            this.recycleItemsToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.recycleItemsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.recycleItemsToolStripMenuItem.Text = "Recycle Items";
             this.recycleItemsToolStripMenuItem.Click += new System.EventHandler(this.recycleItemsToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // expProgressBar
             // 
             this.expProgressBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.expProgressBar.Location = new System.Drawing.Point(0, 28);
+            this.expProgressBar.Location = new System.Drawing.Point(0, 24);
             this.expProgressBar.Name = "expProgressBar";
             this.expProgressBar.Size = new System.Drawing.Size(1044, 26);
             this.expProgressBar.TabIndex = 10;
@@ -475,62 +465,62 @@
             // boxPokemonCount
             // 
             this.boxPokemonCount.Enabled = false;
-            this.boxPokemonCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxPokemonCount.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxPokemonCount.Location = new System.Drawing.Point(182, 46);
             this.boxPokemonCount.Name = "boxPokemonCount";
-            this.boxPokemonCount.Size = new System.Drawing.Size(123, 34);
+            this.boxPokemonCount.Size = new System.Drawing.Size(123, 35);
             this.boxPokemonCount.TabIndex = 11;
             this.boxPokemonCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // boxInventoryCount
             // 
             this.boxInventoryCount.Enabled = false;
-            this.boxInventoryCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxInventoryCount.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxInventoryCount.Location = new System.Drawing.Point(182, 86);
             this.boxInventoryCount.Name = "boxInventoryCount";
-            this.boxInventoryCount.Size = new System.Drawing.Size(123, 34);
+            this.boxInventoryCount.Size = new System.Drawing.Size(123, 35);
             this.boxInventoryCount.TabIndex = 12;
             this.boxInventoryCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 126);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 28);
+            this.label1.Size = new System.Drawing.Size(127, 30);
             this.label1.TabIndex = 13;
             this.label1.Text = "Lucky Egg(s)";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(8, 166);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 28);
+            this.label2.Size = new System.Drawing.Size(106, 30);
             this.label2.TabIndex = 14;
             this.label2.Text = "Incence(s)";
             // 
             // boxLuckyEggsCount
             // 
             this.boxLuckyEggsCount.Enabled = false;
-            this.boxLuckyEggsCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxLuckyEggsCount.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxLuckyEggsCount.Location = new System.Drawing.Point(182, 126);
             this.boxLuckyEggsCount.Name = "boxLuckyEggsCount";
-            this.boxLuckyEggsCount.Size = new System.Drawing.Size(123, 34);
+            this.boxLuckyEggsCount.Size = new System.Drawing.Size(123, 35);
             this.boxLuckyEggsCount.TabIndex = 15;
             this.boxLuckyEggsCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // boxIncencesCount
             // 
             this.boxIncencesCount.Enabled = false;
-            this.boxIncencesCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxIncencesCount.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxIncencesCount.Location = new System.Drawing.Point(182, 166);
             this.boxIncencesCount.Name = "boxIncencesCount";
-            this.boxIncencesCount.Size = new System.Drawing.Size(123, 34);
+            this.boxIncencesCount.Size = new System.Drawing.Size(123, 35);
             this.boxIncencesCount.TabIndex = 16;
             this.boxIncencesCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -573,94 +563,95 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(8, 46);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 15, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 28);
+            this.label3.Size = new System.Drawing.Size(135, 30);
             this.label3.TabIndex = 3;
             this.label3.Text = "Time Elapsed";
             // 
             // boxStatsPkmnTotal
             // 
             this.boxStatsPkmnTotal.Enabled = false;
-            this.boxStatsPkmnTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxStatsPkmnTotal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxStatsPkmnTotal.Location = new System.Drawing.Point(182, 166);
             this.boxStatsPkmnTotal.Name = "boxStatsPkmnTotal";
-            this.boxStatsPkmnTotal.Size = new System.Drawing.Size(123, 34);
+            this.boxStatsPkmnTotal.Size = new System.Drawing.Size(123, 35);
             this.boxStatsPkmnTotal.TabIndex = 16;
             this.boxStatsPkmnTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(8, 86);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 28);
+            this.label4.Size = new System.Drawing.Size(100, 30);
             this.label4.TabIndex = 4;
             this.label4.Text = "Exp/Hour";
             // 
             // boxStatsPkmnHour
             // 
             this.boxStatsPkmnHour.Enabled = false;
-            this.boxStatsPkmnHour.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxStatsPkmnHour.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxStatsPkmnHour.Location = new System.Drawing.Point(182, 126);
             this.boxStatsPkmnHour.Name = "boxStatsPkmnHour";
-            this.boxStatsPkmnHour.Size = new System.Drawing.Size(123, 34);
+            this.boxStatsPkmnHour.Size = new System.Drawing.Size(123, 35);
             this.boxStatsPkmnHour.TabIndex = 15;
             this.boxStatsPkmnHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // boxStatsTimeElapsed
             // 
             this.boxStatsTimeElapsed.Enabled = false;
-            this.boxStatsTimeElapsed.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxStatsTimeElapsed.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxStatsTimeElapsed.Location = new System.Drawing.Point(182, 46);
             this.boxStatsTimeElapsed.Name = "boxStatsTimeElapsed";
-            this.boxStatsTimeElapsed.Size = new System.Drawing.Size(123, 34);
+            this.boxStatsTimeElapsed.Size = new System.Drawing.Size(123, 35);
             this.boxStatsTimeElapsed.TabIndex = 11;
             this.boxStatsTimeElapsed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(8, 166);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 28);
+            this.label5.Size = new System.Drawing.Size(149, 30);
             this.label5.TabIndex = 14;
             this.label5.Text = "Total Pokemon";
             // 
             // boxStatsExpHour
             // 
             this.boxStatsExpHour.Enabled = false;
-            this.boxStatsExpHour.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxStatsExpHour.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxStatsExpHour.Location = new System.Drawing.Point(182, 86);
             this.boxStatsExpHour.Name = "boxStatsExpHour";
-            this.boxStatsExpHour.Size = new System.Drawing.Size(123, 34);
+            this.boxStatsExpHour.Size = new System.Drawing.Size(123, 35);
             this.boxStatsExpHour.TabIndex = 12;
             this.boxStatsExpHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(8, 126);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(146, 28);
+            this.label8.Size = new System.Drawing.Size(153, 30);
             this.label8.TabIndex = 13;
             this.label8.Text = "Pokemon/Hour";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1044, 621);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lbName);
             this.Controls.Add(this.lbLevel);
             this.Controls.Add(this.lbExperience);
             this.Controls.Add(this.expProgressBar);
@@ -668,7 +659,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dGrid);
             this.Controls.Add(this.mainMenuStrip);
-            this.Controls.Add(this.lbName);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
