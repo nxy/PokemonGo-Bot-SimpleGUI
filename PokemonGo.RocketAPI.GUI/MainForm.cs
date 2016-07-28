@@ -78,7 +78,7 @@ namespace PokemonGo.RocketAPI.GUI
                 console = new ConsoleForm();
                 console.TopMost = true;
                 console.StartPosition = FormStartPosition.Manual;                
-                console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);                
+                console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);
 
                 // Start Loading
                 StartLogger();

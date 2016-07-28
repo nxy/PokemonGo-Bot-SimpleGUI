@@ -19,6 +19,7 @@ namespace PokemonGo.RocketAPI.GUI
         public LoginForm()
         {
             InitializeComponent();
+            this.ActiveControl = boxUsername;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

@@ -40,6 +40,7 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(240, 179);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btnLogin.Name = "btnLogin";
@@ -51,11 +52,12 @@
             // 
             // boxPassword
             // 
+            this.boxPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxPassword.Location = new System.Drawing.Point(134, 65);
             this.boxPassword.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.boxPassword.Name = "boxPassword";
             this.boxPassword.PasswordChar = '*';
-            this.boxPassword.Size = new System.Drawing.Size(242, 35);
+            this.boxPassword.Size = new System.Drawing.Size(242, 34);
             this.boxPassword.TabIndex = 1;
             this.boxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.boxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.boxPassword_KeyDown);
@@ -63,35 +65,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(9, 65);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 30);
+            this.label1.Size = new System.Drawing.Size(93, 28);
             this.label1.TabIndex = 3;
             this.label1.Text = "Password";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 16);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 30);
+            this.label2.Size = new System.Drawing.Size(99, 28);
             this.label2.TabIndex = 5;
             this.label2.Text = "Username";
             // 
             // boxUsername
             // 
+            this.boxUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxUsername.Location = new System.Drawing.Point(134, 16);
             this.boxUsername.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.boxUsername.Name = "boxUsername";
-            this.boxUsername.Size = new System.Drawing.Size(242, 35);
+            this.boxUsername.Size = new System.Drawing.Size(242, 34);
             this.boxUsername.TabIndex = 0;
             this.boxUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // comboLoginMethod
             // 
             this.comboLoginMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboLoginMethod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboLoginMethod.FormattingEnabled = true;
             this.comboLoginMethod.Items.AddRange(new object[] {
             "Ptc",
@@ -99,22 +105,23 @@
             this.comboLoginMethod.Location = new System.Drawing.Point(134, 114);
             this.comboLoginMethod.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.comboLoginMethod.Name = "comboLoginMethod";
-            this.comboLoginMethod.Size = new System.Drawing.Size(242, 38);
+            this.comboLoginMethod.Size = new System.Drawing.Size(242, 36);
             this.comboLoginMethod.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(9, 114);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 30);
+            this.label3.Size = new System.Drawing.Size(82, 28);
             this.label3.TabIndex = 7;
             this.label3.Text = "Method";
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 235);
             this.Controls.Add(this.label3);
