@@ -579,10 +579,11 @@ namespace PokemonGo.RocketAPI.GUI
             dGrid.Rows.Clear();
 
             // Prepare Grid
-            dGrid.ColumnCount = 3;
+            dGrid.ColumnCount = 4;
             dGrid.Columns[0].Name = "Action";
             dGrid.Columns[1].Name = "Pokemon";
             dGrid.Columns[2].Name = "CP";
+            dGrid.Columns[3].Name = "IV";
 
             // Logging
             Logger.Write("Selecting Pokemons available for Transfer.");
@@ -598,7 +599,7 @@ namespace PokemonGo.RocketAPI.GUI
                     Logger.Write($"Transfer {duplicatePokemon.PokemonId} with {duplicatePokemon.Cp} CP and an IV of { iv }");
 
                     // Add Row to DataGrid
-                    dGrid.Rows.Insert(0, "Transferred", duplicatePokemon.PokemonId.ToString(), duplicatePokemon.Cp);
+                    dGrid.Rows.Insert(0, "Transferred", duplicatePokemon.PokemonId.ToString(), duplicatePokemon.Cp, $"{iv}%");
 
                     await GetCurrentPlayerInformation();
                     await Task.Delay(500);
@@ -607,7 +608,7 @@ namespace PokemonGo.RocketAPI.GUI
                 {
                     Logger.Write($"Will not transfer {duplicatePokemon.PokemonId} with {duplicatePokemon.Cp} CP and an IV of { iv }");
                     // Add Row to DataGrid
-                    dGrid.Rows.Insert(0, "Not transferred", duplicatePokemon.PokemonId.ToString(), duplicatePokemon.Cp);
+                    dGrid.Rows.Insert(0, "Not transferred", duplicatePokemon.PokemonId.ToString(), duplicatePokemon.Cp, $"{iv}%");
                 }
             }
 
