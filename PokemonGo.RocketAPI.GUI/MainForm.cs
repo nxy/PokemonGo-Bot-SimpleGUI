@@ -11,6 +11,7 @@ using PokemonGo.RocketAPI.Logic.Utils;
 using System.IO;
 using PokemonGo.RocketAPI.Exceptions;
 using GMap.NET.MapProviders;
+using System.Text.RegularExpressions;
 
 namespace PokemonGo.RocketAPI.GUI
 {
@@ -76,7 +77,6 @@ namespace PokemonGo.RocketAPI.GUI
             {
                 // Setup Console
                 console = new ConsoleForm();
-                console.TopMost = true;
                 console.StartPosition = FormStartPosition.Manual;                
                 console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);                
 
@@ -257,24 +257,42 @@ namespace PokemonGo.RocketAPI.GUI
             // Get Pokemons and Inventory
             var myItems = await _inventory.GetItems();
             var myPokemons = await _inventory.GetPokemons();
-            
+
+            // Pokemon / Storage  Upgrades
+            var pokemonStorageUpgradesCount = 0;
+            var itemStorageUpgradesCount = 0;
+
+            var myInventoryUpgrades = await _inventory.GetInventoryUpgrades();
+
+            // Determine the number of upgrades
+            if (myInventoryUpgrades.Count() != 0)
+            {
+                var tmpInventoryUpgrades = myInventoryUpgrades.ToList()[0].ToString();
+                itemStorageUpgradesCount = Regex.Matches(tmpInventoryUpgrades, "1002").Count;
+                pokemonStorageUpgradesCount = Regex.Matches(tmpInventoryUpgrades, "1001").Count;
+            }
+
+            // Calculate storage sizes
+            var itemStorageSize = (itemStorageUpgradesCount * 50) + 350;
+            var pokemonStorageSize = (pokemonStorageUpgradesCount * 50) + 250;
+
             // Write to Console
             var items = myItems as IList<Item> ?? myItems.ToList();
             var pokemon = myPokemons as IList<PokemonData> ?? myPokemons.ToList();
 
-            Logger.Write($"Items in Bag: {items.Select(i => i.Count).Sum()}/350.");
+            Logger.Write($"Items in Bag: {items.Select(i => i.Count).Sum()}/{itemStorageSize}.");
             Logger.Write($"Lucky Eggs in Bag: {items.FirstOrDefault(p => (ItemId)p.Item_ == ItemId.ItemLuckyEgg)?.Count ?? 0 }");
-            Logger.Write($"Pokemons in Bag: {pokemon.Count()}/250.");
+            Logger.Write($"Pokemons in Bag: {pokemon.Count()}/{pokemonStorageSize}.");
 
             // Checker for Inventory
-            if (items.Select(i => i.Count).Sum() >= 350)
+            if (items.Select(i => i.Count).Sum() >= itemStorageSize)
             {
                 Logger.Write("Unable to Start Farming: You need to have free space for Items.");
                 return false;
             }
 
             // Checker for Pokemons
-            if (pokemon.Count() >= 241) // Eggs are Included in the total count (9/9)
+            if (pokemon.Count() >= pokemonStorageSize - 9) // Eggs are Included in the total count (9/9)
             {
                 Logger.Write("Unable to Start Farming: You need to have free space for Pokemons.");
                 return false;
