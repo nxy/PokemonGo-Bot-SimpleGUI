@@ -11,6 +11,7 @@ using PokemonGo.RocketAPI.Enums;
 using System.Net;
 using System.IO;
 using PokemonGo.RocketAPI.GeneratedCode;
+using System.Collections;
 
 namespace PokemonGo.RocketAPI.GUI
 {
@@ -27,7 +28,8 @@ namespace PokemonGo.RocketAPI.GUI
         private async void PokemonForm_Load(object sender, EventArgs e)
         {
             await Execute();
-        }    
+        }
+
         private async Task Execute()
         {            
             pokemonListView.Clear();
@@ -53,15 +55,17 @@ namespace PokemonGo.RocketAPI.GUI
 
                 pokemonListView.LargeImageList = imageList;
                 var listViewItem = new ListViewItem();
-                listViewItem.SubItems.Add("Cp: " + pokemon.Cp);
+                var pokemonIv = Math.Floor(Logic.Logic.CalculatePokemonPerfection(pokemon));
+                listViewItem.SubItems.Add(pokemon.PokemonId.ToString());
+                listViewItem.SubItems.Add(pokemon.Cp.ToString());
+                listViewItem.SubItems.Add(pokemonIv.ToString());
 
                 var currentCandy = families
                     .Where(i => (int)i.FamilyId <= (int)pokemon.PokemonId)
                     .Select(f => f.Candy)
                     .First();
-                
+
                 listViewItem.ImageKey = pokemon.PokemonId.ToString();
-                var pokemonIv = Math.Floor(Logic.Logic.CalculatePokemonPerfection(pokemon));
                 listViewItem.Text = string.Format("{0}\nCP {1} IV {2}%", pokemon.PokemonId, pokemon.Cp, pokemonIv);
                 listViewItem.Tag = pokemon.Id;
                 listViewItem.ToolTipText = "Candy: " + currentCandy;
@@ -96,6 +100,128 @@ namespace PokemonGo.RocketAPI.GUI
             }
 
             await Execute();      
+        }
+
+        private void pokemonListViewItemSorter(int subItemsColumn)
+        {
+            ItemComparer sorter = pokemonListView.ListViewItemSorter as ItemComparer;
+
+            if (sorter == null)
+            {
+                sorter = new ItemComparer(subItemsColumn);
+                pokemonListView.ListViewItemSorter = sorter;
+            }
+
+            // If clicked column is already the column that is being sorted
+            if (subItemsColumn == sorter.Column)
+            {
+                // Reverse the current sort direction
+                if (sorter.Order == SortOrder.Ascending)
+                    sorter.Order = SortOrder.Descending;
+                else
+                    sorter.Order = SortOrder.Ascending;
+            }
+            else
+            {
+                // Set the column number that is to be sorted.
+                sorter.Column = subItemsColumn;
+
+                // Default Sort Order for Cp
+                if (subItemsColumn == 2)
+                    sorter.Order = SortOrder.Descending;
+
+                // Default Sort Order for IV
+                else if (subItemsColumn == 3)
+                    sorter.Order = SortOrder.Descending;
+
+                // Default Sort Order for Name
+                else if (subItemsColumn == 1)
+                    sorter.Order = SortOrder.Ascending;
+            }
+
+            pokemonListView.Sort();
+        }
+
+        private void sortByCPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pokemonListViewItemSorter(2);
+        }
+
+        private void sortByIVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pokemonListViewItemSorter(3);
+        }
+
+        private void sortByNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pokemonListViewItemSorter(1);
+        }
+    }
+
+    public class ItemComparer : IComparer
+    {
+        // Column used for comparison
+        public int Column { get; set; }
+
+        // Order of sorting
+        public SortOrder Order { get; set; }
+
+        public ItemComparer(int colIndex)
+        {
+            Column = colIndex;
+            Order = SortOrder.None;
+        }
+
+        public int Compare(object a, object b)
+        {
+            int result;
+
+            ListViewItem itemA = a as ListViewItem;
+            ListViewItem itemB = b as ListViewItem;
+
+            if (itemA == null && itemB == null)
+                result = 0;
+            else if (itemA == null)
+                result = -1;
+            else if (itemB == null)
+                result = 1;
+            if (itemA == itemB)
+                result = 0;
+
+            /*
+            // datetime comparison
+            DateTime x1, y1;
+            // Parse the two objects passed as a parameter as a DateTime.
+            if (!DateTime.TryParse(itemA.SubItems[Column].Text, out x1))
+                x1 = DateTime.MinValue;
+            if (!DateTime.TryParse(itemB.SubItems[Column].Text, out y1))
+                y1 = DateTime.MinValue;
+            result = DateTime.Compare(x1, y1);
+            if (x1 != DateTime.MinValue && y1 != DateTime.MinValue)
+                goto done;
+            */
+
+            // Numeric comparison
+            decimal x2, y2;
+
+            if (!Decimal.TryParse(itemA.SubItems[Column].Text, out x2))
+                x2 = Decimal.MinValue;
+            if (!Decimal.TryParse(itemB.SubItems[Column].Text, out y2))
+                y2 = Decimal.MinValue;
+            result = Decimal.Compare(x2, y2);
+            if (x2 != Decimal.MinValue && y2 != Decimal.MinValue)
+                goto done;
+
+            //alphabetic comparison
+            result = String.Compare(itemA.SubItems[Column].Text, itemB.SubItems[Column].Text);
+
+        done:
+
+            // If sort order is descending.
+            if (Order == SortOrder.Descending)
+                // Invert the value returned by Compare.
+                result *= -1;
+            return result;
         }
     }
 }
