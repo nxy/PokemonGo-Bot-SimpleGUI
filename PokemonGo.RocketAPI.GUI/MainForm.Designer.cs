@@ -83,6 +83,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.boxStatsExpHour = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.listAllPokémonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dGrid)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -375,7 +376,8 @@
             this.myPokemonToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewMyPokemonsToolStripMenuItem,
             this.evolveAllPokemonwCandyToolStripMenuItem,
-            this.transferDuplicatePokemonToolStripMenuItem});
+            this.transferDuplicatePokemonToolStripMenuItem,
+            this.listAllPokémonToolStripMenuItem});
             this.myPokemonToolStripMenuItem.Name = "myPokemonToolStripMenuItem";
             this.myPokemonToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.myPokemonToolStripMenuItem.Text = "My Pokemon";
@@ -644,6 +646,13 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Pokemon/Hour";
             // 
+            // listAllPokémonToolStripMenuItem
+            // 
+            this.listAllPokémonToolStripMenuItem.Name = "listAllPokémonToolStripMenuItem";
+            this.listAllPokémonToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.listAllPokémonToolStripMenuItem.Text = "List all pokémon";
+            this.listAllPokémonToolStripMenuItem.Click += new System.EventHandler(this.listAllPokémonToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -737,6 +746,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem displayConsoleToolStripMenuItem;
         private GMap.NET.WindowsForms.GMapControl MainMap;
+        private System.Windows.Forms.ToolStripMenuItem listAllPokémonToolStripMenuItem;
     }
 }
 

@@ -59,7 +59,7 @@ namespace PokemonGo.RocketAPI.GUI
                     .Where(i => (int)i.FamilyId <= (int)pokemon.PokemonId)
                     .Select(f => f.Candy)
                     .First();
-                
+               
                 listViewItem.ImageKey = pokemon.PokemonId.ToString();
                 var pokemonIv = Math.Floor(Logic.Logic.CalculatePokemonPerfection(pokemon));
                 listViewItem.Text = string.Format("{0}\nCP {1} IV {2}%", pokemon.PokemonId, pokemon.Cp, pokemonIv);
@@ -96,6 +96,38 @@ namespace PokemonGo.RocketAPI.GUI
             }
 
             await Execute();      
+        }
+
+        private async void btnEvolve_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you really want to evolve selected pokemon(s)?", "Confirm evolve", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                foreach (ListViewItem item in pokemonListView.SelectedItems)
+                {
+                    var id = (ulong)item.Tag;
+                    var newPokemon = await client.EvolvePokemon(id);
+                    
+                    MessageBox.Show($"Congratulations with your new pokemon {newPokemon.ToString()} with {newPokemon.EvolvedPokemon.Cp} CP!");
+                }
+            }
+
+            await Execute();
+        }
+
+        private async void btnPowerUp_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you really want to power up selected pokemon(s)?", "Confirm power up", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                foreach (ListViewItem item in pokemonListView.SelectedItems)
+                {
+                    var id = (ulong)item.Tag;
+                    var newPokemon = await client.PowerUpPokemon(id);
+                }
+            }
+
+            await Execute();
         }
     }
 }

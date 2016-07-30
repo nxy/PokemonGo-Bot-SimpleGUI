@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PokemonForm));
             this.pokemonListView = new System.Windows.Forms.ListView();
             this.btnTransfer = new System.Windows.Forms.Button();
+            this.btnEvolve = new System.Windows.Forms.Button();
+            this.btnPowerUp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pokemonListView
@@ -53,11 +55,33 @@
             this.btnTransfer.UseVisualStyleBackColor = true;
             this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
             // 
+            // btnEvolve
+            // 
+            this.btnEvolve.Location = new System.Drawing.Point(242, 374);
+            this.btnEvolve.Name = "btnEvolve";
+            this.btnEvolve.Size = new System.Drawing.Size(181, 25);
+            this.btnEvolve.TabIndex = 2;
+            this.btnEvolve.Text = "Evolve Selected Pokemon";
+            this.btnEvolve.UseVisualStyleBackColor = true;
+            this.btnEvolve.Click += new System.EventHandler(this.btnEvolve_Click);
+            // 
+            // btnPowerUp
+            // 
+            this.btnPowerUp.Location = new System.Drawing.Point(55, 374);
+            this.btnPowerUp.Name = "btnPowerUp";
+            this.btnPowerUp.Size = new System.Drawing.Size(181, 25);
+            this.btnPowerUp.TabIndex = 3;
+            this.btnPowerUp.Text = "Powerup Selected Pokemon";
+            this.btnPowerUp.UseVisualStyleBackColor = true;
+            this.btnPowerUp.Click += new System.EventHandler(this.btnPowerUp_Click);
+            // 
             // PokemonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(622, 411);
+            this.Controls.Add(this.btnPowerUp);
+            this.Controls.Add(this.btnEvolve);
             this.Controls.Add(this.btnTransfer);
             this.Controls.Add(this.pokemonListView);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,5 +101,7 @@
 
         private System.Windows.Forms.ListView pokemonListView;
         private System.Windows.Forms.Button btnTransfer;
+        private System.Windows.Forms.Button btnEvolve;
+        private System.Windows.Forms.Button btnPowerUp;
     }
 }

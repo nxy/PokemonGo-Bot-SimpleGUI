@@ -967,6 +967,30 @@ namespace PokemonGo.RocketAPI.GUI
             myPokemonsListForm.ShowDialog();
         }
 
+        private async void listAllPokémonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            // Clear Grid
+            dGrid.Rows.Clear();
+
+            // Prepare Grid
+            dGrid.ColumnCount = 3;
+            dGrid.Columns[0].Name = "Pokemon";
+            dGrid.Columns[1].Name = "CP";
+            dGrid.Columns[2].Name = "IV";
+
+            // Logging
+            Logger.Write("Selecting Pokemons available for Transfer.");
+
+            var pokemons = await _inventory.GetPokemons();
+
+            foreach (var pokemon in pokemons)
+            {
+                var iv = Logic.Logic.CalculatePokemonPerfection(pokemon);
+                dGrid.Rows.Insert(0, pokemon.PokemonId.ToString(), pokemon.Cp, iv);
+            }
+        }
+
         private async void evolveAllPokemonwCandyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             await EvolveAllPokemonWithEnoughCandy();
