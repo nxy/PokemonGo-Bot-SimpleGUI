@@ -248,6 +248,7 @@ namespace PokemonGo.RocketAPI.GUI
             recycleItemsToolStripMenuItem.Enabled = true;
             evolveAllPokemonwCandyToolStripMenuItem.Enabled = true;            
             myPokemonToolStripMenuItem.Enabled = true;
+            unbanToolStripMenuItem.Enabled = true;
 
             Logger.Write("Ready to Work.");
         }
@@ -311,7 +312,7 @@ namespace PokemonGo.RocketAPI.GUI
             recycleItemsToolStripMenuItem.Enabled = false;
             transferDuplicatePokemonToolStripMenuItem.Enabled = false;
             viewMyPokemonsToolStripMenuItem.Enabled = false;
-
+            unbanToolStripMenuItem.Enabled = false;
             stopToolStripMenuItem.Enabled = true;
         }
 
@@ -931,6 +932,7 @@ namespace PokemonGo.RocketAPI.GUI
             startToolStripMenuItem.Enabled = true;
             transferDuplicatePokemonToolStripMenuItem.Enabled = true;
             recycleItemsToolStripMenuItem.Enabled = true;
+            unbanToolStripMenuItem.Enabled = true;
             evolveAllPokemonwCandyToolStripMenuItem.Enabled = true;
             viewMyPokemonsToolStripMenuItem.Enabled = true;
 
@@ -1012,6 +1014,59 @@ namespace PokemonGo.RocketAPI.GUI
             MessageBox.Show("PoGo Bot SimpleGUI is an Open Source Project Created by Jorge Limas." + Environment.NewLine + Environment.NewLine +
                 "You can get the latest version for FREE at:" + Environment.NewLine + 
                 "https://github.com/Novalys/PokemonGo-Bot-SimpleGUI", "PoGo Bot");
+        }
+
+        private async void unbanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            await ForceUnban(_client);
+        }
+
+        private async Task ForceUnban(Client client)
+        {
+            Logger.Write("Starting force unban...");
+
+            var mapObjects = await client.GetMapObjects();
+            var pokeStops = mapObjects.MapCells.SelectMany(i => i.Forts).Where(i => i.Type == FortType.Checkpoint && i.CooldownCompleteTimestampMs < DateTime.UtcNow.ToUnixTime());
+
+            await Task.Delay(1000);
+            bool done = false;
+
+            foreach (var pokeStop in pokeStops)
+            {
+                try
+                {
+                    await client.UpdatePlayerLocation(pokeStop.Latitude, pokeStop.Longitude, _settings.DefaultAltitude);
+                    var fortInfo = await client.GetFort(pokeStop.Id, pokeStop.Latitude, pokeStop.Longitude);
+
+                    if (fortInfo.Name != string.Empty)
+                    {
+                        Logger.Write("Chosen PokeStop " + fortInfo.Name + " for force unban");
+                        for (int i = 1; i <= 50; i++)
+                        {
+                            var fortSearch = await client.SearchFort(pokeStop.Id, pokeStop.Latitude, pokeStop.Longitude);
+                            if (fortSearch.ExperienceAwarded == 0)
+                            {
+                                Logger.Write("Attempt: " + i);
+                            }
+                            else
+                            {
+                                Logger.Write("You are now unbanned! Total attempts: " + i);
+                                done = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    Logger.Write("Attempt failed, retrying.");
+                }
+
+                if (!done)
+                    Logger.Write("Force unban failed, please try again.");
+                
+                break;
+            }
         }
     }
 }
