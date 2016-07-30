@@ -189,7 +189,17 @@ namespace PokemonGo.RocketAPI.GUI
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
                     var id = (ulong)item.Tag;
-                    var newPokemon = await client.PowerUpPokemon(id);
+                    var poweredUpPokemon = await client.PowerUpPokemon(id);
+
+                    if (poweredUpPokemon.Result == EvolvePokemonStatus.FailedInsufficientResources)
+                        MessageBox.Show("Insufficient Resources!");
+                    else if (poweredUpPokemon.Result == EvolvePokemonStatus.FailedPokemonCannotEvolve)
+                        MessageBox.Show("Unable to powerup more for your current level!");
+                    else if (poweredUpPokemon.Result == EvolvePokemonStatus.PokemonEvolvedSuccess)
+                        MessageBox.Show($"Powerup success! New cp: {poweredUpPokemon.EvolvedPokemon.Cp}");
+                    else
+                        MessageBox.Show($"Error: {poweredUpPokemon.Result.ToString()}");
+
                 }
             }
 
