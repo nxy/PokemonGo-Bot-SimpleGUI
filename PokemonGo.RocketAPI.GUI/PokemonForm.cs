@@ -12,6 +12,7 @@ using System.Net;
 using System.IO;
 using PokemonGo.RocketAPI.GeneratedCode;
 using System.Collections;
+using static PokemonGo.RocketAPI.GeneratedCode.EvolvePokemonOut.Types;
 
 namespace PokemonGo.RocketAPI.GUI
 {
@@ -167,7 +168,13 @@ namespace PokemonGo.RocketAPI.GUI
                     var id = (ulong)item.Tag;
                     var newPokemon = await client.EvolvePokemon(id);
 
-                    MessageBox.Show($"Congratulations with your new pokemon {newPokemon.EvolvedPokemon.PokemonType.ToString()} with {newPokemon.EvolvedPokemon.Cp} CP!");
+                    if (newPokemon.Result == EvolvePokemonStatus.PokemonEvolvedSuccess)
+                        MessageBox.Show($"Congratulations with your new pokemon {newPokemon.EvolvedPokemon.PokemonType.ToString()} with {newPokemon.EvolvedPokemon.Cp} CP!");
+                    else if (newPokemon.Result == EvolvePokemonStatus.FailedInsufficientResources)
+                        MessageBox.Show("Insufficient Resources!");
+                    else
+                        MessageBox.Show($"Error: {newPokemon.Result.ToString()}");
+
                 }
             }
 
