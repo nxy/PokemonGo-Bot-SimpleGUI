@@ -157,6 +157,13 @@ namespace PokemonGo.RocketAPI.Logic
                     .Where(p => p != null && p.FamilyId != PokemonFamilyId.FamilyUnset);
         }
 
+        public async Task<IEnumerable<InventoryUpgrades>> GetInventoryUpgrades()
+        {
+            var inventory = await _client.GetInventory();
+            return inventory.InventoryDelta.InventoryItems
+                .Select(i => i.InventoryItemData?.InventoryUpgrades)
+                .Where(p => p != null);
+        }
 
         public async Task<IEnumerable<PokemonData>> GetPokemonToEvolve(IEnumerable<PokemonId> filter = null)
         {

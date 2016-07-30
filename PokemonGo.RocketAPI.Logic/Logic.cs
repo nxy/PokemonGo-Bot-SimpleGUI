@@ -113,23 +113,17 @@ namespace PokemonGo.RocketAPI.Logic
                 case 10:
                     return 9000;
                 case 11:
-                    return 10000;
                 case 12:
-                    return 10000;
                 case 13:
-                    return 10000;
                 case 14:
                     return 10000;
                 case 15:
                     return 15000;
                 case 16:
-                    return 20000;
                 case 17:
-                    return 20000;
                 case 18:
                     return 20000;
                 case 19:
-                    return 25000;
                 case 20:
                     return 25000;
                 case 21:
@@ -153,7 +147,6 @@ namespace PokemonGo.RocketAPI.Logic
                 case 30:
                     return 350000;
                 case 31:
-                    return 500000;
                 case 32:
                     return 500000;
                 case 33:
@@ -169,9 +162,9 @@ namespace PokemonGo.RocketAPI.Logic
                 case 38:
                     return 2500000;
                 case 39:
-                    return 1000000;
+                    return 3000000;
                 case 40:
-                    return 1000000;
+                    return 5000000;
             }
             return 0;
         }
