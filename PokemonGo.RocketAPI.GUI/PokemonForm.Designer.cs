@@ -35,6 +35,9 @@
             // 
             // pokemonListView
             // 
+            this.pokemonListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pokemonListView.BackColor = System.Drawing.SystemColors.Control;
             this.pokemonListView.GridLines = true;
             this.pokemonListView.Location = new System.Drawing.Point(12, 12);
@@ -45,6 +48,7 @@
             // 
             // btnTransfer
             // 
+            this.btnTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTransfer.Location = new System.Drawing.Point(429, 374);
             this.btnTransfer.Name = "btnTransfer";
             this.btnTransfer.Size = new System.Drawing.Size(181, 25);
@@ -63,7 +67,6 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PokemonForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
