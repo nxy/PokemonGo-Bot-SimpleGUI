@@ -120,13 +120,10 @@ namespace PokemonGo.RocketAPI.GUI
             {
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
-                    var id = (ulong)item.Tag;
-                    await _client.TransferPokemon(id);
+                    await _client.TransferPokemon((ulong)item.Tag);
+                    pokemonListView.Items.Remove(item);
                 }
             }
-
-            resetLoadProgress();
-            await Execute();
         }
 
         private void pokemonListViewItemSorter(int subItemsColumn)
