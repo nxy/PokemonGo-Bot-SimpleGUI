@@ -121,6 +121,7 @@ namespace PokemonGo.RocketAPI.GUI
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
                     await _client.TransferPokemon((ulong)item.Tag);
+                    Logger.Write($"Transferred {item.SubItems[1].Text} with {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
                     pokemonListView.Items.Remove(item);
                 }
             }
