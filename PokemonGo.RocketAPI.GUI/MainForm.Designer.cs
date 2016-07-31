@@ -52,6 +52,7 @@
             this.farmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forceRemoveBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,6 @@
             this.viewMyPokemonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.evolveAllPokemonwCandyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferDuplicatePokemonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listAllPokémonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.useItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.luckyEgg0ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +84,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.boxStatsExpHour = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.unbanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dGrid)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -321,9 +320,9 @@
             // 
             this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.farmingToolStripMenuItem,
+            this.forceRemoveBanToolStripMenuItem,
             this.displayConsoleToolStripMenuItem,
             this.showStatisticsToolStripMenuItem,
-            this.unbanToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
             this.applicationToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
@@ -335,7 +334,7 @@
             this.startToolStripMenuItem,
             this.stopToolStripMenuItem});
             this.farmingToolStripMenuItem.Name = "farmingToolStripMenuItem";
-            this.farmingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.farmingToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.farmingToolStripMenuItem.Text = "Farming";
             // 
             // startToolStripMenuItem
@@ -352,24 +351,31 @@
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
+            // forceRemoveBanToolStripMenuItem
+            // 
+            this.forceRemoveBanToolStripMenuItem.Name = "forceRemoveBanToolStripMenuItem";
+            this.forceRemoveBanToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.forceRemoveBanToolStripMenuItem.Text = "Force Remove Ban";
+            this.forceRemoveBanToolStripMenuItem.Click += new System.EventHandler(this.forceRemoveBanToolStripMenuItem_Click);
+            // 
             // displayConsoleToolStripMenuItem
             // 
             this.displayConsoleToolStripMenuItem.Name = "displayConsoleToolStripMenuItem";
-            this.displayConsoleToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.displayConsoleToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.displayConsoleToolStripMenuItem.Text = "Display Console";
             this.displayConsoleToolStripMenuItem.Click += new System.EventHandler(this.displayConsoleToolStripMenuItem_Click);
             // 
             // showStatisticsToolStripMenuItem
             // 
             this.showStatisticsToolStripMenuItem.Name = "showStatisticsToolStripMenuItem";
-            this.showStatisticsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.showStatisticsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.showStatisticsToolStripMenuItem.Text = "Display Statistics";
             this.showStatisticsToolStripMenuItem.Click += new System.EventHandler(this.showStatisticsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -378,8 +384,7 @@
             this.myPokemonToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewMyPokemonsToolStripMenuItem,
             this.evolveAllPokemonwCandyToolStripMenuItem,
-            this.transferDuplicatePokemonToolStripMenuItem,
-            this.listAllPokémonToolStripMenuItem});
+            this.transferDuplicatePokemonToolStripMenuItem});
             this.myPokemonToolStripMenuItem.Name = "myPokemonToolStripMenuItem";
             this.myPokemonToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.myPokemonToolStripMenuItem.Text = "My Pokemon";
@@ -404,13 +409,6 @@
             this.transferDuplicatePokemonToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.transferDuplicatePokemonToolStripMenuItem.Text = "Transfer Duplicate Pokemon";
             this.transferDuplicatePokemonToolStripMenuItem.Click += new System.EventHandler(this.transferDuplicatePokemonToolStripMenuItem_Click);
-            // 
-            // listAllPokémonToolStripMenuItem
-            // 
-            this.listAllPokémonToolStripMenuItem.Name = "listAllPokémonToolStripMenuItem";
-            this.listAllPokémonToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.listAllPokémonToolStripMenuItem.Text = "List all pokémon";
-            this.listAllPokémonToolStripMenuItem.Click += new System.EventHandler(this.listAllPokémonToolStripMenuItem_Click);
             // 
             // myInventoryToolStripMenuItem
             // 
@@ -655,13 +653,6 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Pokemon/Hour";
             // 
-            // unbanToolStripMenuItem
-            // 
-            this.unbanToolStripMenuItem.Name = "unbanToolStripMenuItem";
-            this.unbanToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.unbanToolStripMenuItem.Text = "Unban";
-            this.unbanToolStripMenuItem.Click += new System.EventHandler(this.unbanToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -683,7 +674,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PoGo Bot - SimpleGUI v1.2";
+            this.Text = "PoGo Bot - SimpleGUI v1.3";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGrid)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -755,8 +746,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem displayConsoleToolStripMenuItem;
         private GMap.NET.WindowsForms.GMapControl MainMap;
-        private System.Windows.Forms.ToolStripMenuItem listAllPokémonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unbanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forceRemoveBanToolStripMenuItem;
     }
 }
 

@@ -13,6 +13,7 @@ using System.IO;
 using PokemonGo.RocketAPI.GeneratedCode;
 using System.Collections;
 using static PokemonGo.RocketAPI.GeneratedCode.EvolvePokemonOut.Types;
+using System.Diagnostics;
 
 namespace PokemonGo.RocketAPI.GUI
 {
@@ -50,12 +51,22 @@ namespace PokemonGo.RocketAPI.GUI
             var imageList = new ImageList { ImageSize = new Size(50, 50) };
             pokemonListView.ShowItemToolTips = true;
 
+            // Add Pokemon ListViewItems to a list
+            var pokeList = new List<ListViewItem>();
             foreach (var pokemon in pokemons)
             {
-                imageList.Images.Add(pokemon.PokemonId.ToString(), await GetPokemonImageAsync((int)pokemon.PokemonId));
+                ListViewItem listViewItem = new ListViewItem();
+
+                // Get Pokemon Image Index
+                var imageIndex = imageList.Images.IndexOfKey(pokemon.PokemonId.ToString());
+
+                // Checker for Pokemon Image
+                if (imageIndex == -1)
+                    imageList.Images.Add(pokemon.PokemonId.ToString(), await GetPokemonImageAsync((int)pokemon.PokemonId));
+                else
+                    imageList.Images.Add(pokemon.PokemonId.ToString(), imageList.Images[imageIndex]);
 
                 pokemonListView.LargeImageList = imageList;
-                var listViewItem = new ListViewItem();
                 var pokemonIv = Math.Floor(Logic.Logic.CalculatePokemonPerfection(pokemon));
                 listViewItem.SubItems.Add(pokemon.PokemonId.ToString());
                 listViewItem.SubItems.Add(pokemon.Cp.ToString());
@@ -71,8 +82,14 @@ namespace PokemonGo.RocketAPI.GUI
                 listViewItem.Tag = pokemon.Id;
                 listViewItem.ToolTipText = "Candy: " + currentCandy;
 
-                pokemonListView.Items.Add(listViewItem);
+                pokeList.Add(listViewItem);
             }
+
+            // Add all Pokemon ListViewItems to pokemonListView all at once
+            ListViewItem[] pokeArray = pokeList.ToArray();
+            pokemonListView.BeginUpdate();
+            pokemonListView.Items.AddRange(pokeArray);
+            pokemonListView.EndUpdate();
         }
 
         private async Task<Bitmap> GetPokemonImageAsync(int pokemonId)

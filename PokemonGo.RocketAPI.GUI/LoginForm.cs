@@ -23,56 +23,15 @@ namespace PokemonGo.RocketAPI.GUI
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            boxUsername.Text = "";
-            comboLoginMethod.SelectedIndex = 0;
-            this.ActiveControl = boxUsername;
+            boxUsername.Text = GUISettings.Default.username;
+            boxPassword.Text = GUISettings.Default.password;
 
-            setLoginFormInformation();
-        }
-
-        private void setLoginFormInformation()
-        {
-            if (UserSettings.Default.RememberMe)
+            if( GUISettings.Default.newLoginMethodFirstTimeSee )
             {
-                cbRememberMe.Checked = true;
-
-                if (isPtcPasswordSet())
-                {
-                    comboLoginMethod.SelectedIndex = 0;
-                    setPtcUsernameAndPassword();
-                }
-                else if (isGooglecPasswordSet())
-                {
-                    comboLoginMethod.SelectedIndex = 1;
-                    setGoogleMailAndPassword();
-                }
+                MessageBox.Show("Enter your Google account or PTC, the program will know which one to use.", "PoGo Bot");
+                GUISettings.Default.newLoginMethodFirstTimeSee = false;
+                GUISettings.Default.Save();
             }
-        }
-
-        private bool isPtcPasswordSet()
-        {
-            return !(string.IsNullOrWhiteSpace(UserSettings.Default.PtcPassword));
-        }
-
-        private bool isGooglecPasswordSet()
-        {
-            return !(string.IsNullOrWhiteSpace(UserSettings.Default.GooglePassword));
-        }
-
-        private void setPtcUsernameAndPassword()
-        {
-            lbUsername.Text = "Username";
-            boxUsername.Text = UserSettings.Default.PtcUsername;
-            boxPassword.Text = UserSettings.Default.PtcPassword;
-            this.ActiveControl = btnLogin;
-        }
-
-        private void setGoogleMailAndPassword()
-        {
-            lbUsername.Text = "Email";
-            boxUsername.Text = UserSettings.Default.GoogleMail;
-            boxPassword.Text = UserSettings.Default.GooglePassword;
-            this.ActiveControl = btnLogin;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -81,35 +40,27 @@ namespace PokemonGo.RocketAPI.GUI
             {
                 if (!string.IsNullOrWhiteSpace(boxPassword.Text))
                 {
-                    if(comboLoginMethod.SelectedIndex == 0)
+                    if (cbRemember.Checked)
                     {
-                        UserSettings.Default.PtcUsername = boxUsername.Text;
-                        UserSettings.Default.PtcPassword = boxPassword.Text;
+                        GUISettings.Default.username = boxUsername.Text;
+                        GUISettings.Default.password = boxPassword.Text;
+                        GUISettings.Default.Save();
                     }
                     else
                     {
-                        UserSettings.Default.GoogleMail = boxUsername.Text;
-                        UserSettings.Default.GooglePassword = boxPassword.Text;
+                        GUISettings.Default.username = string.Empty;
+                        GUISettings.Default.password = string.Empty;
+                        GUISettings.Default.Save();
                     }
 
-                    if (cbRememberMe.Checked)
-                    {
-                        UserSettings.Default.RememberMe = true;
-                        UserSettings.Default.Save();
-                    }
-                    else
-                    {
-                        UserSettings.Default.PtcUsername = "";
-                        UserSettings.Default.PtcPassword = "";
-                        UserSettings.Default.GoogleMail = "";
-                        UserSettings.Default.GooglePassword = "";
-                        UserSettings.Default.RememberMe = false;
-                        UserSettings.Default.Save();
-                    }
-                    
-                    //Properties.Settings.Default.
                     loginSelected = true;
-                    auth = (AuthType) Enum.Parse(typeof(AuthType), comboLoginMethod.SelectedItem.ToString());
+
+                    // Google Accounts use Email / PTC don't.
+                    if (boxUsername.Text.Contains('@'))
+                        auth = AuthType.Google;
+                    else
+                        auth = AuthType.Ptc;
+
                     this.Hide();
                 }
                 else
@@ -120,41 +71,6 @@ namespace PokemonGo.RocketAPI.GUI
             else
             {
                 MessageBox.Show("Username textbox cannot be empty", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ComboLoginMethod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
-
-            if (UserSettings.Default.RememberMe)
-            {
-                cbRememberMe.Checked = true;
-            }
-
-            if (comboBox.SelectedIndex == 0)
-            {
-                if (UserSettings.Default.RememberMe && isPtcPasswordSet())
-                    setPtcUsernameAndPassword();
-                else
-                {
-                    lbUsername.Text = "Username";
-                    boxUsername.Text = "";
-                    boxPassword.Text = "";
-                    this.ActiveControl = boxUsername;
-                }
-            }
-            else
-            {
-                if (UserSettings.Default.RememberMe && isGooglecPasswordSet())
-                    setGoogleMailAndPassword();
-                else
-                {
-                    lbUsername.Text = "Email";
-                    boxUsername.Text = "";
-                    boxPassword.Text = "";
-                    this.ActiveControl = boxUsername;
-                }
             }
         }
 
