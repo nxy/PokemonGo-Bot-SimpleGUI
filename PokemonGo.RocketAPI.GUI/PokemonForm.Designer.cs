@@ -40,12 +40,6 @@
             this.evolveSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.powerupSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pokemonListMenuStrip.SuspendLayout();
-            this.pokemonListMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sortByCPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sortByIVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sortByNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pokemonListMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // pokemonListView
@@ -63,10 +57,9 @@
             // 
             // pokemonListMenuStrip
             // 
-            // pokemonListMenuStrip
-            // 
             this.pokemonListMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sortToolStripMenuItem});
+            this.sortToolStripMenuItem,
+            this.actionsToolStripMenuItem});
             this.pokemonListMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.pokemonListMenuStrip.Name = "pokemonListMenuStrip";
             this.pokemonListMenuStrip.Size = new System.Drawing.Size(622, 24);
