@@ -25,6 +25,10 @@ namespace PokemonGo.RocketAPI.GUI
         private Inventory _inventory;
         private GetPlayerResponse _profile;
 
+        // Persisting Pokemon / Storage Sizes
+        private int itemStorageSize;
+        private int pokemonStorageSize;
+
         // Persisting Login Info
         private AuthType _loginMethod;
         private string _username;
@@ -89,7 +93,8 @@ namespace PokemonGo.RocketAPI.GUI
 
                 // Begin Process
                 await DisplayLoginWindow();                
-                DisplayPositionSelector();                
+                DisplayPositionSelector();
+                await GetStorageSizes();
                 await GetCurrentPlayerInformation();
                 await PreflightCheck();
 
@@ -288,24 +293,6 @@ namespace PokemonGo.RocketAPI.GUI
             var myItems = await _inventory.GetItems();
             var myPokemons = await _inventory.GetPokemons();
 
-            // Pokemon / Storage  Upgrades
-            var pokemonStorageUpgradesCount = 0;
-            var itemStorageUpgradesCount = 0;
-
-            var myInventoryUpgrades = await _inventory.GetInventoryUpgrades();
-
-            // Determine the number of upgrades
-            if (myInventoryUpgrades.Count() != 0)
-            {
-                var tmpInventoryUpgrades = myInventoryUpgrades.ToList()[0].ToString();
-                itemStorageUpgradesCount = Regex.Matches(tmpInventoryUpgrades, "1002").Count;
-                pokemonStorageUpgradesCount = Regex.Matches(tmpInventoryUpgrades, "1001").Count;
-            }
-
-            // Calculate storage sizes
-            var itemStorageSize = (itemStorageUpgradesCount * 50) + 350;
-            var pokemonStorageSize = (pokemonStorageUpgradesCount * 50) + 250;
-
             // Write to Console
             var items = myItems as IList<Item> ?? myItems.ToList();
             var pokemon = myPokemons as IList<PokemonData> ?? myPokemons.ToList();
@@ -464,6 +451,27 @@ namespace PokemonGo.RocketAPI.GUI
         // API LOGIC MODULES //
         ///////////////////////
         
+        public async Task GetStorageSizes()
+        {
+            // Pokemon / Storage  Upgrades
+            var pokemonStorageUpgradesCount = 0;
+            var itemStorageUpgradesCount = 0;
+
+            var myInventoryUpgrades = await _inventory.GetInventoryUpgrades();
+
+            // Determine the number of upgrades
+            if (myInventoryUpgrades.Count() != 0)
+            {
+                var tmpInventoryUpgrades = myInventoryUpgrades.ToList()[0].ToString();
+                itemStorageUpgradesCount = Regex.Matches(tmpInventoryUpgrades, "1002").Count;
+                pokemonStorageUpgradesCount = Regex.Matches(tmpInventoryUpgrades, "1001").Count;
+            }
+
+            // Calculate storage sizes
+            itemStorageSize = (itemStorageUpgradesCount * 50) + 350;
+            pokemonStorageSize = (pokemonStorageUpgradesCount * 50) + 250;
+        }
+
         public async Task GetCurrentPlayerInformation()
         {
             var playerName = _profile.Profile.Username ?? "";
@@ -487,8 +495,8 @@ namespace PokemonGo.RocketAPI.GUI
 
             // Write to Console
             var items = myItems as IList<Item> ?? myItems.ToList();
-            boxInventoryCount.Text = $"{items.Select(i => i.Count).Sum()}/350";
-            boxPokemonCount.Text = $"{myPokemons.Count()}/250";
+            boxInventoryCount.Text = $"{items.Select(i => i.Count).Sum()}/{itemStorageSize}";
+            boxPokemonCount.Text = $"{myPokemons.Count()}/{pokemonStorageSize}";
             boxLuckyEggsCount.Text = (items.FirstOrDefault(p => (ItemId)p.Item_ == ItemId.ItemLuckyEgg)?.Count ?? 0).ToString();
             boxIncencesCount.Text = (items.FirstOrDefault(p => (ItemId)p.Item_ == ItemId.ItemIncenseOrdinary)?.Count ?? 0).ToString();            
         }
