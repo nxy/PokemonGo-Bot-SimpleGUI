@@ -44,14 +44,5 @@
     <Setting Name="DefaultLongitude" Type="System.Double" Scope="User">
       <Value Profile="(Default)">-0.14102</Value>
     </Setting>
-    <Setting Name="GoogleMail" Type="System.String" Scope="User">
-      <Value Profile="(Default)">e-mail</Value>
-    </Setting>
-    <Setting Name="GooglePassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="RememberMe" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

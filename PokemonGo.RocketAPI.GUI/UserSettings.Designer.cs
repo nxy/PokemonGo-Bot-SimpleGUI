@@ -190,41 +190,5 @@ namespace PokemonGo.RocketAPI.GUI {
                 this["DefaultLongitude"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("e-mail")]
-        public string GoogleMail {
-            get {
-                return ((string)(this["GoogleMail"]));
-            }
-            set {
-                this["GoogleMail"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string GooglePassword {
-            get {
-                return ((string)(this["GooglePassword"]));
-            }
-            set {
-                this["GooglePassword"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool RememberMe {
-            get {
-                return ((bool)(this["RememberMe"]));
-            }
-            set {
-                this["RememberMe"] = value;
-            }
-        }
     }
 }
