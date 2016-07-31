@@ -222,6 +222,21 @@ namespace PokemonGo.RocketAPI.GUI
 
             await Execute();
         }
+
+        private void pokemonListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (pokemonListView.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    ContextMenuStrip myContextMenuStrip = new ContextMenuStrip();
+                    myContextMenuStrip.Items.Add("Transfer selected pokémons", null, transferSelectedToolStripMenuItem_Click);
+                    myContextMenuStrip.Items.Add("Evolve selected pokémons", null, evolveSelectedToolStripMenuItem_Click);
+                    myContextMenuStrip.Items.Add("Powerup selected pokémons", null, powerupSelectedToolStripMenuItem_Click);
+                    myContextMenuStrip.Show(pokemonListView, e.Location);
+                }
+            }
+        }
     }
 
     public class ItemComparer : IComparer

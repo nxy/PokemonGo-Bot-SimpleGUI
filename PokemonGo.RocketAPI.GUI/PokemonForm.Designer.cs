@@ -54,6 +54,7 @@
             this.pokemonListView.Size = new System.Drawing.Size(598, 371);
             this.pokemonListView.TabIndex = 0;
             this.pokemonListView.UseCompatibleStateImageBehavior = false;
+            this.pokemonListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pokemonListView_MouseClick);
             // 
             // pokemonListMenuStrip
             // 
@@ -80,21 +81,21 @@
             // sortByCPToolStripMenuItem
             // 
             this.sortByCPToolStripMenuItem.Name = "sortByCPToolStripMenuItem";
-            this.sortByCPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sortByCPToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.sortByCPToolStripMenuItem.Text = "By CP";
             this.sortByCPToolStripMenuItem.Click += new System.EventHandler(this.sortByCPToolStripMenuItem_Click);
             // 
             // sortByIVToolStripMenuItem
             // 
             this.sortByIVToolStripMenuItem.Name = "sortByIVToolStripMenuItem";
-            this.sortByIVToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sortByIVToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.sortByIVToolStripMenuItem.Text = "By IV";
             this.sortByIVToolStripMenuItem.Click += new System.EventHandler(this.sortByIVToolStripMenuItem_Click);
             // 
             // sortByNameToolStripMenuItem
             // 
             this.sortByNameToolStripMenuItem.Name = "sortByNameToolStripMenuItem";
-            this.sortByNameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sortByNameToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.sortByNameToolStripMenuItem.Text = "By Name";
             this.sortByNameToolStripMenuItem.Click += new System.EventHandler(this.sortByNameToolStripMenuItem_Click);
             // 
