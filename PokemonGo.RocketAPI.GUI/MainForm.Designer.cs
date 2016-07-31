@@ -52,6 +52,7 @@
             this.farmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forceRemoveBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -319,6 +320,7 @@
             // 
             this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.farmingToolStripMenuItem,
+            this.forceRemoveBanToolStripMenuItem,
             this.displayConsoleToolStripMenuItem,
             this.showStatisticsToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -332,7 +334,7 @@
             this.startToolStripMenuItem,
             this.stopToolStripMenuItem});
             this.farmingToolStripMenuItem.Name = "farmingToolStripMenuItem";
-            this.farmingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.farmingToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.farmingToolStripMenuItem.Text = "Farming";
             // 
             // startToolStripMenuItem
@@ -349,24 +351,31 @@
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
+            // forceRemoveBanToolStripMenuItem
+            // 
+            this.forceRemoveBanToolStripMenuItem.Name = "forceRemoveBanToolStripMenuItem";
+            this.forceRemoveBanToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.forceRemoveBanToolStripMenuItem.Text = "Force Remove Ban";
+            this.forceRemoveBanToolStripMenuItem.Click += new System.EventHandler(this.forceRemoveBanToolStripMenuItem_Click);
+            // 
             // displayConsoleToolStripMenuItem
             // 
             this.displayConsoleToolStripMenuItem.Name = "displayConsoleToolStripMenuItem";
-            this.displayConsoleToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.displayConsoleToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.displayConsoleToolStripMenuItem.Text = "Display Console";
             this.displayConsoleToolStripMenuItem.Click += new System.EventHandler(this.displayConsoleToolStripMenuItem_Click);
             // 
             // showStatisticsToolStripMenuItem
             // 
             this.showStatisticsToolStripMenuItem.Name = "showStatisticsToolStripMenuItem";
-            this.showStatisticsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.showStatisticsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.showStatisticsToolStripMenuItem.Text = "Display Statistics";
             this.showStatisticsToolStripMenuItem.Click += new System.EventHandler(this.showStatisticsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -665,7 +674,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PoGo Bot - SimpleGUI v1.2";
+            this.Text = "PoGo Bot - SimpleGUI v1.3";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGrid)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -737,6 +746,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem displayConsoleToolStripMenuItem;
         private GMap.NET.WindowsForms.GMapControl MainMap;
+        private System.Windows.Forms.ToolStripMenuItem forceRemoveBanToolStripMenuItem;
     }
 }
 

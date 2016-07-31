@@ -12,6 +12,7 @@ using System.IO;
 using PokemonGo.RocketAPI.Exceptions;
 using GMap.NET.MapProviders;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace PokemonGo.RocketAPI.GUI
 {
@@ -193,6 +194,23 @@ namespace PokemonGo.RocketAPI.GUI
                 _inventory = new Inventory(client);
                 _profile = await client.GetProfile();
                 EnableButtons();
+            }
+            catch (GoogleException ex)
+            {
+                if(ex.Message.Contains("NeedsBrowser"))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine("It seems you have Google 2 Factor Authentication enabled.");
+                    sb.AppendLine("In order to enable this bot to access your Google Account you need to create an App Password and use that one instead of your Google Password.");
+                    sb.AppendLine();
+                    sb.AppendLine("Please go to: https://security.google.com/settings/security/apppasswords");                    
+                    sb.AppendLine("In 'Select App' select 'Other' and 'on my' select 'Windows Computer'.");
+                    sb.AppendLine();
+                    sb.AppendLine("This will generate a random password use that password login to the bot.");                    
+                    MessageBox.Show(sb.ToString(), "Google 2 Factor Authentication");
+
+                    Application.Exit();
+                }
             }
             catch
             {
@@ -869,6 +887,65 @@ namespace PokemonGo.RocketAPI.GUI
             }
         }
 
+
+        private bool ForceUnbanning = false;
+        private bool Stopping = false;
+        private async Task ForceUnban()
+        {
+            if (!ForceUnbanning && !Stopping)
+            {
+                Logger.Write("Waiting for last farming action to be complete...");
+                ForceUnbanning = true;
+
+                while (_isFarmingActive)
+                {
+                    await Task.Delay(25);
+                }
+
+                Logger.Write("Starting force unban...");
+
+                var mapObjects = await _client.GetMapObjects();
+                var pokeStops = mapObjects.MapCells.SelectMany(i => i.Forts).Where(i => i.Type == FortType.Checkpoint && i.CooldownCompleteTimestampMs < DateTime.UtcNow.ToUnixTime());
+
+                await Task.Delay(10000);
+                bool done = false;
+
+                foreach (var pokeStop in pokeStops)
+                {
+                    var fortInfo = await _client.GetFort(pokeStop.Id, pokeStop.Latitude, pokeStop.Longitude);
+
+                    if (fortInfo.Name != string.Empty)
+                    {
+                        Logger.Write("Chosen PokeStop " + fortInfo.Name + " for force unban");
+                        for (int i = 1; i <= 50; i++)
+                        {
+                            var fortSearch = await _client.SearchFort(pokeStop.Id, pokeStop.Latitude, pokeStop.Longitude);
+                            if (fortSearch.ExperienceAwarded == 0)
+                            {
+                                Logger.Write("Attempt: " + i);
+                            }
+                            else
+                            {
+                                Logger.Write("You are now unbanned! Total attempts: " + i);
+                                done = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!done)
+                        Logger.Write("Force unban failed, please try again.");
+
+                    ForceUnbanning = false;
+                    break;
+                }
+            }
+            else
+            {
+                Logger.Write("A action is in play... Please wait.");
+            }
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var confirm = MessageBox.Show("Do you want to close the bot?", "PoGo Bot", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -988,6 +1065,11 @@ namespace PokemonGo.RocketAPI.GUI
             MessageBox.Show("PoGo Bot SimpleGUI is an Open Source Project Created by Jorge Limas." + Environment.NewLine + Environment.NewLine +
                 "You can get the latest version for FREE at:" + Environment.NewLine + 
                 "https://github.com/Novalys/PokemonGo-Bot-SimpleGUI", "PoGo Bot");
+        }
+
+        private async void forceRemoveBanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            await ForceUnban();
         }
     }
 }
