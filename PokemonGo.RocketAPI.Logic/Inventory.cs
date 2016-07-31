@@ -48,7 +48,7 @@ namespace PokemonGo.RocketAPI.Logic
                     if (settings.CandyToEvolve == 0)
                         continue;
 
-                    var amountToSkip = familyCandy.Candy/settings.CandyToEvolve;
+                    var amountToSkip = familyCandy.Candy / settings.CandyToEvolve;
 
                     results.AddRange(pokemonList.Where(x => x.PokemonId == pokemon.Key && x.Favorite == 0)
                         .OrderByDescending(x => x.Cp)
@@ -98,7 +98,7 @@ namespace PokemonGo.RocketAPI.Logic
         public async Task<int> GetItemAmountByType(MiscEnums.Item type)
         {
             var pokeballs = await GetItems();
-            return pokeballs.FirstOrDefault(i => (MiscEnums.Item) i.Item_ == type)?.Count ?? 0;
+            return pokeballs.FirstOrDefault(i => (MiscEnums.Item)i.Item_ == type)?.Count ?? 0;
         }
 
         public async Task<IEnumerable<Item>> GetItems()
@@ -114,13 +114,13 @@ namespace PokemonGo.RocketAPI.Logic
             var myItems = await GetItems();
 
             return myItems
-                .Where(x => settings.ItemRecycleFilter.Any(f => f.Key == (ItemId) x.Item_ && x.Count > f.Value))
+                .Where(x => settings.ItemRecycleFilter.Any(f => f.Key == (ItemId)x.Item_ && x.Count > f.Value))
                 .Select(
                     x =>
                         new Item
                         {
                             Item_ = x.Item_,
-                            Count = x.Count - settings.ItemRecycleFilter.Single(f => f.Key == (ItemId) x.Item_).Value,
+                            Count = x.Count - settings.ItemRecycleFilter.Single(f => f.Key == (ItemId)x.Item_).Value,
                             Unseen = x.Unseen
                         });
         }
@@ -141,12 +141,32 @@ namespace PokemonGo.RocketAPI.Logic
                     .Where(p => p != null && p.FamilyId != PokemonFamilyId.FamilyUnset);
         }
 
+        public async Task<IEnumerable<PokemonFamily>> GetPokeListPokemonFamilies()
+        {
+            var inventory = await _client.GetInventory();
+            return
+            inventory.InventoryDelta.InventoryItems
+                .Select(i => i.InventoryItemData?.PokemonFamily)
+                .Where(p => p != null && (int)p?.FamilyId > 0)
+                .OrderByDescending(p => (int)p.FamilyId);
+        }
+
         public async Task<IEnumerable<PokemonData>> GetPokemons()
         {
             var inventory = await _client.GetInventory();
             return
                 inventory.InventoryDelta.InventoryItems.Select(i => i.InventoryItemData?.Pokemon)
                     .Where(p => p != null && p.PokemonId > 0);
+        }
+
+        public async Task<IEnumerable<PokemonData>> GetPokeListPokemon()
+        {
+            var inventory = await _client.GetInventory();
+            return
+                inventory.InventoryDelta.InventoryItems
+                    .Select(i => i.InventoryItemData?.Pokemon)
+                    .Where(p => p != null && p?.PokemonId > 0)
+                    .OrderByDescending(key => key.Cp);
         }
 
         public async Task<IEnumerable<PokemonSettings>> GetPokemonSettings()
@@ -193,7 +213,7 @@ namespace PokemonGo.RocketAPI.Logic
 
                 var pokemonCandyNeededAlready =
                     pokemonToEvolve.Count(
-                        p => pokemonSettings.Single(x => x.PokemonId == p.PokemonId).FamilyId == settings.FamilyId)*
+                        p => pokemonSettings.Single(x => x.PokemonId == p.PokemonId).FamilyId == settings.FamilyId) *
                     settings.CandyToEvolve;
                 if (familyCandy.Candy - pokemonCandyNeededAlready > settings.CandyToEvolve)
                     pokemonToEvolve.Add(pokemon);
