@@ -18,6 +18,8 @@ namespace PokemonGo.RocketAPI.GUI
 {
     public partial class MainForm : Form
     {
+        private System.Timers.Timer _recycleItemTimer;
+
         private Client _client;
         private Settings _settings;
         private Inventory _inventory;
@@ -35,7 +37,7 @@ namespace PokemonGo.RocketAPI.GUI
 
         public MainForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void CleanUp()
@@ -90,12 +92,22 @@ namespace PokemonGo.RocketAPI.GUI
                 DisplayPositionSelector();                
                 await GetCurrentPlayerInformation();
                 await PreflightCheck();
+
+                _recycleItemTimer = new System.Timers.Timer(5 * 60 * 1000); // 5 Minute timer
+                _recycleItemTimer.Start();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 Logger.Write(ex.Message);
             }
+
+            _recycleItemTimer.Elapsed += _recycleItemTimer_Elapsed;
+        }
+
+        private async void _recycleItemTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            await SilentRecycle();
         }
 
         private void DisplayPositionSelector()
@@ -693,6 +705,16 @@ namespace PokemonGo.RocketAPI.GUI
             }            
         }
 
+        private async Task SilentRecycle()
+        {
+            var items = await _inventory.GetItemsToRecycle(_settings);
+            foreach (var item in items)
+            {
+                var transfer = await _client.RecycleItem((ItemId)item.Item_, item.Count);
+                await Task.Delay(500);
+            }
+        }
+
         private async Task<MiscEnums.Item> GetBestBall(int? pokemonCp)
         {
             var pokeBallsCount = await _inventory.GetItemAmountByType(MiscEnums.Item.ITEM_POKE_BALL);
@@ -1057,7 +1079,7 @@ namespace PokemonGo.RocketAPI.GUI
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GUISettingsForm settingsGUI = new GUISettingsForm();
-            settingsGUI.ShowDialog();            
+            settingsGUI.ShowDialog();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
