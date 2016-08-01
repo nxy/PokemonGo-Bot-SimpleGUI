@@ -515,7 +515,7 @@ namespace PokemonGo.RocketAPI.GUI
                 lbLevel.Text = $"Lv {playerStat.Level}";
                 lbExperience.Text = $"{playerStat.Experience - playerStat.PrevLevelXp - xpDifference}/{playerStat.NextLevelXp - playerStat.PrevLevelXp - xpDifference} XP";
 
-                expProgressBar.Minimum = 1;
+                expProgressBar.Minimum = 0;
                 expProgressBar.Maximum = (int)(playerStat.NextLevelXp - playerStat.PrevLevelXp - xpDifference);
                 expProgressBar.Value = (int)(playerStat.Experience - playerStat.PrevLevelXp - xpDifference);                
             }
