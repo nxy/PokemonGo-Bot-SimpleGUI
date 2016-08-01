@@ -121,6 +121,11 @@ namespace PokemonGo.RocketAPI.GUI
             if (sorter == null)
             {
                 sorter = new ItemComparer(subItemsColumn);
+
+                // Bug fix for IV (Occurs when Sort IV is selected first, as it should Descend)
+                if (subItemsColumn == 3)
+                    sorter.Order = SortOrder.Ascending;
+
                 pokemonListView.ListViewItemSorter = sorter;
             }
 
@@ -176,12 +181,14 @@ namespace PokemonGo.RocketAPI.GUI
             {
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
-                    var id = (ulong)item.Tag;
-                    await _client.TransferPokemon(id);
+                    await _client.TransferPokemon((ulong)item.Tag);
+                    Logger.Write($"Transferred {item.SubItems[1].Text} with {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
+                    pokemonListView.Items.Remove(item);
                 }
-            }
 
-            await Execute();
+                // Logging
+                Logger.Write("Finished Transfering Pokemons.");
+            }
         }
 
         private async void evolveSelectedToolStripMenuItem_Click(object sender, EventArgs e)
