@@ -16,6 +16,8 @@ using System.Text;
 using PokemonGo.RocketAPI.GUI.Helpers;
 using PokemonGo.RocketAPI.GUI.Exceptions;
 using System.Reflection;
+using PokemonGo.RocketAPI.GUI.Navigation;
+using GeoCoordinatePortable;
 
 namespace PokemonGo.RocketAPI.GUI
 {  
@@ -848,7 +850,7 @@ namespace PokemonGo.RocketAPI.GUI
         }
 
         Random r = new Random();
-
+        private bool HumanWalkingEnabled = true;
         private async Task ExecuteFarmingPokestopsAndPokemons()
         {
             var mapObjects = await _client.GetMapObjects();
@@ -861,8 +863,19 @@ namespace PokemonGo.RocketAPI.GUI
 
             foreach (var pokeStop in fortDatas)
             {
-                var update = await _client.UpdatePlayerLocation(pokeStop.Latitude, pokeStop.Longitude, _settings.DefaultAltitude); // Redundant?
-                UpdateMap(pokeStop.Latitude, pokeStop.Longitude);
+                // Use Teleporting if No Human Walking Enabled
+                if (!GUISettings.Default.humanWalkingEnabled)
+                {
+                    var update = await _client.UpdatePlayerLocation(pokeStop.Latitude, pokeStop.Longitude, _settings.DefaultAltitude); // Redundant?
+                    UpdateMap(pokeStop.Latitude, pokeStop.Longitude);
+                } else
+                {
+                    HumanWalking human = new HumanWalking(_client);
+                    GeoCoordinate targetLocation = new GeoCoordinate(pokeStop.Latitude, pokeStop.Longitude);
+                    human.assignMapToUpdate(MainMap);
+                    await human.Walk(targetLocation, GUISettings.Default.humanWalkingSpeed, ExecuteCatchAllNearbyPokemons);
+                }               
+
                 var fortInfo = await _client.GetFort(pokeStop.Id, pokeStop.Latitude, pokeStop.Longitude);
 
                 boxPokestopName.Text = fortInfo.Name;
@@ -899,7 +912,8 @@ namespace PokemonGo.RocketAPI.GUI
             var pokemons = mapObjects.MapCells.SelectMany(i => i.CatchablePokemons);
 
             var mapPokemons = pokemons as IList<MapPokemon> ?? pokemons.ToList();
-            Logger.Write("Found " + mapPokemons.Count<MapPokemon>() + " Pokemons in the area.");
+            if (mapPokemons.Count<MapPokemon>() > 0)
+                Logger.Write("Found " + mapPokemons.Count<MapPokemon>() + " Pokemons in the area.");
             foreach (var pokemon in mapPokemons)
             {   
                 var update = await _client.UpdatePlayerLocation(pokemon.Latitude, pokemon.Longitude, _settings.DefaultAltitude); // Redundant?
@@ -922,7 +936,7 @@ namespace PokemonGo.RocketAPI.GUI
                     }
 
                     caughtPokemonResponse = await _client.CatchPokemon(pokemon.EncounterId, pokemon.SpawnpointId, pokemon.Latitude, pokemon.Longitude, pokeball);
-                    await Task.Delay(2000);
+                    await Task.Delay(1000);
                 }
                 while (caughtPokemonResponse.Status == CatchPokemonResponse.Types.CatchStatus.CatchMissed);
 

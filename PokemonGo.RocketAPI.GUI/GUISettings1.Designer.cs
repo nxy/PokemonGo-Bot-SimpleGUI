@@ -142,5 +142,29 @@ namespace PokemonGo.RocketAPI.GUI {
                 this["autoTransfer"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool humanWalkingEnabled {
+            get {
+                return ((bool)(this["humanWalkingEnabled"]));
+            }
+            set {
+                this["humanWalkingEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public double humanWalkingSpeed {
+            get {
+                return ((double)(this["humanWalkingSpeed"]));
+            }
+            set {
+                this["humanWalkingSpeed"] = value;
+            }
+        }
     }
 }
