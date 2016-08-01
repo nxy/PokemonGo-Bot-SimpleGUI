@@ -425,7 +425,7 @@
             this.luckyEgg0ToolStripMenuItem,
             this.incence0ToolStripMenuItem});
             this.useItemsToolStripMenuItem.Name = "useItemsToolStripMenuItem";
-            this.useItemsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.useItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.useItemsToolStripMenuItem.Text = "Use Item(s)";
             // 
             // luckyEgg0ToolStripMenuItem
@@ -445,7 +445,7 @@
             // recycleItemsToolStripMenuItem
             // 
             this.recycleItemsToolStripMenuItem.Name = "recycleItemsToolStripMenuItem";
-            this.recycleItemsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.recycleItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.recycleItemsToolStripMenuItem.Text = "Recycle Items";
             this.recycleItemsToolStripMenuItem.Click += new System.EventHandler(this.recycleItemsToolStripMenuItem_Click);
             // 
@@ -674,7 +674,6 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PoGo Bot - SimpleGUI v1.3";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGrid)).EndInit();
             this.groupBox2.ResumeLayout(false);

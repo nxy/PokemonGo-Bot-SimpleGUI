@@ -79,5 +79,10 @@ namespace PokemonGo.RocketAPI.GUI
             if (e.KeyCode == Keys.Enter)
                 btnLogin_Click(null, null);
         }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }
