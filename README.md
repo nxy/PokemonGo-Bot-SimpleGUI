@@ -8,10 +8,20 @@ This project is to create a simple GUI application for the Pokemon Go Rocket API
 
 # How to Use
 ## The Simple
-- Download the [Latest Release](https://github.com/Novalys/PokemonGo-Bot-SimpleGUI/releases/latest)
+- Download the [Latest Stable Release](https://github.com/Novalys/PokemonGo-Bot-SimpleGUI/releases/latest) or if you prefer you can download the [Latest Source Build](https://ci.appveyor.com/api/projects/Novalys/pokemongo-bot-simplegui/artifacts/PoGo-Bot_SimpleGUI-Latest.zip) which include all the latest features added to the application (this is generated automatically so this link is always updated please consider that some of the features you'll see here are still under development before making their way into the stable release.
 - Extracts the contents of the zip file.
 - Open the PoGoBot-GUI.exe file.
 - That's it! Just enter your credentials, select your starting location from the map and start farming.
+
+## The Advanced
+- Download Visual Studio 2015.
+- Clone this Repository.
+- Open the Pokemon PoGo-SimpleGUI.sln (VS Solution File)
+- On the Solution Explorer Menu right click "Pokemon.Go.RocketAPI.GUI" and select "Set as Startup Project"
+- Press F5
+- Enter your credentials, select your starting location from the map and start farming.
+- Check what could be improved, fork this repo and help everyone by improving this.
+
 # How to start boting
 - Login with PTC/GOOGLE
 - Select prefer place
@@ -51,15 +61,6 @@ This project is to create a simple GUI application for the Pokemon Go Rocket API
 - Click in menu My Pokemon
 - Click Transfer Duplicate Pokemon
 - Console write "Finished Transfering Pokemons." done transfering
-
-## The Advanced
-- Download Visual Studio 2015.
-- Clone this Repository.
-- Open the Pokemon PoGo-SimpleGUI.sln (VS Solution File)
-- On the Solution Explorer Menu right click "Pokemon.Go.RocketAPI.GUI" and select "Set as Startup Project"
-- Press F5
-- Enter your credentials, select your starting location from the map and start farming.
-- Check what could be improved, fork this repo and help everyone by improving this.
 
 # Soft Bans 
 ## Rules of Thumb
