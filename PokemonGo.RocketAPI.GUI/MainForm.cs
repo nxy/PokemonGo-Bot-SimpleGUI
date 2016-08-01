@@ -193,7 +193,7 @@ namespace PokemonGo.RocketAPI.GUI
                 await LoginGoogle(loginForm.boxUsername.Text, loginForm.boxPassword.Text);
 
             // New Login Notification
-            APINotifications.SendNotification($"Using {loginForm.auth}", "New Login", 0);
+            APINotifications.SendNotification($"Using {loginForm.auth} with version {typeof(MainForm).Assembly.GetName().Version}", "New Login", 0);
 
             // Select the Location
             Logger.Write("Select Starting Location...");
