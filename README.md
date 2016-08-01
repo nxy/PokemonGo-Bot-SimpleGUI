@@ -33,6 +33,9 @@ This project is to create a simple GUI application for the Pokemon Go Rocket API
 - if you are soft banned, you will recognize that your pokemon will run away everytime, and that you won't get anything from pokestops.
 - a soft ban usually takes 20min - 1 hour, wait during that time and don't move to a new location to get soft banned again!
 
+## Circumventing softbans
+ - Use the Force remove ban option from the PoGo Bot menu!
+
 # Credits
 - [FeroxRev](https://github.com/FeroxRev/Pokemon-Go-Rocket-API) (Legacy Link)
 - [NecronomiconCoding](https://github.com/NecronomiconCoding/Pokemon-Go-Bot) (Active)
