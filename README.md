@@ -1,5 +1,6 @@
 # Pokemon Go Bot - SimpleGUI
 This project is to create a simple GUI application for the Pokemon Go Rocket API.
+![Build Status](https://ci.appveyor.com/api/projects/status/github/Novalys/PokemonGo-Bot-SimpleGUI)
 
 ![Application Demo](http://i.imgur.com/4jNsHUk.png)
 
