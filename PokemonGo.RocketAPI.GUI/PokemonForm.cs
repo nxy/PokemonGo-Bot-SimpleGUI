@@ -317,7 +317,7 @@ namespace PokemonGo.RocketAPI.GUI
                         MessageBox.Show($"Error: {poweredUpPokemon.Result.ToString()}");
                 }
 
-                // Checker for Unique Evolved Pokemon Families
+                // Checker for Unique PowerUp Pokemon Families
                 if (uniquePokemonList.Count() != 0)
                 {
                     // Get Updated Pokemon Families
@@ -337,7 +337,7 @@ namespace PokemonGo.RocketAPI.GUI
                             .Select(f => f.Candy)
                             .First();
 
-                        // Updates Candies of Pokemon related to any Evolved Pokemon Family
+                        // Updates Candies of Pokemon related to any PowerUp Pokemon Family
                         if (uniquePokemonList.Contains(pokemonFamilyId))
                             item.ToolTipText = "Candy: " + currentCandy;
                     }
