@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.boxPokestopDelay = new System.Windows.Forms.TextBox();
             this.btnSaveSettings = new System.Windows.Forms.Button();
-            this.checkAutoTransfer = new System.Windows.Forms.CheckBox();
+            this.checkAutoEvolve = new System.Windows.Forms.CheckBox();
             this.boxPokemonDelay = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.boxCPMin = new System.Windows.Forms.TextBox();
@@ -44,6 +44,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.boxMinBerry = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.checkAutoTransfer = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkHumanWalking = new System.Windows.Forms.CheckBox();
+            this.boxHumanWalkingSpeed = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +72,7 @@
             // 
             // btnSaveSettings
             // 
-            this.btnSaveSettings.Location = new System.Drawing.Point(158, 368);
+            this.btnSaveSettings.Location = new System.Drawing.Point(431, 262);
             this.btnSaveSettings.Name = "btnSaveSettings";
             this.btnSaveSettings.Size = new System.Drawing.Size(97, 30);
             this.btnSaveSettings.TabIndex = 5;
@@ -73,15 +80,15 @@
             this.btnSaveSettings.UseVisualStyleBackColor = true;
             this.btnSaveSettings.Click += new System.EventHandler(this.btnSaveSettings_Click);
             // 
-            // checkAutoTransfer
+            // checkAutoEvolve
             // 
-            this.checkAutoTransfer.AutoSize = true;
-            this.checkAutoTransfer.Location = new System.Drawing.Point(17, 323);
-            this.checkAutoTransfer.Name = "checkAutoTransfer";
-            this.checkAutoTransfer.Size = new System.Drawing.Size(225, 30);
-            this.checkAutoTransfer.TabIndex = 4;
-            this.checkAutoTransfer.Text = "Automatically Evolve/Transfer Pokemon\r\nafter visiting all PokeStops";
-            this.checkAutoTransfer.UseVisualStyleBackColor = true;
+            this.checkAutoEvolve.AutoSize = true;
+            this.checkAutoEvolve.Location = new System.Drawing.Point(15, 226);
+            this.checkAutoEvolve.Name = "checkAutoEvolve";
+            this.checkAutoEvolve.Size = new System.Drawing.Size(181, 30);
+            this.checkAutoEvolve.TabIndex = 4;
+            this.checkAutoEvolve.Text = "Automatically Evolve Pokemon\r\nafter visiting all PokeStops";
+            this.checkAutoEvolve.UseVisualStyleBackColor = true;
             // 
             // boxPokemonDelay
             // 
@@ -159,7 +166,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(34, 264);
+            this.label7.Location = new System.Drawing.Point(303, 50);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(213, 26);
             this.label7.TabIndex = 14;
@@ -167,7 +174,7 @@
             // 
             // boxMinBerry
             // 
-            this.boxMinBerry.Location = new System.Drawing.Point(203, 226);
+            this.boxMinBerry.Location = new System.Drawing.Point(472, 12);
             this.boxMinBerry.Name = "boxMinBerry";
             this.boxMinBerry.Size = new System.Drawing.Size(50, 22);
             this.boxMinBerry.TabIndex = 12;
@@ -176,17 +183,79 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 229);
+            this.label8.Location = new System.Drawing.Point(281, 15);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(149, 26);
             this.label8.TabIndex = 13;
             this.label8.Text = "Use Berry if Pokemon catch \r\npercentage is below?";
             // 
+            // checkAutoTransfer
+            // 
+            this.checkAutoTransfer.AutoSize = true;
+            this.checkAutoTransfer.Location = new System.Drawing.Point(15, 262);
+            this.checkAutoTransfer.Name = "checkAutoTransfer";
+            this.checkAutoTransfer.Size = new System.Drawing.Size(189, 30);
+            this.checkAutoTransfer.TabIndex = 15;
+            this.checkAutoTransfer.Text = "Automatically Transfer Pokemon\r\nafter visiting all PokeStops";
+            this.checkAutoTransfer.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.boxHumanWalkingSpeed);
+            this.groupBox1.Controls.Add(this.checkHumanWalking);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Location = new System.Drawing.Point(284, 107);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(244, 71);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Human Walking Simulation";
+            // 
+            // checkHumanWalking
+            // 
+            this.checkHumanWalking.AutoSize = true;
+            this.checkHumanWalking.Location = new System.Drawing.Point(6, 21);
+            this.checkHumanWalking.Name = "checkHumanWalking";
+            this.checkHumanWalking.Size = new System.Drawing.Size(66, 17);
+            this.checkHumanWalking.TabIndex = 17;
+            this.checkHumanWalking.Text = "Enable?";
+            this.checkHumanWalking.UseVisualStyleBackColor = true;
+            // 
+            // boxHumanWalkingSpeed
+            // 
+            this.boxHumanWalkingSpeed.Location = new System.Drawing.Point(188, 19);
+            this.boxHumanWalkingSpeed.Name = "boxHumanWalkingSpeed";
+            this.boxHumanWalkingSpeed.Size = new System.Drawing.Size(50, 22);
+            this.boxHumanWalkingSpeed.TabIndex = 17;
+            this.boxHumanWalkingSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(138, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Speed?";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(3, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(234, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Regular human walking speed is around 5.0";
+            // 
             // GUISettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(267, 410);
+            this.ClientSize = new System.Drawing.Size(539, 303);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.checkAutoTransfer);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.boxMinBerry);
             this.Controls.Add(this.label8);
@@ -198,7 +267,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.boxPokemonDelay);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.checkAutoTransfer);
+            this.Controls.Add(this.checkAutoEvolve);
             this.Controls.Add(this.btnSaveSettings);
             this.Controls.Add(this.boxPokestopDelay);
             this.Controls.Add(this.label1);
@@ -210,7 +279,9 @@
             this.Name = "GUISettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GUI Settings";
-            this.Load += new System.EventHandler(this.GUISettings_Load);
+            this.Load += new System.EventHandler(this.GUISettingsForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,7 +292,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox boxPokestopDelay;
         private System.Windows.Forms.Button btnSaveSettings;
-        private System.Windows.Forms.CheckBox checkAutoTransfer;
+        private System.Windows.Forms.CheckBox checkAutoEvolve;
         private System.Windows.Forms.TextBox boxPokemonDelay;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox boxCPMin;
@@ -233,5 +304,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox boxMinBerry;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox checkAutoTransfer;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox boxHumanWalkingSpeed;
+        private System.Windows.Forms.CheckBox checkHumanWalking;
+        private System.Windows.Forms.Label label9;
     }
 }

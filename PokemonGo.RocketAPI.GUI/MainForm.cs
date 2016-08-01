@@ -13,9 +13,14 @@ using PokemonGo.RocketAPI.Exceptions;
 using GMap.NET.MapProviders;
 using System.Text.RegularExpressions;
 using System.Text;
+using PokemonGo.RocketAPI.GUI.Helpers;
+using PokemonGo.RocketAPI.GUI.Exceptions;
+using System.Reflection;
+using PokemonGo.RocketAPI.GUI.Navigation;
+using GeoCoordinatePortable;
 
 namespace PokemonGo.RocketAPI.GUI
-{
+{  
     public partial class MainForm : Form
     {
         private System.Timers.Timer _recycleItemTimer;
@@ -42,6 +47,9 @@ namespace PokemonGo.RocketAPI.GUI
         public MainForm()
         {
             InitializeComponent();
+
+            // Set Version Information
+            this.Text = $"PoGo Bot - SimpleGUI v{typeof(MainForm).Assembly.GetName().Version}";
         }
 
         private void CleanUp()
@@ -85,7 +93,7 @@ namespace PokemonGo.RocketAPI.GUI
                 // Setup Console
                 console = new ConsoleForm();
                 console.StartPosition = FormStartPosition.Manual;                
-                console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);                
+                console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);
 
                 // Start Loading
                 StartLogger();
@@ -98,13 +106,21 @@ namespace PokemonGo.RocketAPI.GUI
                 await GetCurrentPlayerInformation();
                 await PreflightCheck();
 
+                // Starts the Timer for the Silent Recycle
                 _recycleItemTimer = new System.Timers.Timer(5 * 60 * 1000); // 5 Minute timer
                 _recycleItemTimer.Start();
             }
+            catch (LoginNotSelectedException ex)
+            {
+                MessageBox.Show(ex.Message, "PoGo Bot");
+                Application.Exit();
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                Logger.Write(ex.Message);
+                // Exception Notification
+                APINotifications.SendNotification($"{ex.Message}{Environment.NewLine}{ex.StackTrace}", $"App Loading: {ex.GetType()}", 0);
+                MessageBox.Show("Unable to Start the Bot.", "PoGo Bot");
+                Application.Exit();
             }
 
             _recycleItemTimer.Elapsed += _recycleItemTimer_Elapsed;
@@ -131,8 +147,15 @@ namespace PokemonGo.RocketAPI.GUI
                 _client.SaveLatLng(locationSelect.lat, locationSelect.lng);
                 _client.SetCoordinates(locationSelect.lat, locationSelect.lng, UserSettings.Default.DefaultAltitude);
             }
-            catch
+            catch(Exception ex)
             {
+                // Exception Notification
+                APINotifications.SendNotification(ex.Message, ex.GetType().ToString(), 0);
+
+                // Write a Detailed Log Report
+                File.WriteAllText(Directory.GetCurrentDirectory() + "\\Location.ErrorLog." + DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".txt",
+                    ex.Message + Environment.NewLine + Environment.NewLine + ex.StackTrace);
+
                 MessageBox.Show(@"You need to declare a valid starting location.", @"Safety Check");
                 MessageBox.Show(@"To protect your account of a possible soft ban, the software will close.", @"Safety Check");
                 Application.Exit();
@@ -153,21 +176,26 @@ namespace PokemonGo.RocketAPI.GUI
             // Display Login
             Hide();
             LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
-            Show();
+            loginForm.ShowDialog();                        
+
+            // Check if an Option was Selected
+            if (!loginForm.loginSelected)
+                throw new LoginNotSelectedException("Login information was not provided. Unable to start bot without this information.");
 
             // Display Console
             console.Show();
 
-            // Check if an Option was Selected
-            if (!loginForm.loginSelected)
-                Application.Exit();
+            // Display the Main Window
+            Show();
 
             // Determine Login Method
             if (loginForm.auth == AuthType.Ptc)
                 await LoginPtc(loginForm.boxUsername.Text, loginForm.boxPassword.Text);
             if (loginForm.auth == AuthType.Google)
                 await LoginGoogle(loginForm.boxUsername.Text, loginForm.boxPassword.Text);
+
+            // New Login Notification
+            APINotifications.SendNotification($"Using {loginForm.auth} with version {typeof(MainForm).Assembly.GetName().Version}", "New Login", 0);
 
             // Select the Location
             Logger.Write("Select Starting Location...");
@@ -328,7 +356,6 @@ namespace PokemonGo.RocketAPI.GUI
             recycleItemsToolStripMenuItem.Enabled = false;
             transferDuplicatePokemonToolStripMenuItem.Enabled = false;
             viewMyPokemonsToolStripMenuItem.Enabled = false;
-
             stopToolStripMenuItem.Enabled = true;
         }
 
@@ -383,56 +410,61 @@ namespace PokemonGo.RocketAPI.GUI
                     // Start Farming Pokestops/Pokemons.
                     await ExecuteFarmingPokestopsAndPokemons();
 
-                    // Only Auto-Evolve/Transfer when Continuous.
-                    if (_isFarmingActive && GUISettings.Default.autoEvolveTransfer)
+                    // Only Auto-Evolve when Continuous.
+                    if (_isFarmingActive && GUISettings.Default.autoEvolve)
                     {
                         // Evolve Pokemons.
                         await EvolveAllPokemonWithEnoughCandy();
+                    }
 
+                    // Only Transfer when Continuous.
+                    if (_isFarmingActive && GUISettings.Default.autoTransfer)
+                    {
                         // Transfer Duplicates.
                         await TransferDuplicatePokemon();
                     }
                 }
                 catch (InvalidResponseException)
                 {
-                    Logger.Write("------------> InvalidReponseException");
-                    Logger.Write("<------------ Recovering");
-
-                    // Re-Authenticate with Server
-                    switch (_loginMethod)
-                    {
-                        case AuthType.Ptc:
-                            await LoginPtc(_username, _password);
-                            break;
-
-                        case AuthType.Google:
-                            await LoginGoogle(_username, _password);
-                            break;
-                    }
+                    // Need to Re-Authenticate
+                    await reauthenticateWithServer();
 
                     // Disable Buttons
                     disableButtonsDuringFarming();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    Logger.Write("------------> GeneralException");
-                    Logger.Write("<------------ Recovering");
+                    // Exception Notification
+                    APINotifications.SendNotification(ex.Message, $"Farming Session: {ex.GetType()}", 0);
 
-                    // Re-Authenticate with Server
-                    switch (_loginMethod)
-                    {
-                        case AuthType.Ptc:
-                            await LoginPtc(_username, _password);
-                            break;
+                    // Write Error to Console
+                    Logger.Write($"Error: {ex.Message}");
 
-                        case AuthType.Google:
-                            await LoginGoogle(_username, _password);
-                            break;
-                    }
+                    // Write a Detailed Log Report
+                    File.WriteAllText(Directory.GetCurrentDirectory() + "\\Farming.ErrorLog." + DateTime.Now.ToString("yyyyMMddHHmmssfff"), 
+                        ex.Message + Environment.NewLine + Environment.NewLine + ex.StackTrace);
 
-                    // Disable Buttons
-                    disableButtonsDuringFarming();
+                    // Stop Farming
+                    stopToolStripMenuItem_Click(null, null);
                 }
+            }           
+        }
+
+        private async Task reauthenticateWithServer()
+        {
+            Logger.Write("------------> InvalidReponseException");
+            Logger.Write("<------------ Recovering");
+
+            // Re-Authenticate with Server
+            switch (_loginMethod)
+            {
+                case AuthType.Ptc:
+                    await LoginPtc(_username, _password);
+                    break;
+
+                case AuthType.Google:
+                    await LoginGoogle(_username, _password);
+                    break;
             }           
         }
 
@@ -484,7 +516,7 @@ namespace PokemonGo.RocketAPI.GUI
                 lbLevel.Text = $"Lv {playerStat.Level}";
                 lbExperience.Text = $"{playerStat.Experience - playerStat.PrevLevelXp - xpDifference}/{playerStat.NextLevelXp - playerStat.PrevLevelXp - xpDifference} XP";
 
-                expProgressBar.Minimum = 1;
+                expProgressBar.Minimum = 0;
                 expProgressBar.Maximum = (int)(playerStat.NextLevelXp - playerStat.PrevLevelXp - xpDifference);
                 expProgressBar.Value = (int)(playerStat.Experience - playerStat.PrevLevelXp - xpDifference);                
             }
@@ -652,7 +684,7 @@ namespace PokemonGo.RocketAPI.GUI
                 if (iv < GUISettings.Default.minIV && duplicatePokemon.Cp < GUISettings.Default.minCP)
                 {
                     var transfer = await _client.TransferPokemon(duplicatePokemon.Id);
-                    Logger.Write($"Transfer {duplicatePokemon.PokemonId} with {duplicatePokemon.Cp} CP and an IV of { iv }");
+                    Logger.Write($"Transferred {duplicatePokemon.PokemonId} with {duplicatePokemon.Cp} CP and an IV of { iv }.");
 
                     // Add Row to DataGrid
                     dGrid.Rows.Insert(0, "Transferred", duplicatePokemon.PokemonId.ToString(), duplicatePokemon.Cp, $"{iv}%");
@@ -706,8 +738,16 @@ namespace PokemonGo.RocketAPI.GUI
                 // Logging
                 Logger.Write("Recycling Complete.");
             }
+            catch(InvalidResponseException)
+            {
+                await reauthenticateWithServer();
+                await RecycleItems();
+            }
             catch (Exception ex)
             {
+                // Exception Notification
+                APINotifications.SendNotification(ex.Message, $"Manual Recycle: {ex.GetType()}", 0);
+
                 Logger.Write($"Error Details: {ex.Message}");
                 Logger.Write("Unable to Complete Items Recycling.");
             }            
@@ -715,11 +755,19 @@ namespace PokemonGo.RocketAPI.GUI
 
         private async Task SilentRecycle()
         {
-            var items = await _inventory.GetItemsToRecycle(_settings);
-            foreach (var item in items)
+            try
             {
-                var transfer = await _client.RecycleItem((ItemId)item.Item_, item.Count);
-                await Task.Delay(500);
+                var items = await _inventory.GetItemsToRecycle(_settings);
+                foreach (var item in items)
+                {
+                    var transfer = await _client.RecycleItem((ItemId)item.Item_, item.Count);
+                    await Task.Delay(500);
+                }
+            }
+            catch(Exception ex)
+            {
+                // Exception Notification
+                APINotifications.SendNotification(ex.Message, $"Silent Recycle: {ex.GetType()}", 0);
             }
         }
 
@@ -802,7 +850,7 @@ namespace PokemonGo.RocketAPI.GUI
         }
 
         Random r = new Random();
-
+        private bool HumanWalkingEnabled = true;
         private async Task ExecuteFarmingPokestopsAndPokemons()
         {
             var mapObjects = await _client.GetMapObjects();
@@ -815,8 +863,19 @@ namespace PokemonGo.RocketAPI.GUI
 
             foreach (var pokeStop in fortDatas)
             {
-                var update = await _client.UpdatePlayerLocation(pokeStop.Latitude, pokeStop.Longitude, _settings.DefaultAltitude); // Redundant?
-                UpdateMap(pokeStop.Latitude, pokeStop.Longitude);
+                // Use Teleporting if No Human Walking Enabled
+                if (!GUISettings.Default.humanWalkingEnabled)
+                {
+                    var update = await _client.UpdatePlayerLocation(pokeStop.Latitude, pokeStop.Longitude, _settings.DefaultAltitude); // Redundant?
+                    UpdateMap(pokeStop.Latitude, pokeStop.Longitude);
+                } else
+                {
+                    HumanWalking human = new HumanWalking(_client);
+                    GeoCoordinate targetLocation = new GeoCoordinate(pokeStop.Latitude, pokeStop.Longitude);
+                    human.assignMapToUpdate(MainMap);
+                    await human.Walk(targetLocation, GUISettings.Default.humanWalkingSpeed, ExecuteCatchAllNearbyPokemons);
+                }               
+
                 var fortInfo = await _client.GetFort(pokeStop.Id, pokeStop.Latitude, pokeStop.Longitude);
 
                 boxPokestopName.Text = fortInfo.Name;
@@ -853,7 +912,8 @@ namespace PokemonGo.RocketAPI.GUI
             var pokemons = mapObjects.MapCells.SelectMany(i => i.CatchablePokemons);
 
             var mapPokemons = pokemons as IList<MapPokemon> ?? pokemons.ToList();
-            Logger.Write("Found " + mapPokemons.Count<MapPokemon>() + " Pokemons in the area.");
+            if (mapPokemons.Count<MapPokemon>() > 0)
+                Logger.Write("Found " + mapPokemons.Count<MapPokemon>() + " Pokemons in the area.");
             foreach (var pokemon in mapPokemons)
             {   
                 var update = await _client.UpdatePlayerLocation(pokemon.Latitude, pokemon.Longitude, _settings.DefaultAltitude); // Redundant?
@@ -876,7 +936,7 @@ namespace PokemonGo.RocketAPI.GUI
                     }
 
                     caughtPokemonResponse = await _client.CatchPokemon(pokemon.EncounterId, pokemon.SpawnpointId, pokemon.Latitude, pokemon.Longitude, pokeball);
-                    await Task.Delay(2000);
+                    await Task.Delay(1000);
                 }
                 while (caughtPokemonResponse.Status == CatchPokemonResponse.Types.CatchStatus.CatchMissed);
 
@@ -919,16 +979,15 @@ namespace PokemonGo.RocketAPI.GUI
 
 
         private bool ForceUnbanning = false;
-        private bool Stopping = false;
         private async Task ForceUnban()
         {
-            if (!ForceUnbanning && !Stopping)
+            if (!ForceUnbanning)
             {
-                Logger.Write("Waiting for last farming action to be complete...");
                 ForceUnbanning = true;
 
                 while (_isFarmingActive)
                 {
+                    stopToolStripMenuItem_Click(null, null);
                     await Task.Delay(25);
                 }
 
@@ -942,21 +1001,22 @@ namespace PokemonGo.RocketAPI.GUI
 
                 foreach (var pokeStop in pokeStops)
                 {
+                    await _client.UpdatePlayerLocation(pokeStop.Latitude, pokeStop.Longitude, UserSettings.Default.DefaultAltitude);
                     var fortInfo = await _client.GetFort(pokeStop.Id, pokeStop.Latitude, pokeStop.Longitude);
 
                     if (fortInfo.Name != string.Empty)
                     {
-                        Logger.Write("Chosen PokeStop " + fortInfo.Name + " for force unban");
+                        Logger.Write("Chosen PokeStop " + fortInfo.Name + ", Starting the Process (Should take less than 1 min)...");
                         for (int i = 1; i <= 50; i++)
                         {
                             var fortSearch = await _client.SearchFort(pokeStop.Id, pokeStop.Latitude, pokeStop.Longitude);
                             if (fortSearch.ExperienceAwarded == 0)
                             {
-                                Logger.Write("Attempt: " + i);
+
                             }
                             else
                             {
-                                Logger.Write("You are now unbanned! Total attempts: " + i);
+                                Logger.Write("Soft ban has been removed successfully.");
                                 done = true;
                                 break;
                             }
