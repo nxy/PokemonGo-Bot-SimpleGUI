@@ -74,12 +74,12 @@ namespace PokemonGo.RocketAPI.GUI {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool autoEvolveTransfer {
+        public bool autoEvolve {
             get {
-                return ((bool)(this["autoEvolveTransfer"]));
+                return ((bool)(this["autoEvolve"]));
             }
             set {
-                this["autoEvolveTransfer"] = value;
+                this["autoEvolve"] = value;
             }
         }
         
@@ -128,6 +128,18 @@ namespace PokemonGo.RocketAPI.GUI {
             }
             set {
                 this["newLoginMethodFirstTimeSee"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool autoTransfer {
+            get {
+                return ((bool)(this["autoTransfer"]));
+            }
+            set {
+                this["autoTransfer"] = value;
             }
         }
     }

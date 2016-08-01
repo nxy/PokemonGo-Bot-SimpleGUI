@@ -39,6 +39,7 @@
             this.transferSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.evolveSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.powerupSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbPokeListLoading = new System.Windows.Forms.Label();
             this.pokemonListMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,11 +131,23 @@
             this.powerupSelectedToolStripMenuItem.Text = "Powerup selected";
             this.powerupSelectedToolStripMenuItem.Click += new System.EventHandler(this.powerupSelectedToolStripMenuItem_Click);
             // 
+            // lbPokeListLoading
+            // 
+            this.lbPokeListLoading.AutoSize = true;
+            this.lbPokeListLoading.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPokeListLoading.Location = new System.Drawing.Point(255, 190);
+            this.lbPokeListLoading.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lbPokeListLoading.Name = "lbPokeListLoading";
+            this.lbPokeListLoading.Size = new System.Drawing.Size(102, 30);
+            this.lbPokeListLoading.TabIndex = 11;
+            this.lbPokeListLoading.Text = "Loading...";
+            // 
             // PokemonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(622, 411);
+            this.Controls.Add(this.lbPokeListLoading);
             this.Controls.Add(this.pokemonListMenuStrip);
             this.Controls.Add(this.pokemonListView);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,5 +177,6 @@
         private System.Windows.Forms.ToolStripMenuItem transferSelectedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem evolveSelectedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem powerupSelectedToolStripMenuItem;
+        private System.Windows.Forms.Label lbPokeListLoading;
     }
 }

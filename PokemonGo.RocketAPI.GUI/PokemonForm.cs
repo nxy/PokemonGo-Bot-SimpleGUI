@@ -13,46 +13,43 @@ using System.IO;
 using PokemonGo.RocketAPI.GeneratedCode;
 using System.Collections;
 using static PokemonGo.RocketAPI.GeneratedCode.EvolvePokemonOut.Types;
-using System.Diagnostics;
+using PokemonGo.RocketAPI.Logic;
 
 namespace PokemonGo.RocketAPI.GUI
 {
     public partial class PokemonForm : Form
     {
-        Client client;
+        private Client _client;
+        private Inventory _inventory;
 
         public PokemonForm(Client client)
         {
-            this.client = client;
+            _client = client;
+            _inventory = new Inventory(client);
             InitializeComponent();
         }
 
         private async void PokemonForm_Load(object sender, EventArgs e)
         {
+            resetLoadProgress();
             await Execute();
         }
 
         private async Task Execute()
         {
             pokemonListView.Clear();
-            var inventory = await client.GetInventory();
 
-            var pokemons =
-                inventory.InventoryDelta.InventoryItems
-                .Select(i => i.InventoryItemData?.Pokemon)
-                    .Where(p => p != null && p?.PokemonId > 0)
-                    .OrderByDescending(key => key.Cp);
-
-            var families = inventory.InventoryDelta.InventoryItems
-                .Select(i => i.InventoryItemData?.PokemonFamily)
-                .Where(p => p != null && (int)p?.FamilyId > 0)
-                .OrderByDescending(p => (int)p.FamilyId);
+            // Get Pokemons and Pokemon Families
+            var pokemons = await _inventory.GetPokeListPokemon();
+            var families = await _inventory.GetPokeListPokemonFamilies();
 
             var imageList = new ImageList { ImageSize = new Size(50, 50) };
+            var myPokemonsCount = pokemons.Count();
             pokemonListView.ShowItemToolTips = true;
 
             // Add Pokemon ListViewItems to a list
             var pokeList = new List<ListViewItem>();
+            var pokeIndex = 0;
             foreach (var pokemon in pokemons)
             {
                 ListViewItem listViewItem = new ListViewItem();
@@ -82,14 +79,26 @@ namespace PokemonGo.RocketAPI.GUI
                 listViewItem.Tag = pokemon.Id;
                 listViewItem.ToolTipText = "Candy: " + currentCandy;
 
+                // Pokemon List Loading Progress
+                pokeIndex += 1;
+                lbPokeListLoading.Text = $"{pokeIndex}/{myPokemonsCount}";
+
                 pokeList.Add(listViewItem);
             }
+
+            lbPokeListLoading.Visible = false;
 
             // Add all Pokemon ListViewItems to pokemonListView all at once
             ListViewItem[] pokeArray = pokeList.ToArray();
             pokemonListView.BeginUpdate();
             pokemonListView.Items.AddRange(pokeArray);
             pokemonListView.EndUpdate();
+        }
+
+        private void resetLoadProgress()
+        {
+            lbPokeListLoading.Text = "Loading...";
+            lbPokeListLoading.Visible = true;
         }
 
         private async Task<Bitmap> GetPokemonImageAsync(int pokemonId)
@@ -168,7 +177,7 @@ namespace PokemonGo.RocketAPI.GUI
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
                     var id = (ulong)item.Tag;
-                    await client.TransferPokemon(id);
+                    await _client.TransferPokemon(id);
                 }
             }
 
@@ -183,7 +192,7 @@ namespace PokemonGo.RocketAPI.GUI
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
                     var id = (ulong)item.Tag;
-                    var newPokemon = await client.EvolvePokemon(id);
+                    var newPokemon = await _client.EvolvePokemon(id);
 
                     if (newPokemon.Result == EvolvePokemonStatus.PokemonEvolvedSuccess)
                         MessageBox.Show($"Congratulations with your new pokemon {newPokemon.EvolvedPokemon.PokemonType.ToString()} with {newPokemon.EvolvedPokemon.Cp} CP!");
@@ -206,7 +215,7 @@ namespace PokemonGo.RocketAPI.GUI
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
                     var id = (ulong)item.Tag;
-                    var poweredUpPokemon = await client.PowerUpPokemon(id);
+                    var poweredUpPokemon = await _client.PowerUpPokemon(id);
 
                     if (poweredUpPokemon.Result == EvolvePokemonStatus.FailedInsufficientResources)
                         MessageBox.Show("Insufficient Resources!");

@@ -674,7 +674,6 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PoGo Bot - SimpleGUI v1.3";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGrid)).EndInit();
             this.groupBox2.ResumeLayout(false);

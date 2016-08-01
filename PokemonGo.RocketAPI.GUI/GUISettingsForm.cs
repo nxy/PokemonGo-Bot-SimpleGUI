@@ -26,7 +26,8 @@ namespace PokemonGo.RocketAPI.GUI
             boxIVMin.Text = GUISettings.Default.minIV.ToString();
             boxMinBerry.Text = GUISettings.Default.minBerry.ToString();
 
-            checkAutoTransfer.Checked = GUISettings.Default.autoEvolveTransfer;
+            checkAutoEvolve.Checked = GUISettings.Default.autoEvolve;
+            checkAutoTransfer.Checked = GUISettings.Default.autoTransfer;
         }
 
         private void btnSaveSettings_Click(object sender, EventArgs e)
@@ -40,7 +41,8 @@ namespace PokemonGo.RocketAPI.GUI
                 GUISettings.Default.minIV = int.Parse(boxIVMin.Text);
                 GUISettings.Default.minBerry = int.Parse(boxMinBerry.Text);
 
-                GUISettings.Default.autoEvolveTransfer = checkAutoTransfer.Checked;
+                GUISettings.Default.autoEvolve = checkAutoEvolve.Checked;
+                GUISettings.Default.autoTransfer = checkAutoTransfer.Checked;
 
                 GUISettings.Default.Save();
                 this.Close();
