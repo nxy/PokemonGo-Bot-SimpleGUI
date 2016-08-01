@@ -191,14 +191,14 @@ namespace PokemonGo.RocketAPI.GUI
             if (dialogResult == DialogResult.Yes)
             {
                 // Unique Pokemons Dictionary
-                Dictionary<string, int> uniquePokemonDictionary = new Dictionary<string, int>();
+                List<string> uniquePokemonList = new List<string>();
+
+                // Get Pokemon Families
+                var families = await _inventory.GetPokeListPokemonFamilies();
 
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
                     await _client.TransferPokemon((ulong)item.Tag);
-
-                    // Get Pokemon Families
-                    var families = await _inventory.GetPokeListPokemonFamilies();
 
                     // Get Pokemon Index Id
                     var pokemonIndexId = int.Parse(item.SubItems[4].Text);
@@ -209,33 +209,36 @@ namespace PokemonGo.RocketAPI.GUI
                         .Select(f => f.FamilyId)
                         .First();
 
-                    // Get Pokemon Candies
-                    var currentCandy = families
-                        .Where(i => (int)i.FamilyId <= pokemonIndexId)
-                        .Select(f => f.Candy)
-                        .First();
-
-                    // Checker for Unique Pokemon Family Ids
-                    if (uniquePokemonDictionary.ContainsKey(pokemonFamilyId.ToString()))
-                        uniquePokemonDictionary[pokemonFamilyId.ToString()] = currentCandy;
-                    else
-                        uniquePokemonDictionary.Add(pokemonFamilyId.ToString(), currentCandy);
+                    // Add Unique Pokemon Family Ids
+                    if (!uniquePokemonList.Contains(pokemonFamilyId.ToString()))
+                        uniquePokemonList.Add(pokemonFamilyId.ToString());
 
                     Logger.Write($"Transferred {item.SubItems[1].Text} with {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
                     pokemonListView.Items.Remove(item);
                 }
 
                 // Checker for Unique Evolved Pokemon Families
-                if (uniquePokemonDictionary.Count() != 0)
+                if (uniquePokemonList.Count() != 0)
                 {
-                    int currentCandy;
+                    // Get Updated Pokemon Families
+                    families = await _inventory.GetPokeListPokemonFamilies();
+
                     foreach (ListViewItem item in pokemonListView.Items)
                     {
                         // Get Pokemon Family Id
                         var pokemonFamilyId = item.SubItems[5].Text;
 
+                        // Get Pokemon Index Id
+                        var pokemonIndexId = int.Parse(item.SubItems[4].Text);
+
+                        // Get Pokemon Candies
+                        var currentCandy = families
+                            .Where(i => (int)i.FamilyId <= pokemonIndexId)
+                            .Select(f => f.Candy)
+                            .First();
+
                         // Updates Candies of Pokemon related to any Evolved Pokemon Family
-                        if (uniquePokemonDictionary.TryGetValue(pokemonFamilyId, out currentCandy))
+                        if (uniquePokemonList.Contains(pokemonFamilyId))
                             item.ToolTipText = "Candy: " + currentCandy;
                     }
                 }
@@ -274,7 +277,10 @@ namespace PokemonGo.RocketAPI.GUI
             if (dialogResult == DialogResult.Yes)
             {
                 // Unique Pokemons Dictionary
-                Dictionary<string, int> uniquePokemonDictionary = new Dictionary<string, int>();
+                List<string> uniquePokemonList = new List<string>();
+
+                // Get Pokemon Families
+                var families = await _inventory.GetPokeListPokemonFamilies();
 
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
@@ -286,8 +292,6 @@ namespace PokemonGo.RocketAPI.GUI
                         MessageBox.Show("Unable to powerup more for your current level!");
                     else if (poweredUpPokemon.Result == EvolvePokemonStatus.PokemonEvolvedSuccess)
                     {
-                        // Get Pokemon Families
-                        var families = await _inventory.GetPokeListPokemonFamilies();
 
                         // Get Pokemon Index Id
                         var pokemonIndexId = int.Parse(item.SubItems[4].Text);
@@ -298,21 +302,13 @@ namespace PokemonGo.RocketAPI.GUI
                             .Select(f => f.FamilyId)
                             .First();
 
-                        // Get Pokemon Candies
-                        var currentCandy = families
-                            .Where(i => (int)i.FamilyId <= pokemonIndexId)
-                            .Select(f => f.Candy)
-                            .First();
-
                         // Update Pokemon Info
                         item.SubItems[2].Text = poweredUpPokemon.EvolvedPokemon.Cp.ToString();
                         item.Text = string.Format("{0}\nCP {1} IV {2}%", item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text);
 
-                        // Checker for Unique Pokemon Family Ids
-                        if (uniquePokemonDictionary.ContainsKey(pokemonFamilyId.ToString()))
-                            uniquePokemonDictionary[pokemonFamilyId.ToString()] = currentCandy;
-                        else
-                            uniquePokemonDictionary.Add(pokemonFamilyId.ToString(), currentCandy);
+                        // Add Unique Pokemon Family Ids
+                        if (!uniquePokemonList.Contains(pokemonFamilyId.ToString()))
+                            uniquePokemonList.Add(pokemonFamilyId.ToString());
 
                         // Logging
                         Logger.Write($"Powered Up {item.SubItems[1].Text} with {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
@@ -322,16 +318,27 @@ namespace PokemonGo.RocketAPI.GUI
                 }
 
                 // Checker for Unique Evolved Pokemon Families
-                if (uniquePokemonDictionary.Count() != 0)
+                if (uniquePokemonList.Count() != 0)
                 {
-                    int currentCandy;
+                    // Get Updated Pokemon Families
+                    families = await _inventory.GetPokeListPokemonFamilies();
+
                     foreach (ListViewItem item in pokemonListView.Items)
                     {
                         // Get Pokemon Family Id
                         var pokemonFamilyId = item.SubItems[5].Text;
 
+                        // Get Pokemon Index Id
+                        var pokemonIndexId = int.Parse(item.SubItems[4].Text);
+
+                        // Get Pokemon Candies
+                        var currentCandy = families
+                            .Where(i => (int)i.FamilyId <= pokemonIndexId)
+                            .Select(f => f.Candy)
+                            .First();
+
                         // Updates Candies of Pokemon related to any Evolved Pokemon Family
-                        if (uniquePokemonDictionary.TryGetValue(pokemonFamilyId, out currentCandy))
+                        if (uniquePokemonList.Contains(pokemonFamilyId))
                             item.ToolTipText = "Candy: " + currentCandy;
                     }
                 }
