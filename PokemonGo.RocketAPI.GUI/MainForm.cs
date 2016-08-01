@@ -683,7 +683,7 @@ namespace PokemonGo.RocketAPI.GUI
                 if (iv < GUISettings.Default.minIV && duplicatePokemon.Cp < GUISettings.Default.minCP)
                 {
                     var transfer = await _client.TransferPokemon(duplicatePokemon.Id);
-                    Logger.Write($"Transfer {duplicatePokemon.PokemonId} with {duplicatePokemon.Cp} CP and an IV of { iv }");
+                    Logger.Write($"Transferred {duplicatePokemon.PokemonId} with {duplicatePokemon.Cp} CP and an IV of { iv }.");
 
                     // Add Row to DataGrid
                     dGrid.Rows.Insert(0, "Transferred", duplicatePokemon.PokemonId.ToString(), duplicatePokemon.Cp, $"{iv}%");

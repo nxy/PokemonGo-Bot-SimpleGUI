@@ -12,46 +12,43 @@ using System.Net;
 using System.IO;
 using PokemonGo.RocketAPI.GeneratedCode;
 using System.Collections;
-using System.Diagnostics;
+using PokemonGo.RocketAPI.Logic;
 
 namespace PokemonGo.RocketAPI.GUI
 {
     public partial class PokemonForm : Form
     {
-        Client client;
+        private Client _client;
+        private Inventory _inventory;
 
         public PokemonForm(Client client)
         {
-            this.client = client;
+            _client = client;
+            _inventory = new Inventory(client);
             InitializeComponent();
         }
 
         private async void PokemonForm_Load(object sender, EventArgs e)
         {
+            resetLoadProgress();
             await Execute();
         }
 
         private async Task Execute()
-        {            
+        {
             pokemonListView.Clear();
-            var inventory = await client.GetInventory();
 
-            var pokemons =
-                inventory.InventoryDelta.InventoryItems
-                .Select(i => i.InventoryItemData?.Pokemon)
-                    .Where(p => p != null && p?.PokemonId > 0)
-                    .OrderByDescending(key => key.Cp);
-
-            var families = inventory.InventoryDelta.InventoryItems
-                .Select(i => i.InventoryItemData?.PokemonFamily)
-                .Where(p => p != null && (int)p?.FamilyId > 0)
-                .OrderByDescending(p => (int)p.FamilyId);
+            // Get Pokemons and Pokemon Families
+            var pokemons = await _inventory.GetPokeListPokemon();
+            var families = await _inventory.GetPokeListPokemonFamilies();
 
             var imageList = new ImageList { ImageSize = new Size(50, 50) };
+            var myPokemonsCount = pokemons.Count();
             pokemonListView.ShowItemToolTips = true;
 
             // Add Pokemon ListViewItems to a list
             var pokeList = new List<ListViewItem>();
+            var pokeIndex = 0;
             foreach (var pokemon in pokemons)
             {
                 ListViewItem listViewItem = new ListViewItem();
@@ -81,8 +78,14 @@ namespace PokemonGo.RocketAPI.GUI
                 listViewItem.Tag = pokemon.Id;
                 listViewItem.ToolTipText = "Candy: " + currentCandy;
 
+                // Pokemon List Loading Progress
+                pokeIndex += 1;
+                lbPokeListLoading.Text = $"{pokeIndex}/{myPokemonsCount}";
+
                 pokeList.Add(listViewItem);
             }
+
+            lbPokeListLoading.Visible = false;
 
             // Add all Pokemon ListViewItems to pokemonListView all at once
             ListViewItem[] pokeArray = pokeList.ToArray();
@@ -91,9 +94,15 @@ namespace PokemonGo.RocketAPI.GUI
             pokemonListView.EndUpdate();
         }
 
+        private void resetLoadProgress()
+        {
+            lbPokeListLoading.Text = "Loading...";
+            lbPokeListLoading.Visible = true;
+        }
+
         private async Task<Bitmap> GetPokemonImageAsync(int pokemonId)
         {
-            WebRequest req = WebRequest.Create("http://pokeapi.co/media/sprites/pokemon/"+pokemonId+".png");
+            WebRequest req = WebRequest.Create("http://pokeapi.co/media/sprites/pokemon/" + pokemonId + ".png");
             WebResponse res = await req.GetResponseAsync();
             Stream resStream = res.GetResponseStream();
             return new Bitmap(resStream);
@@ -111,12 +120,11 @@ namespace PokemonGo.RocketAPI.GUI
             {
                 foreach (ListViewItem item in pokemonListView.SelectedItems)
                 {
-                    var id = (ulong)item.Tag;
-                    await client.TransferPokemon(id);
+                    await _client.TransferPokemon((ulong)item.Tag);
+                    Logger.Write($"Transferred {item.SubItems[1].Text} with {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
+                    pokemonListView.Items.Remove(item);
                 }
             }
-
-            await Execute();      
         }
 
         private void pokemonListViewItemSorter(int subItemsColumn)
