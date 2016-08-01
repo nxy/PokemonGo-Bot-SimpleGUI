@@ -91,7 +91,7 @@ namespace PokemonGo.RocketAPI.GUI
                 // Setup Console
                 console = new ConsoleForm();
                 console.StartPosition = FormStartPosition.Manual;                
-                console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);                
+                console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);
 
                 // Start Loading
                 StartLogger();
@@ -354,7 +354,6 @@ namespace PokemonGo.RocketAPI.GUI
             recycleItemsToolStripMenuItem.Enabled = false;
             transferDuplicatePokemonToolStripMenuItem.Enabled = false;
             viewMyPokemonsToolStripMenuItem.Enabled = false;
-
             stopToolStripMenuItem.Enabled = true;
         }
 

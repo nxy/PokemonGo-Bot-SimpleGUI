@@ -12,6 +12,7 @@ using System.Net;
 using System.IO;
 using PokemonGo.RocketAPI.GeneratedCode;
 using System.Collections;
+using static PokemonGo.RocketAPI.GeneratedCode.EvolvePokemonOut.Types;
 using PokemonGo.RocketAPI.Logic;
 
 namespace PokemonGo.RocketAPI.GUI
@@ -113,20 +114,6 @@ namespace PokemonGo.RocketAPI.GUI
             MessageBox.Show(pokemonListView.SelectedItems[0].Tag.ToString());
         }
 
-        private async void btnTransfer_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Do you really want to transfer selected pokemon(s)?\nYou will never see them again :(", "Confirm Transfer", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                foreach (ListViewItem item in pokemonListView.SelectedItems)
-                {
-                    await _client.TransferPokemon((ulong)item.Tag);
-                    Logger.Write($"Transferred {item.SubItems[1].Text} with {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
-                    pokemonListView.Items.Remove(item);
-                }
-            }
-        }
-
         private void pokemonListViewItemSorter(int subItemsColumn)
         {
             ItemComparer sorter = pokemonListView.ListViewItemSorter as ItemComparer;
@@ -134,11 +121,6 @@ namespace PokemonGo.RocketAPI.GUI
             if (sorter == null)
             {
                 sorter = new ItemComparer(subItemsColumn);
-
-                // Bug fix for IV (Occurs when Sort IV is selected first, as it should Descend)
-                if (subItemsColumn == 3)
-                    sorter.Order = SortOrder.Ascending;
-
                 pokemonListView.ListViewItemSorter = sorter;
             }
 
@@ -185,6 +167,84 @@ namespace PokemonGo.RocketAPI.GUI
         private void sortByNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pokemonListViewItemSorter(1);
+        }
+
+        private async void transferSelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you really want to transfer selected pokemon(s)?\nYou will never see them again :(", "Confirm Transfer", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                foreach (ListViewItem item in pokemonListView.SelectedItems)
+                {
+                    var id = (ulong)item.Tag;
+                    await _client.TransferPokemon(id);
+                }
+            }
+
+            await Execute();
+        }
+
+        private async void evolveSelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you really want to evolve selected pokemon(s)?", "Confirm evolve", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                foreach (ListViewItem item in pokemonListView.SelectedItems)
+                {
+                    var id = (ulong)item.Tag;
+                    var newPokemon = await _client.EvolvePokemon(id);
+
+                    if (newPokemon.Result == EvolvePokemonStatus.PokemonEvolvedSuccess)
+                        MessageBox.Show($"Congratulations with your new pokemon {newPokemon.EvolvedPokemon.PokemonType.ToString()} with {newPokemon.EvolvedPokemon.Cp} CP!");
+                    else if (newPokemon.Result == EvolvePokemonStatus.FailedInsufficientResources)
+                        MessageBox.Show("Insufficient Resources!");
+                    else
+                        MessageBox.Show($"Error: {newPokemon.Result.ToString()}");
+
+                }
+            }
+
+            await Execute();
+        }
+
+        private async void powerupSelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you really want to power up selected pokemon(s)?", "Confirm power up", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                foreach (ListViewItem item in pokemonListView.SelectedItems)
+                {
+                    var id = (ulong)item.Tag;
+                    var poweredUpPokemon = await _client.PowerUpPokemon(id);
+
+                    if (poweredUpPokemon.Result == EvolvePokemonStatus.FailedInsufficientResources)
+                        MessageBox.Show("Insufficient Resources!");
+                    else if (poweredUpPokemon.Result == EvolvePokemonStatus.FailedPokemonCannotEvolve)
+                        MessageBox.Show("Unable to powerup more for your current level!");
+                    else if (poweredUpPokemon.Result == EvolvePokemonStatus.PokemonEvolvedSuccess)
+                        MessageBox.Show($"Powerup success! New cp: {poweredUpPokemon.EvolvedPokemon.Cp}");
+                    else
+                        MessageBox.Show($"Error: {poweredUpPokemon.Result.ToString()}");
+
+                }
+            }
+
+            await Execute();
+        }
+
+        private void pokemonListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (pokemonListView.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    ContextMenuStrip myContextMenuStrip = new ContextMenuStrip();
+                    myContextMenuStrip.Items.Add("Transfer selected pokémons", null, transferSelectedToolStripMenuItem_Click);
+                    myContextMenuStrip.Items.Add("Evolve selected pokémons", null, evolveSelectedToolStripMenuItem_Click);
+                    myContextMenuStrip.Items.Add("Powerup selected pokémons", null, powerupSelectedToolStripMenuItem_Click);
+                    myContextMenuStrip.Show(pokemonListView, e.Location);
+                }
+            }
         }
     }
 
