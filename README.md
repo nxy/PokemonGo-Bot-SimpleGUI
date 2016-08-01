@@ -12,6 +12,45 @@ This project is to create a simple GUI application for the Pokemon Go Rocket API
 - Extracts the contents of the zip file.
 - Open the PoGoBot-GUI.exe file.
 - That's it! Just enter your credentials, select your starting location from the map and start farming.
+# How to start boting
+- Login with PTC/GOOGLE
+- Select prefer place
+- Click Set Location
+- Click in menu PoGo Bot
+- Farming 
+- Start
+- Well done :)
+
+# How to remove softBan
+- Click in menu PoGo Bot
+- Click Force Remove Ban
+- Waiting and check console
+
+# How to Recycle
+- If Farming
+- Click in menu PoGo Bot
+- Farming 
+- Stop
+- Click in menu My Inventory
+- Click Recycle
+
+# How to Evolve All Pokemon
+- If Farming
+- Click in menu PoGo Bot
+- Farming 
+- Stop
+- Click in menu My Pokemon
+- Click Evolve All Pokemon (w/Candy)
+- Console write "Finished Evolving Pokemons." done evolving
+ 
+# How to Transfer Duplicate Pokemon
+- If Farming
+- Click in menu PoGo Bot
+- Farming 
+- Stop
+- Click in menu My Pokemon
+- Click Transfer Duplicate Pokemon
+- Console write "Finished Transfering Pokemons." done transfering
 
 ## The Advanced
 - Download Visual Studio 2015.
