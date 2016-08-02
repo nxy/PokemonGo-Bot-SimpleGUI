@@ -18,6 +18,7 @@ using PokemonGo.RocketAPI.GUI.Exceptions;
 using System.Reflection;
 using PokemonGo.RocketAPI.GUI.Navigation;
 using GeoCoordinatePortable;
+using System.Drawing;
 
 namespace PokemonGo.RocketAPI.GUI
 {  
@@ -1156,11 +1157,15 @@ namespace PokemonGo.RocketAPI.GUI
         {
             if (consoleTextBox.Visible)
             {
+                var upArrowBmp = new Bitmap(PokemonGo.RocketAPI.GUI.Properties.Resources.upArrow);
+                arrowButton.Image = upArrowBmp;
                 consoleTextBox.Visible = false;
                 this.Height = originalFormHeight - consoleTextBox.Height;
             }
             else
             {
+                var downArrowBmp = new Bitmap(PokemonGo.RocketAPI.GUI.Properties.Resources.downArrow);
+                arrowButton.Image = downArrowBmp;
                 consoleTextBox.Visible = true;
                 this.Height = originalFormHeight;
             }
