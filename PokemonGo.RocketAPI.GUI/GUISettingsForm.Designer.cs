@@ -46,10 +46,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.checkAutoTransfer = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkHumanWalking = new System.Windows.Forms.CheckBox();
-            this.boxHumanWalkingSpeed = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.boxHumanWalkingSpeed = new System.Windows.Forms.TextBox();
+            this.checkHumanWalking = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.checkSilentRecycle = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -212,33 +213,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Human Walking Simulation";
             // 
-            // checkHumanWalking
-            // 
-            this.checkHumanWalking.AutoSize = true;
-            this.checkHumanWalking.Location = new System.Drawing.Point(6, 21);
-            this.checkHumanWalking.Name = "checkHumanWalking";
-            this.checkHumanWalking.Size = new System.Drawing.Size(66, 17);
-            this.checkHumanWalking.TabIndex = 17;
-            this.checkHumanWalking.Text = "Enable?";
-            this.checkHumanWalking.UseVisualStyleBackColor = true;
-            // 
-            // boxHumanWalkingSpeed
-            // 
-            this.boxHumanWalkingSpeed.Location = new System.Drawing.Point(188, 19);
-            this.boxHumanWalkingSpeed.Name = "boxHumanWalkingSpeed";
-            this.boxHumanWalkingSpeed.Size = new System.Drawing.Size(50, 22);
-            this.boxHumanWalkingSpeed.TabIndex = 17;
-            this.boxHumanWalkingSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(138, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 13);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Speed?";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -249,11 +223,49 @@
             this.label10.TabIndex = 17;
             this.label10.Text = "Regular human walking speed is around 5.0";
             // 
+            // boxHumanWalkingSpeed
+            // 
+            this.boxHumanWalkingSpeed.Location = new System.Drawing.Point(188, 19);
+            this.boxHumanWalkingSpeed.Name = "boxHumanWalkingSpeed";
+            this.boxHumanWalkingSpeed.Size = new System.Drawing.Size(50, 22);
+            this.boxHumanWalkingSpeed.TabIndex = 17;
+            this.boxHumanWalkingSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // checkHumanWalking
+            // 
+            this.checkHumanWalking.AutoSize = true;
+            this.checkHumanWalking.Location = new System.Drawing.Point(6, 21);
+            this.checkHumanWalking.Name = "checkHumanWalking";
+            this.checkHumanWalking.Size = new System.Drawing.Size(66, 17);
+            this.checkHumanWalking.TabIndex = 17;
+            this.checkHumanWalking.Text = "Enable?";
+            this.checkHumanWalking.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(138, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Speed?";
+            // 
+            // checkSilentRecycle
+            // 
+            this.checkSilentRecycle.AutoSize = true;
+            this.checkSilentRecycle.Location = new System.Drawing.Point(284, 184);
+            this.checkSilentRecycle.Name = "checkSilentRecycle";
+            this.checkSilentRecycle.Size = new System.Drawing.Size(245, 30);
+            this.checkSilentRecycle.TabIndex = 17;
+            this.checkSilentRecycle.Text = "Enable Silent Recyle (This will recycle items \r\nsilently every 5 minutes).";
+            this.checkSilentRecycle.UseVisualStyleBackColor = true;
+            // 
             // GUISettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(539, 303);
+            this.Controls.Add(this.checkSilentRecycle);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkAutoTransfer);
             this.Controls.Add(this.label7);
@@ -310,5 +322,6 @@
         private System.Windows.Forms.TextBox boxHumanWalkingSpeed;
         private System.Windows.Forms.CheckBox checkHumanWalking;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox checkSilentRecycle;
     }
 }

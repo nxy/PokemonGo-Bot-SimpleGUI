@@ -52,6 +52,7 @@
             this.farmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.snipePokemonsBetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forceRemoveBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +85,7 @@
             this.boxStatsExpHour = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.consoleTextBox = new System.Windows.Forms.TextBox();
-            this.arrowButton = new System.Windows.Forms.Button();
+            this.consoleShowHideButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGrid)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -321,6 +322,7 @@
             // 
             this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.farmingToolStripMenuItem,
+            this.snipePokemonsBetaToolStripMenuItem,
             this.forceRemoveBanToolStripMenuItem,
             this.showStatisticsToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -334,7 +336,7 @@
             this.startToolStripMenuItem,
             this.stopToolStripMenuItem});
             this.farmingToolStripMenuItem.Name = "farmingToolStripMenuItem";
-            this.farmingToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.farmingToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.farmingToolStripMenuItem.Text = "Farming";
             // 
             // startToolStripMenuItem
@@ -351,24 +353,31 @@
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
+            // snipePokemonsBetaToolStripMenuItem
+            // 
+            this.snipePokemonsBetaToolStripMenuItem.Name = "snipePokemonsBetaToolStripMenuItem";
+            this.snipePokemonsBetaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.snipePokemonsBetaToolStripMenuItem.Text = "Snipe Pokemon(s) (Beta)";
+            this.snipePokemonsBetaToolStripMenuItem.Click += new System.EventHandler(this.snipePokemonsBetaToolStripMenuItem_Click);
+            // 
             // forceRemoveBanToolStripMenuItem
             // 
             this.forceRemoveBanToolStripMenuItem.Name = "forceRemoveBanToolStripMenuItem";
-            this.forceRemoveBanToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.forceRemoveBanToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.forceRemoveBanToolStripMenuItem.Text = "Force Remove Ban";
             this.forceRemoveBanToolStripMenuItem.Click += new System.EventHandler(this.forceRemoveBanToolStripMenuItem_Click);
             // 
             // showStatisticsToolStripMenuItem
             // 
             this.showStatisticsToolStripMenuItem.Name = "showStatisticsToolStripMenuItem";
-            this.showStatisticsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.showStatisticsToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.showStatisticsToolStripMenuItem.Text = "Display Statistics";
             this.showStatisticsToolStripMenuItem.Click += new System.EventHandler(this.showStatisticsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -652,26 +661,26 @@
             this.consoleTextBox.Multiline = true;
             this.consoleTextBox.Name = "consoleTextBox";
             this.consoleTextBox.Size = new System.Drawing.Size(1044, 155);
-            this.consoleTextBox.TabIndex = 21;
+            this.consoleTextBox.TabIndex = 22;
             // 
-            // arrowButton
+            // consoleShowHideButton
             // 
-            this.arrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.arrowButton.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.arrowButton.Image = global::PokemonGo.RocketAPI.GUI.Properties.Resources.downArrow;
-            this.arrowButton.Location = new System.Drawing.Point(1009, 603);
-            this.arrowButton.Name = "arrowButton";
-            this.arrowButton.Size = new System.Drawing.Size(20, 20);
-            this.arrowButton.TabIndex = 22;
-            this.arrowButton.UseVisualStyleBackColor = true;
-            this.arrowButton.Click += new System.EventHandler(this.arrowButton_Click);
+            this.consoleShowHideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.consoleShowHideButton.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.consoleShowHideButton.Image = global::PokemonGo.RocketAPI.GUI.Properties.Resources.downArrow;
+            this.consoleShowHideButton.Location = new System.Drawing.Point(1009, 603);
+            this.consoleShowHideButton.Name = "consoleShowHideButton";
+            this.consoleShowHideButton.Size = new System.Drawing.Size(20, 20);
+            this.consoleShowHideButton.TabIndex = 23;
+            this.consoleShowHideButton.UseVisualStyleBackColor = true;
+            this.consoleShowHideButton.Click += new System.EventHandler(this.consoleShowHideButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1044, 779);
-            this.Controls.Add(this.arrowButton);
+            this.Controls.Add(this.consoleShowHideButton);
             this.Controls.Add(this.consoleTextBox);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -760,8 +769,9 @@
         private System.Windows.Forms.Label label8;
         private GMap.NET.WindowsForms.GMapControl MainMap;
         private System.Windows.Forms.ToolStripMenuItem forceRemoveBanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem snipePokemonsBetaToolStripMenuItem;
         private System.Windows.Forms.TextBox consoleTextBox;
-        private System.Windows.Forms.Button arrowButton;
+        private System.Windows.Forms.Button consoleShowHideButton;
     }
 }
 

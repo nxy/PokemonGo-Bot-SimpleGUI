@@ -166,5 +166,17 @@ namespace PokemonGo.RocketAPI.GUI {
                 this["humanWalkingSpeed"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool enableSilentRecycle {
+            get {
+                return ((bool)(this["enableSilentRecycle"]));
+            }
+            set {
+                this["enableSilentRecycle"] = value;
+            }
+        }
     }
 }

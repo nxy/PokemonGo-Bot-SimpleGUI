@@ -1,4 +1,5 @@
 ﻿using PokemonGo.RocketAPI.Enums;
+using PokemonGo.RocketAPI.GUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace PokemonGo.RocketAPI.GUI
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
-        {
+        {            
             boxUsername.Text = GUISettings.Default.username;
             boxPassword.Text = GUISettings.Default.password;
 
