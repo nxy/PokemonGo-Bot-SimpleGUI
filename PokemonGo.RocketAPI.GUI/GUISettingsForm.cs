@@ -34,6 +34,8 @@ namespace PokemonGo.RocketAPI.GUI
                 GUISettings.Default.humanWalkingEnabled = checkHumanWalking.Checked;
                 GUISettings.Default.humanWalkingSpeed = double.Parse(boxHumanWalkingSpeed.Text);
 
+                GUISettings.Default.enableSilentRecycle = checkSilentRecycle.Checked;
+
                 GUISettings.Default.Save();
                 this.Close();
             }
@@ -57,6 +59,8 @@ namespace PokemonGo.RocketAPI.GUI
 
             checkHumanWalking.Checked = GUISettings.Default.humanWalkingEnabled;
             boxHumanWalkingSpeed.Text = GUISettings.Default.humanWalkingSpeed.ToString();
+
+            checkSilentRecycle.Checked = GUISettings.Default.enableSilentRecycle;
         }
     }
 }

@@ -14,6 +14,7 @@ using PokemonGo.RocketAPI.GeneratedCode;
 using System.Collections;
 using static PokemonGo.RocketAPI.GeneratedCode.EvolvePokemonOut.Types;
 using PokemonGo.RocketAPI.Logic;
+using PokemonGo.RocketAPI.GUI.Helpers;
 
 namespace PokemonGo.RocketAPI.GUI
 {
@@ -31,8 +32,16 @@ namespace PokemonGo.RocketAPI.GUI
 
         private async void PokemonForm_Load(object sender, EventArgs e)
         {
-            resetLoadProgress();
-            await Execute();
+            try
+            {
+                resetLoadProgress();
+                await Execute();
+            }
+            catch (Exception ex)
+            {
+                ErrorReportCreator.Create("MyPokemonList", "Unable to Open My Pokemon List", ex);
+            }           
+        
         }
 
         private async Task Execute()

@@ -1,4 +1,5 @@
 ﻿using GMap.NET.MapProviders;
+using PokemonGo.RocketAPI.GUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -122,9 +123,10 @@ namespace PokemonGo.RocketAPI.GUI
                 // Close this Window
                 this.Hide();
             }
-            catch
+            catch (Exception ex)
             {
                 MessageBox.Show("Invalid Data on Lat/Lng", "PoGo Bot");
+                ErrorReportCreator.Create("SetLocationErrorLog", "Error while picking the location", ex);
             }
         }
 

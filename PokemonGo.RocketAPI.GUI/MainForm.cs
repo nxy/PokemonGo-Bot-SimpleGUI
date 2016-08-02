@@ -35,6 +35,7 @@ namespace PokemonGo.RocketAPI.GUI
         private int pokemonStorageSize;
 
         // Persisting Login Info
+        private bool _loginSuccess = false;
         private AuthType _loginMethod;
         private string _username;
         private string _password;
@@ -100,7 +101,9 @@ namespace PokemonGo.RocketAPI.GUI
                 CleanUp();
 
                 // Begin Process
-                await DisplayLoginWindow();                
+                if (!await DisplayLoginWindow())
+                    throw new LoginNotSelectedException("Unable to Login");
+
                 DisplayPositionSelector();
                 await GetStorageSizes();
                 await GetCurrentPlayerInformation();
@@ -109,6 +112,7 @@ namespace PokemonGo.RocketAPI.GUI
                 // Starts the Timer for the Silent Recycle
                 _recycleItemTimer = new System.Timers.Timer(5 * 60 * 1000); // 5 Minute timer
                 _recycleItemTimer.Start();
+                _recycleItemTimer.Elapsed += _recycleItemTimer_Elapsed;
             }
             catch (LoginNotSelectedException ex)
             {
@@ -117,18 +121,16 @@ namespace PokemonGo.RocketAPI.GUI
             }
             catch (Exception ex)
             {
-                // Exception Notification
-                APINotifications.SendNotification($"{ex.Message}{Environment.NewLine}{ex.StackTrace}", $"App Loading: {ex.GetType()}", 0);
+                ErrorReportCreator.Create("BotLoadingError", "Unable to Load the Bot", ex);
                 MessageBox.Show("Unable to Start the Bot.", "PoGo Bot");
                 Application.Exit();
-            }
-
-            _recycleItemTimer.Elapsed += _recycleItemTimer_Elapsed;
+            }            
         }
 
         private async void _recycleItemTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            await SilentRecycle();
+            if (GUISettings.Default.enableSilentRecycle)
+                await SilentRecycle();
         }
 
         private void DisplayPositionSelector()
@@ -149,12 +151,8 @@ namespace PokemonGo.RocketAPI.GUI
             }
             catch(Exception ex)
             {
-                // Exception Notification
-                APINotifications.SendNotification(ex.Message, ex.GetType().ToString(), 0);
-
                 // Write a Detailed Log Report
-                File.WriteAllText(Directory.GetCurrentDirectory() + "\\Location.ErrorLog." + DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".txt",
-                    ex.Message + Environment.NewLine + Environment.NewLine + ex.StackTrace);
+                ErrorReportCreator.Create("SelectLocation", "Unable To Select Location", ex);
 
                 MessageBox.Show(@"You need to declare a valid starting location.", @"Safety Check");
                 MessageBox.Show(@"To protect your account of a possible soft ban, the software will close.", @"Safety Check");
@@ -171,7 +169,7 @@ namespace PokemonGo.RocketAPI.GUI
             SetupLocationMap();
         }
 
-        private async Task DisplayLoginWindow()
+        private async Task<bool> DisplayLoginWindow()
         {
             // Display Login
             Hide();
@@ -192,16 +190,22 @@ namespace PokemonGo.RocketAPI.GUI
             if (loginForm.auth == AuthType.Ptc)
                 await LoginPtc(loginForm.boxUsername.Text, loginForm.boxPassword.Text);
             if (loginForm.auth == AuthType.Google)
-                await LoginGoogle(loginForm.boxUsername.Text, loginForm.boxPassword.Text);
+                await LoginGoogle(loginForm.boxUsername.Text, loginForm.boxPassword.Text);            
 
             // New Login Notification
-            APINotifications.SendNotification($"Using {loginForm.auth} with version {typeof(MainForm).Assembly.GetName().Version}", "New Login", 0);
+            // Notify the API (Pending)
 
             // Select the Location
             Logger.Write("Select Starting Location...");
 
             // Close the Login Form
             loginForm.Close();
+
+            // Check if Login was Successful
+            if (_loginSuccess)
+                return true;
+            else
+                return false;
         }
 
         private void StartLogger()
@@ -239,6 +243,7 @@ namespace PokemonGo.RocketAPI.GUI
                 _inventory = new Inventory(client);
                 _profile = await client.GetProfile();
                 EnableButtons();
+                _loginSuccess = true;
             }
             catch (GoogleException ex)
             {
@@ -253,12 +258,20 @@ namespace PokemonGo.RocketAPI.GUI
                     sb.AppendLine();
                     sb.AppendLine("This will generate a random password use that password login to the bot.");                    
                     MessageBox.Show(sb.ToString(), "Google 2 Factor Authentication");
+                    Application.Exit();
+                }
 
+                if(ex.Message.Contains("BadAuth"))
+                {
+                    MessageBox.Show("Your Google Credentials are incorrect.", "Google Login");
                     Application.Exit();
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                // Error Logging
+                ErrorReportCreator.Create("GoogleLoginError", "Unable to Login with Google", ex);
+
                 Logger.Write("Unable to Connect using the Google Token.");
                 MessageBox.Show(@"Unable to Authenticate with Login Server.", @"Login Problem");
                 Application.Exit();
@@ -288,16 +301,20 @@ namespace PokemonGo.RocketAPI.GUI
                 await client.SetServer();
 
                 // Server Ready
-                Logger.Write("Connected! Server is Ready.");
+                Logger.Write("Connected! Server is Ready.");                
                 _client = client;
 
                 Logger.Write("Attempting to Retrieve Inventory and Player Profile...");
                 _inventory = new Inventory(client);
                 _profile = await client.GetProfile();
                 EnableButtons();
+                _loginSuccess = true;
             }         
-            catch
+            catch(Exception ex)
             {
+                // Error Logging
+                ErrorReportCreator.Create("PTCLoginError", "Unable to Login with PTC", ex);
+
                 Logger.Write("Unable to Connect using the PTC Credentials.");
                 MessageBox.Show(@"Unable to Authenticate with Login Server.", @"Login Problem");
                 Application.Exit();
@@ -434,18 +451,17 @@ namespace PokemonGo.RocketAPI.GUI
                 }
                 catch (Exception ex)
                 {
-                    // Exception Notification
-                    APINotifications.SendNotification(ex.Message, $"Farming Session: {ex.GetType()}", 0);
-
                     // Write Error to Console
                     Logger.Write($"Error: {ex.Message}");
 
-                    // Write a Detailed Log Report
-                    File.WriteAllText(Directory.GetCurrentDirectory() + "\\Farming.ErrorLog." + DateTime.Now.ToString("yyyyMMddHHmmssfff"), 
-                        ex.Message + Environment.NewLine + Environment.NewLine + ex.StackTrace);
+                    // Create Log Report
+                    ErrorReportCreator.Create("BotFarming", "General Exception while Farming", ex);
 
-                    // Stop Farming
-                    stopToolStripMenuItem_Click(null, null);
+                    // Need to Re-Authenticate (In Testing)
+                    await reauthenticateWithServer();
+
+                    // Disable Buttons
+                    disableButtonsDuringFarming();
                 }
             }           
         }
@@ -745,8 +761,8 @@ namespace PokemonGo.RocketAPI.GUI
             }
             catch (Exception ex)
             {
-                // Exception Notification
-                APINotifications.SendNotification(ex.Message, $"Manual Recycle: {ex.GetType()}", 0);
+                // Create Error Log
+                ErrorReportCreator.Create("SilentRecycleError", "Problem during Silent Recycling", ex);
 
                 Logger.Write($"Error Details: {ex.Message}");
                 Logger.Write("Unable to Complete Items Recycling.");
@@ -764,10 +780,9 @@ namespace PokemonGo.RocketAPI.GUI
                     await Task.Delay(500);
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                // Exception Notification
-                APINotifications.SendNotification(ex.Message, $"Silent Recycle: {ex.GetType()}", 0);
+
             }
         }
 
@@ -850,7 +865,6 @@ namespace PokemonGo.RocketAPI.GUI
         }
 
         Random r = new Random();
-        private bool HumanWalkingEnabled = true;
         private async Task ExecuteFarmingPokestopsAndPokemons()
         {
             var mapObjects = await _client.GetMapObjects();
@@ -892,7 +906,16 @@ namespace PokemonGo.RocketAPI.GUI
 
                 await GetCurrentPlayerInformation();
                 Logger.Write("Attempting to Capture Nearby Pokemons.");
-                await ExecuteCatchAllNearbyPokemons();
+
+                try
+                {
+                    await ExecuteCatchAllNearbyPokemons();
+                }
+                catch(Exception ex)
+                {
+                    Logger.Write("Error while trying to catch nearby Pokemon(s).");
+                    ErrorReportCreator.Create("CatchingNearbyPokemonError", "Unable to Catch Nearby Pokemon(s).", ex);
+                }
 
                 if (!_isFarmingActive)
                 {
@@ -988,7 +1011,7 @@ namespace PokemonGo.RocketAPI.GUI
                 while (_isFarmingActive)
                 {
                     stopToolStripMenuItem_Click(null, null);
-                    await Task.Delay(25);
+                    await Task.Delay(10000);
                 }
 
                 Logger.Write("Starting force unban...");
@@ -996,7 +1019,7 @@ namespace PokemonGo.RocketAPI.GUI
                 var mapObjects = await _client.GetMapObjects();
                 var pokeStops = mapObjects.MapCells.SelectMany(i => i.Forts).Where(i => i.Type == FortType.Checkpoint && i.CooldownCompleteTimestampMs < DateTime.UtcNow.ToUnixTime());
 
-                await Task.Delay(10000);
+                await Task.Delay(1000);
                 bool done = false;
 
                 foreach (var pokeStop in pokeStops)
@@ -1006,7 +1029,7 @@ namespace PokemonGo.RocketAPI.GUI
 
                     if (fortInfo.Name != string.Empty)
                     {
-                        Logger.Write("Chosen PokeStop " + fortInfo.Name + ", Starting the Process (Should take less than 1 min)...");
+                        Logger.Write("Chosen PokeStop " + fortInfo.Name + ", Starting the Process (Should take less than 1 min)");
                         for (int i = 1; i <= 50; i++)
                         {
                             var fortSearch = await _client.SearchFort(pokeStop.Id, pokeStop.Latitude, pokeStop.Longitude);

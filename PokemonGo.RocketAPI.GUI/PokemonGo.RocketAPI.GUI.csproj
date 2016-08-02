@@ -113,6 +113,7 @@
       <DependentUpon>GUISettings.settings</DependentUpon>
     </Compile>
     <Compile Include="Helpers\APINotifications.cs" />
+    <Compile Include="Helpers\ErrorReportCreator.cs" />
     <Compile Include="Helpers\LocationUtils.cs" />
     <Compile Include="LocationSelector.cs">
       <SubType>Form</SubType>
