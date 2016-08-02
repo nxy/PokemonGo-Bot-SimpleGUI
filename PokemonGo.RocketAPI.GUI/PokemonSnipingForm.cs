@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -48,7 +49,8 @@ namespace PokemonGo.RocketAPI.GUI
                 btnSnipe.Enabled = false;
 
                 // Verify the Coordinates are valid
-                string[] coordinates = boxCoordinates.Text.Trim().Split(',');
+                string delim = Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+                string[] coordinates = boxCoordinates.Text.Trim().Replace(',', '/').Replace('.', char.Parse(delim)).Split('/');
                 double lat = double.Parse(coordinates[0]);
                 double lng = double.Parse(coordinates[1]);
                 textResults.AppendText("Coordinates are valid." + Environment.NewLine);
