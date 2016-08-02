@@ -140,6 +140,12 @@
     <Compile Include="PokemonForm.Designer.cs">
       <DependentUpon>PokemonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PokemonSnipingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PokemonSnipingForm.Designer.cs">
+      <DependentUpon>PokemonSnipingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -166,6 +172,9 @@
     <EmbeddedResource Include="PokemonForm.resx">
       <DependentUpon>PokemonForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PokemonSnipingForm.resx">
+      <DependentUpon>PokemonSnipingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

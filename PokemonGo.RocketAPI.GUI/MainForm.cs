@@ -1184,5 +1184,18 @@ namespace PokemonGo.RocketAPI.GUI
         {
             await ForceUnban();
         }
+
+        private void snipePokemonsBetaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!_isFarmingActive)
+            {
+                PokemonSnipingForm snipingForm = new PokemonSnipingForm(_client, _inventory);
+                snipingForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Farming must be stopped before using this feature.", "PoGo Bot");
+            }
+        }
     }
 }
