@@ -72,6 +72,9 @@ namespace PokemonGo.RocketAPI.GUI
                     .Select(f => f.FamilyId)
                     .First();
 
+                // Get Pokemon Capture Date / Time
+                DateTime pokemonCaptureDate = GetPokemonCaptureDate(pokemon.CreationTimeMs);
+
                 // Get Pokemon Image List Index
                 var imageIndex = imageList.Images.IndexOfKey(pokemon.PokemonId.ToString());
 
@@ -83,11 +86,12 @@ namespace PokemonGo.RocketAPI.GUI
 
                 pokemonListView.LargeImageList = imageList;
                 var pokemonIv = Math.Floor(Logic.Logic.CalculatePokemonPerfection(pokemon));
-                listViewItem.SubItems.Add(pokemon.PokemonId.ToString());
-                listViewItem.SubItems.Add(pokemon.Cp.ToString());
-                listViewItem.SubItems.Add(pokemonIv.ToString());
-                listViewItem.SubItems.Add(pokemonIndexId.ToString());
-                listViewItem.SubItems.Add(pokemonFamilyId.ToString());
+                listViewItem.SubItems.Add(pokemon.PokemonId.ToString()); // Col 1: Name
+                listViewItem.SubItems.Add(pokemon.Cp.ToString()); // Col 2: CP
+                listViewItem.SubItems.Add(pokemonIv.ToString()); // Col 3: IV
+                listViewItem.SubItems.Add(pokemonIndexId.ToString()); // Col 4: Index Number
+                listViewItem.SubItems.Add(pokemonFamilyId.ToString()); // Col 5: Family Id
+                listViewItem.SubItems.Add(pokemonCaptureDate.ToString()); // Col 6: Capture Date
 
                 var currentCandy = families
                     .Where(i => (int)i.FamilyId <= pokemonIndexId)
@@ -113,6 +117,12 @@ namespace PokemonGo.RocketAPI.GUI
             pokemonListView.BeginUpdate();
             pokemonListView.Items.AddRange(pokeArray);
             pokemonListView.EndUpdate();
+        }
+
+        private static DateTime GetPokemonCaptureDate(ulong milliseconds)
+        {
+            DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            return start.AddMilliseconds(milliseconds).ToLocalTime();
         }
 
         private void resetLoadProgress()
@@ -142,8 +152,8 @@ namespace PokemonGo.RocketAPI.GUI
             {
                 sorter = new ItemComparer(subItemsColumn);
 
-                // Bug fix for IV (Occurs when Sort IV is selected first, as it should Descend)
-                if (subItemsColumn == 3)
+                // Bug fix for IV & Newest(Occurs when Sort IV/Newest is selected first, as it should Descend)
+                if (subItemsColumn == 3 || subItemsColumn == 6)
                     sorter.Order = SortOrder.Ascending;
 
                 pokemonListView.ListViewItemSorter = sorter;
@@ -174,6 +184,14 @@ namespace PokemonGo.RocketAPI.GUI
                 // Default Sort Order for Name
                 else if (subItemsColumn == 1)
                     sorter.Order = SortOrder.Ascending;
+
+                // Default Sort Order for Newest
+                else if (subItemsColumn == 6)
+                    sorter.Order = SortOrder.Descending;
+
+                // Default Sort Order for Index Number
+                else if (subItemsColumn == 4)
+                    sorter.Order = SortOrder.Ascending;
             }
 
             pokemonListView.Sort();
@@ -192,6 +210,16 @@ namespace PokemonGo.RocketAPI.GUI
         private void sortByNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pokemonListViewItemSorter(1);
+        }
+
+        private void sortByNewestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pokemonListViewItemSorter(6);
+        }
+
+        private void sortByIndexNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pokemonListViewItemSorter(4);
         }
 
         private async void transferSelectedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -375,10 +403,10 @@ namespace PokemonGo.RocketAPI.GUI
 
     public class ItemComparer : IComparer
     {
-        // Column used for comparison
+        // Column for Comparison
         public int Column { get; set; }
 
-        // Order of sorting
+        // Order of Sorting
         public SortOrder Order { get; set; }
 
         public ItemComparer(int colIndex)
@@ -403,8 +431,7 @@ namespace PokemonGo.RocketAPI.GUI
             if (itemA == itemB)
                 result = 0;
 
-            /*
-            // datetime comparison
+            // Datetime Comparison
             DateTime x1, y1;
             // Parse the two objects passed as a parameter as a DateTime.
             if (!DateTime.TryParse(itemA.SubItems[Column].Text, out x1))
@@ -414,9 +441,8 @@ namespace PokemonGo.RocketAPI.GUI
             result = DateTime.Compare(x1, y1);
             if (x1 != DateTime.MinValue && y1 != DateTime.MinValue)
                 goto done;
-            */
 
-            // Numeric comparison
+            // Numeric Comparison
             decimal x2, y2;
 
             if (!Decimal.TryParse(itemA.SubItems[Column].Text, out x2))
@@ -427,7 +453,7 @@ namespace PokemonGo.RocketAPI.GUI
             if (x2 != Decimal.MinValue && y2 != Decimal.MinValue)
                 goto done;
 
-            //alphabetic comparison
+            // Alphabetic Comparison
             result = String.Compare(itemA.SubItems[Column].Text, itemB.SubItems[Column].Text);
 
         done:
