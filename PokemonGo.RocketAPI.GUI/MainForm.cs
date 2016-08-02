@@ -34,13 +34,13 @@ namespace PokemonGo.RocketAPI.GUI
         private int itemStorageSize;
         private int pokemonStorageSize;
 
+        // Pesisting Form Height
+        private int originalFormHeight;
+
         // Persisting Login Info
         private AuthType _loginMethod;
         private string _username;
         private string _password;
-
-        // Create Console Window
-        ConsoleForm console;
 
         private bool _isFarmingActive;
 
@@ -90,10 +90,8 @@ namespace PokemonGo.RocketAPI.GUI
         {
             try
             {
-                // Setup Console
-                console = new ConsoleForm();
-                console.StartPosition = FormStartPosition.Manual;                
-                console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);
+                // Set Default Form Height
+                originalFormHeight = this.Height;
 
                 // Start Loading
                 StartLogger();
@@ -182,9 +180,6 @@ namespace PokemonGo.RocketAPI.GUI
             if (!loginForm.loginSelected)
                 throw new LoginNotSelectedException("Login information was not provided. Unable to start bot without this information.");
 
-            // Display Console
-            console.Show();
-
             // Display the Main Window
             Show();
 
@@ -207,7 +202,7 @@ namespace PokemonGo.RocketAPI.GUI
         private void StartLogger()
         {
             GUILogger guiLog = new GUILogger(LogLevel.Info);
-            guiLog.setLoggingBox(console.boxConsole);
+            guiLog.setLoggingBox(consoleTextBox);
             Logger.SetLogger(guiLog);
         }
 
@@ -1108,11 +1103,6 @@ namespace PokemonGo.RocketAPI.GUI
             StopBottingSession();
         }
 
-        private void displayConsoleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            console.Show();
-        }
-
         private async void recycleItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             await RecycleItems();
@@ -1160,6 +1150,20 @@ namespace PokemonGo.RocketAPI.GUI
         private async void forceRemoveBanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             await ForceUnban();
+        }
+
+        private void arrowButton_Click(object sender, EventArgs e)
+        {
+            if (consoleTextBox.Visible)
+            {
+                consoleTextBox.Visible = false;
+                this.Height = originalFormHeight - consoleTextBox.Height;
+            }
+            else
+            {
+                consoleTextBox.Visible = true;
+                this.Height = originalFormHeight;
+            }
         }
     }
 }

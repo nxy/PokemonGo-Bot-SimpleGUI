@@ -53,7 +53,6 @@
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forceRemoveBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myPokemonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,6 +83,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.boxStatsExpHour = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.consoleTextBox = new System.Windows.Forms.TextBox();
+            this.arrowButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGrid)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -110,7 +111,7 @@
             this.lbPokemonsInventory.Location = new System.Drawing.Point(8, 46);
             this.lbPokemonsInventory.Margin = new System.Windows.Forms.Padding(5, 15, 3, 0);
             this.lbPokemonsInventory.Name = "lbPokemonsInventory";
-            this.lbPokemonsInventory.Size = new System.Drawing.Size(99, 30);
+            this.lbPokemonsInventory.Size = new System.Drawing.Size(100, 30);
             this.lbPokemonsInventory.TabIndex = 3;
             this.lbPokemonsInventory.Text = "Pokemon";
             // 
@@ -143,7 +144,7 @@
             this.lbName.Location = new System.Drawing.Point(9, 56);
             this.lbName.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(388, 47);
+            this.lbName.Size = new System.Drawing.Size(392, 47);
             this.lbName.TabIndex = 0;
             this.lbName.Text = "PokemonTrainerName";
             // 
@@ -241,7 +242,7 @@
             this.label15.Location = new System.Drawing.Point(6, 125);
             this.label15.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(99, 30);
+            this.label15.Size = new System.Drawing.Size(100, 30);
             this.label15.TabIndex = 10;
             this.label15.Text = "Pokemon";
             // 
@@ -251,7 +252,7 @@
             this.label7.Location = new System.Drawing.Point(6, 85);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 30);
+            this.label7.Size = new System.Drawing.Size(98, 30);
             this.label7.TabIndex = 2;
             this.label7.Text = "Pokestop";
             // 
@@ -321,7 +322,6 @@
             this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.farmingToolStripMenuItem,
             this.forceRemoveBanToolStripMenuItem,
-            this.displayConsoleToolStripMenuItem,
             this.showStatisticsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
@@ -357,13 +357,6 @@
             this.forceRemoveBanToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.forceRemoveBanToolStripMenuItem.Text = "Force Remove Ban";
             this.forceRemoveBanToolStripMenuItem.Click += new System.EventHandler(this.forceRemoveBanToolStripMenuItem_Click);
-            // 
-            // displayConsoleToolStripMenuItem
-            // 
-            this.displayConsoleToolStripMenuItem.Name = "displayConsoleToolStripMenuItem";
-            this.displayConsoleToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.displayConsoleToolStripMenuItem.Text = "Display Console";
-            this.displayConsoleToolStripMenuItem.Click += new System.EventHandler(this.displayConsoleToolStripMenuItem_Click);
             // 
             // showStatisticsToolStripMenuItem
             // 
@@ -425,7 +418,7 @@
             this.luckyEgg0ToolStripMenuItem,
             this.incence0ToolStripMenuItem});
             this.useItemsToolStripMenuItem.Name = "useItemsToolStripMenuItem";
-            this.useItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.useItemsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.useItemsToolStripMenuItem.Text = "Use Item(s)";
             // 
             // luckyEgg0ToolStripMenuItem
@@ -445,7 +438,7 @@
             // recycleItemsToolStripMenuItem
             // 
             this.recycleItemsToolStripMenuItem.Name = "recycleItemsToolStripMenuItem";
-            this.recycleItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.recycleItemsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.recycleItemsToolStripMenuItem.Text = "Recycle Items";
             this.recycleItemsToolStripMenuItem.Click += new System.EventHandler(this.recycleItemsToolStripMenuItem_Click);
             // 
@@ -628,7 +621,7 @@
             this.label5.Location = new System.Drawing.Point(8, 166);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 30);
+            this.label5.Size = new System.Drawing.Size(152, 30);
             this.label5.TabIndex = 14;
             this.label5.Text = "Total Pokemon";
             // 
@@ -649,15 +642,37 @@
             this.label8.Location = new System.Drawing.Point(8, 126);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(153, 30);
+            this.label8.Size = new System.Drawing.Size(154, 30);
             this.label8.TabIndex = 13;
             this.label8.Text = "Pokemon/Hour";
+            // 
+            // consoleTextBox
+            // 
+            this.consoleTextBox.Location = new System.Drawing.Point(0, 625);
+            this.consoleTextBox.Multiline = true;
+            this.consoleTextBox.Name = "consoleTextBox";
+            this.consoleTextBox.Size = new System.Drawing.Size(1044, 155);
+            this.consoleTextBox.TabIndex = 21;
+            // 
+            // arrowButton
+            // 
+            this.arrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.arrowButton.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.arrowButton.Image = global::PokemonGo.RocketAPI.GUI.Properties.Resources.downArrow;
+            this.arrowButton.Location = new System.Drawing.Point(1009, 603);
+            this.arrowButton.Name = "arrowButton";
+            this.arrowButton.Size = new System.Drawing.Size(20, 20);
+            this.arrowButton.TabIndex = 22;
+            this.arrowButton.UseVisualStyleBackColor = true;
+            this.arrowButton.Click += new System.EventHandler(this.arrowButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1044, 621);
+            this.ClientSize = new System.Drawing.Size(1044, 779);
+            this.Controls.Add(this.arrowButton);
+            this.Controls.Add(this.consoleTextBox);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbName);
@@ -743,9 +758,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox boxStatsExpHour;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ToolStripMenuItem displayConsoleToolStripMenuItem;
         private GMap.NET.WindowsForms.GMapControl MainMap;
         private System.Windows.Forms.ToolStripMenuItem forceRemoveBanToolStripMenuItem;
+        private System.Windows.Forms.TextBox consoleTextBox;
+        private System.Windows.Forms.Button arrowButton;
     }
 }
 
