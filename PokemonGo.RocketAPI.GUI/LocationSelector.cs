@@ -37,6 +37,7 @@ namespace PokemonGo.RocketAPI.GUI
         private void addGoodFarmingLocations()
         {
             // Good Farming Locations (Create Issue in GutHub to Add More)
+            // Removed nests (Pokemon Migration)
             comboLocations.Items.Add(new Loc() { name = "London, England", lat = 51.501663, lng = -0.14102 });
             comboLocations.Items.Add(new Loc() { name = "Myrtle Beach, SC, USA", lat = 33.714451, lng = -78.877194 });
             comboLocations.Items.Add(new Loc() { name = "Santa Monica Pier, LA, USA", lat = 34.00873594425199, lng = -118.49761247634888 });
@@ -50,9 +51,6 @@ namespace PokemonGo.RocketAPI.GUI
             comboLocations.Items.Add(new Loc() { name = "Dusseldorf, Germany", lat = 51.224382, lng = 6.778896   });
             comboLocations.Items.Add(new Loc() { name = "Tokyo, Japan", lat = 35.69051125265253, lng = 139.68954205513 });
             comboLocations.Items.Add(new Loc() { name = "Disneyland Park", lat = 33.8120962, lng = -117.9189742 });
-            comboLocations.Items.Add(new Loc() { name = "Magikarp Nest - Amsterdam, Netherlands", lat = 52.373124, lng = 4.895865 });
-            comboLocations.Items.Add(new Loc() { name = "Dratini Nest - Sacramento USA", lat = 38.548232549872026, lng = -121.23232841491698 });
-            comboLocations.Items.Add(new Loc() { name = "Machop Nest - Tulsa,Zoo USA", lat = 36.210981, lng = -95.908203 });
             comboLocations.Items.Add(new Loc() { name = "Times Square, NY, USA", lat = 40.758838, lng = -73.985270 });
         }        
 
