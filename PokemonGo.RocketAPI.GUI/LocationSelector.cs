@@ -37,7 +37,7 @@ namespace PokemonGo.RocketAPI.GUI
         private void addGoodFarmingLocations()
         {
             // Good Farming Locations (Create Issue in GutHub to Add More)
-            // Removed nests (Pokemon Migration)
+            // Removed nests (Migration)
             comboLocations.Items.Add(new Loc() { name = "London, England", lat = 51.501663, lng = -0.14102 });
             comboLocations.Items.Add(new Loc() { name = "Myrtle Beach, SC, USA", lat = 33.714451, lng = -78.877194 });
             comboLocations.Items.Add(new Loc() { name = "Santa Monica Pier, LA, USA", lat = 34.00873594425199, lng = -118.49761247634888 });
