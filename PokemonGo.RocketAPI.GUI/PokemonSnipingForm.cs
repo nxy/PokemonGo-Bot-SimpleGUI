@@ -73,12 +73,20 @@ namespace PokemonGo.RocketAPI.GUI
                     textResults.AppendText("Removed soft ban with success." + Environment.NewLine);
                 }
 
-                // Maybe walk to the location instead of teleporting...
-                var distanceToPokemon = Helpers.LocationUtils.CalculateDistanceInMeters(new GeoCoordinate(_client.CurrentLat, _client.CurrentLng), new GeoCoordinate(lat, lng));
-                textResults.AppendText($"Walking from Pokestop to the Pokemon, will take {distanceToPokemon / (60 / 3.6):0.0} seconds..." + Environment.NewLine);
-                Navigation.HumanWalking walker = new Navigation.HumanWalking(_client);
-                await walker.Walk(new GeoCoordinate(lat, lng), 60);
-                textResults.AppendText("Arrived to Pokemon Location, will try to catch it now." + Environment.NewLine);
+                // Use Teleporting if No Human Walking Enabled
+                if (!GUISettings.Default.humanWalkingEnabled)
+                {
+                    await _client.UpdatePlayerLocation(_lat, _lng, UserSettings.Default.DefaultAltitude);
+                    textResults.AppendText("Teleported to Pokemon, will try to catch it now." + Environment.NewLine);
+                }
+                else
+                {
+                    var distanceToPokemon = Helpers.LocationUtils.CalculateDistanceInMeters(new GeoCoordinate(_client.CurrentLat, _client.CurrentLng), new GeoCoordinate(lat, lng));
+                    textResults.AppendText($"Walking from Pokestop to the Pokemon, will take {distanceToPokemon / (60 / 3.6):0.0} seconds..." + Environment.NewLine);
+                    Navigation.HumanWalking walker = new Navigation.HumanWalking(_client);
+                    await walker.Walk(new GeoCoordinate(lat, lng), 60);
+                    textResults.AppendText("Arrived to Pokemon Location, will try to catch it now." + Environment.NewLine);
+                }
 
                 // Catch Pokemons in the Area
                 await ExecuteCatchAllNearbyPokemons();
