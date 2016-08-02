@@ -2,6 +2,7 @@
 using PokemonGo.RocketAPI.Enums;
 using PokemonGo.RocketAPI.Extensions;
 using PokemonGo.RocketAPI.GeneratedCode;
+using PokemonGo.RocketAPI.GUI.Helpers;
 using PokemonGo.RocketAPI.Logic;
 using System;
 using System.Collections.Generic;
@@ -76,9 +77,6 @@ namespace PokemonGo.RocketAPI.GUI
                 Navigation.HumanWalking walker = new Navigation.HumanWalking(_client);
                 await walker.Walk(new GeoCoordinate(lat, lng), 60);
                 textResults.AppendText("Arrived to Pokemon Location, will try to catch it now." + Environment.NewLine);
-
-                // Teleport to Location...
-                //await _client.UpdatePlayerLocation(lat, lng, _client.Settings.DefaultAltitude);
 
                 // Catch Pokemons in the Area
                 await ExecuteCatchAllNearbyPokemons();
@@ -173,6 +171,13 @@ namespace PokemonGo.RocketAPI.GUI
                 var pokemonIv = Logic.Logic.CalculatePokemonPerfection(encounterPokemonResponse?.WildPokemon?.PokemonData).ToString("0.00") + "%";
                 var pokeball = await GetBestBall(pokemonCp);
 
+                if (encounterPokemonResponse.ToString().Contains("ENCOUNTER_NOT_FOUND"))
+                {
+                    textResults.AppendText("Pokemon ran away...");
+                    continue;
+                }
+                    
+
                 textResults.AppendText($"Fighting {pokemon.PokemonId} with Capture Probability of {(encounterPokemonResponse?.CaptureProbability.CaptureProbability_.First()) * 100:0.0}%" + Environment.NewLine);
                 textResults.AppendText($"Current Location is {pokemon.Latitude}, {pokemon.Longitude}" + Environment.NewLine);
 
@@ -190,6 +195,17 @@ namespace PokemonGo.RocketAPI.GUI
                 while (caughtPokemonResponse.Status == CatchPokemonResponse.Types.CatchStatus.CatchMissed);
 
                 textResults.AppendText(caughtPokemonResponse.Status == CatchPokemonResponse.Types.CatchStatus.CatchSuccess ? $"We caught a {pokemon.PokemonId} with CP {encounterPokemonResponse?.WildPokemon?.PokemonData?.Cp} using a {pokeball}" + Environment.NewLine : $"{pokemon.PokemonId} with CP {encounterPokemonResponse?.WildPokemon?.PokemonData?.Cp} got away while using a {pokeball}.." + Environment.NewLine);
+
+                if (caughtPokemonResponse.Status == CatchPokemonResponse.Types.CatchStatus.CatchSuccess)
+                {
+                    // Update Pokemon Information
+                    APINotifications.UpdatePokemonCaptured(pokemon.PokemonId.ToString(),
+                        encounterPokemonResponse?.WildPokemon?.PokemonData?.Cp,
+                        float.Parse(pokemonIv.Replace('%', ' ')),
+                        pokemon.Latitude,
+                        pokemon.Longitude
+                        );
+                }
             }
         }
 

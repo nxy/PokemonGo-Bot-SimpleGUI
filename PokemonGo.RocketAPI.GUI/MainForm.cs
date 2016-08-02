@@ -72,6 +72,21 @@ namespace PokemonGo.RocketAPI.GUI
             _pokemonCaughtCount = 0;            
         }
 
+        #region Usage Report
+        private Timer usageTimer = new Timer();
+        private void StartAppUsageReporting()
+        {
+            usageTimer.Tick += UsageTick;
+            usageTimer.Interval = 60000;
+            usageTimer.Start();
+        }
+
+        private void UsageTick(object sender, EventArgs e)
+        {
+            APINotifications.UpdateAppUsage();
+        }
+        #endregion
+
         private void SetupLocationMap()
         {
             MainMap.DragButton = MouseButtons.Left;
@@ -113,6 +128,7 @@ namespace PokemonGo.RocketAPI.GUI
                 _recycleItemTimer = new System.Timers.Timer(5 * 60 * 1000); // 5 Minute timer
                 _recycleItemTimer.Start();
                 _recycleItemTimer.Elapsed += _recycleItemTimer_Elapsed;
+                StartAppUsageReporting();
             }
             catch (LoginNotSelectedException ex)
             {
@@ -945,6 +961,12 @@ namespace PokemonGo.RocketAPI.GUI
                 var pokemonIv = Logic.Logic.CalculatePokemonPerfection(encounterPokemonResponse?.WildPokemon?.PokemonData).ToString("0.00") + "%";
                 var pokeball = await GetBestBall(pokemonCp);
 
+                if (encounterPokemonResponse.ToString().Contains("ENCOUNTER_NOT_FOUND"))
+                {
+                    Logger.Write("Pokemon ran away...");
+                    continue;
+                }
+
                 Logger.Write($"Fighting {pokemon.PokemonId} with Capture Probability of {(encounterPokemonResponse?.CaptureProbability.CaptureProbability_.First())*100:0.0}%");
 
                 boxPokemonName.Text = pokemon.PokemonId.ToString();
@@ -974,6 +996,14 @@ namespace PokemonGo.RocketAPI.GUI
                     _totalExperience += fightExperience;
                     Logger.Write("Gained " + fightExperience + " XP.");
                     _pokemonCaughtCount++;
+
+                    // Update Pokemon Information
+                    APINotifications.UpdatePokemonCaptured(pokemon.PokemonId.ToString(), 
+                        encounterPokemonResponse?.WildPokemon?.PokemonData?.Cp, 
+                        float.Parse(pokemonIv.Replace('%',' ')),
+                        pokemon.Latitude,
+                        pokemon.Longitude
+                        );
 
                     // Add Row to the DataGrid
                     dGrid.Rows.Insert(0, "Captured", pokemon.PokemonId.ToString(), encounterPokemonResponse?.WildPokemon?.PokemonData?.Cp, pokemonIv);

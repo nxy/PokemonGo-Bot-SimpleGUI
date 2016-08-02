@@ -34,7 +34,10 @@ namespace PokemonGo.RocketAPI.Logic
 
         public static float CalculatePokemonPerfection(PokemonData poke)
         {
-            return (poke.IndividualAttack*2 + poke.IndividualDefense + poke.IndividualStamina)/(4.0f*15.0f)*100.0f;
+            if (poke != null)
+                return (poke.IndividualAttack * 2 + poke.IndividualDefense + poke.IndividualStamina) / (4.0f * 15.0f) * 100.0f;
+            else
+                return 0;
         }
 
         private async Task DisplayPlayerLevelInTitle(bool updateOnly = false)
