@@ -133,14 +133,15 @@
             // 
             // lbPokeListLoading
             // 
-            this.lbPokeListLoading.AutoSize = true;
+            this.lbPokeListLoading.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbPokeListLoading.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPokeListLoading.Location = new System.Drawing.Point(255, 190);
+            this.lbPokeListLoading.Location = new System.Drawing.Point(0, 24);
             this.lbPokeListLoading.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.lbPokeListLoading.Name = "lbPokeListLoading";
-            this.lbPokeListLoading.Size = new System.Drawing.Size(102, 30);
+            this.lbPokeListLoading.Size = new System.Drawing.Size(622, 387);
             this.lbPokeListLoading.TabIndex = 11;
             this.lbPokeListLoading.Text = "Loading...";
+            this.lbPokeListLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PokemonForm
             // 
