@@ -1227,5 +1227,10 @@ namespace PokemonGo.RocketAPI.GUI
                 MessageBox.Show("Farming must be stopped before using this feature.", "PoGo Bot");
             }
         }
+
+        private void newLocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayPositionSelector();
+        }
     }
 }
