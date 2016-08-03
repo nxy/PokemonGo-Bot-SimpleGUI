@@ -54,7 +54,6 @@
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.snipePokemonsBetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forceRemoveBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showStatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myPokemonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -327,7 +326,6 @@
             this.farmingToolStripMenuItem,
             this.snipePokemonsBetaToolStripMenuItem,
             this.forceRemoveBanToolStripMenuItem,
-            this.displayConsoleToolStripMenuItem,
             this.showStatisticsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
@@ -370,13 +368,6 @@
             this.forceRemoveBanToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.forceRemoveBanToolStripMenuItem.Text = "Force Remove Ban";
             this.forceRemoveBanToolStripMenuItem.Click += new System.EventHandler(this.forceRemoveBanToolStripMenuItem_Click);
-            // 
-            // displayConsoleToolStripMenuItem
-            // 
-            this.displayConsoleToolStripMenuItem.Name = "displayConsoleToolStripMenuItem";
-            this.displayConsoleToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.displayConsoleToolStripMenuItem.Text = "Display Console";
-            this.displayConsoleToolStripMenuItem.Click += new System.EventHandler(this.displayConsoleToolStripMenuItem_Click);
             // 
             // showStatisticsToolStripMenuItem
             // 
@@ -785,7 +776,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox boxStatsExpHour;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ToolStripMenuItem displayConsoleToolStripMenuItem;
         private GMap.NET.WindowsForms.GMapControl MainMap;
         private System.Windows.Forms.ToolStripMenuItem forceRemoveBanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem snipePokemonsBetaToolStripMenuItem;

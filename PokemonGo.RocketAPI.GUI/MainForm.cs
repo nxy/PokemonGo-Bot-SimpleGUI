@@ -1157,11 +1157,6 @@ namespace PokemonGo.RocketAPI.GUI
             StopBottingSession();
         }
 
-        private void displayConsoleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private async void recycleItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             await RecycleItems();
