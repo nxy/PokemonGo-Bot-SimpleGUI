@@ -1228,5 +1228,23 @@ namespace PokemonGo.RocketAPI.GUI
         {
             DisplayPositionSelector();
         }
+
+        private void consoleToggleButton_Click(object sender, EventArgs e)
+        {
+            if (consoleTextBox.Visible)
+            {
+                var upArrowBmp = new Bitmap(PokemonGo.RocketAPI.GUI.Properties.Resources.upArrow);
+                consoleToggleButton.Image = upArrowBmp;
+                consoleTextBox.Visible = false;
+                this.Height = originalFormHeight - consoleTextBox.Height;
+            }
+            else
+            {
+                var downArrowBmp = new Bitmap(PokemonGo.RocketAPI.GUI.Properties.Resources.downArrow);
+                consoleToggleButton.Image = downArrowBmp;
+                consoleTextBox.Visible = true;
+                this.Height = originalFormHeight;
+            }
+        }
     }
 }

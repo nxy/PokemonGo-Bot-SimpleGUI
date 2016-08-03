@@ -87,6 +87,7 @@
             this.boxStatsExpHour = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.consoleTextBox = new System.Windows.Forms.TextBox();
+            this.consoleToggleButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGrid)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -680,11 +681,24 @@
             this.consoleTextBox.Size = new System.Drawing.Size(1044, 155);
             this.consoleTextBox.TabIndex = 23;
             // 
+            // consoleToggleButton
+            // 
+            this.consoleToggleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.consoleToggleButton.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.consoleToggleButton.Image = global::PokemonGo.RocketAPI.GUI.Properties.Resources.downArrow;
+            this.consoleToggleButton.Location = new System.Drawing.Point(1009, 603);
+            this.consoleToggleButton.Name = "consoleToggleButton";
+            this.consoleToggleButton.Size = new System.Drawing.Size(20, 20);
+            this.consoleToggleButton.TabIndex = 24;
+            this.consoleToggleButton.UseVisualStyleBackColor = true;
+            this.consoleToggleButton.Click += new System.EventHandler(this.consoleToggleButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1044, 779);
+            this.Controls.Add(this.consoleToggleButton);
             this.Controls.Add(this.consoleTextBox);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -777,6 +791,7 @@
         private System.Windows.Forms.ToolStripMenuItem snipePokemonsBetaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newLocationToolStripMenuItem;
         private System.Windows.Forms.TextBox consoleTextBox;
+        private System.Windows.Forms.Button consoleToggleButton;
     }
 }
 
