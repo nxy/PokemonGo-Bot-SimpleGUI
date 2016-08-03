@@ -78,11 +78,26 @@ namespace PokemonGo.RocketAPI.GUI
                 // Get Pokemon Image List Index
                 var imageIndex = imageList.Images.IndexOfKey(pokemon.PokemonId.ToString());
 
-                // Checker for Pokemon Image
-                if (imageIndex == -1)
-                    imageList.Images.Add(pokemon.PokemonId.ToString(), await GetPokemonImageAsync(pokemonIndexId));
+                // Get Pokemon Image File Name
+                var pokemonFileName = pokemonIndexId + ".png";
+
+                // Get Image Folder Name
+                var imageFolderName = "Images";
+
+                // Check if Pokemon Image Exists in Directory
+                if (File.Exists(imageFolderName + "\\" + pokemonFileName))
+                {
+                    Image myPokemonImage = Image.FromFile(imageFolderName + "\\" + pokemonFileName);
+                    imageList.Images.Add(pokemon.PokemonId.ToString(), myPokemonImage);
+                }
                 else
-                    imageList.Images.Add(pokemon.PokemonId.ToString(), imageList.Images[imageIndex]);
+                {
+                    // Checker for Image Directory
+                    if (!Directory.Exists(imageFolderName))
+                        Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), imageFolderName));
+
+                    imageList.Images.Add(pokemon.PokemonId.ToString(), await GetPokemonImageAsync(pokemonFileName));
+                }
 
                 pokemonListView.LargeImageList = imageList;
                 var pokemonIv = Math.Floor(Logic.Logic.CalculatePokemonPerfection(pokemon));
@@ -131,12 +146,14 @@ namespace PokemonGo.RocketAPI.GUI
             lbPokeListLoading.Visible = true;
         }
 
-        private async Task<Bitmap> GetPokemonImageAsync(int pokemonId)
+        private async Task<Image> GetPokemonImageAsync(string pokemonFileName)
         {
-            WebRequest req = WebRequest.Create("http://pokeapi.co/media/sprites/pokemon/" + pokemonId + ".png");
-            WebResponse res = await req.GetResponseAsync();
-            Stream resStream = res.GetResponseStream();
-            return new Bitmap(resStream);
+            string localFileName = "Images\\" + pokemonFileName;
+            WebRequest request = WebRequest.Create("http://pokeapi.co/media/sprites/pokemon/" + pokemonFileName);
+            WebResponse response = await request.GetResponseAsync();
+            Image pokemonImage = Image.FromStream(response.GetResponseStream());
+            pokemonImage.Save(localFileName);
+            return pokemonImage;
         }
 
         private void pokemonListView_SelectedIndexChanged(object sender, EventArgs e)
