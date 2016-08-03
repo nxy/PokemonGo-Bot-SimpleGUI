@@ -148,6 +148,13 @@ namespace PokemonGo.RocketAPI.GUI
         {
             ItemComparer sorter = pokemonListView.ListViewItemSorter as ItemComparer;
 
+            // Deselect and remove focus on ListView items before sort
+            foreach (ListViewItem item in pokemonListView.SelectedItems)
+            {
+                item.Selected = false;
+                item.Focused = false;
+            }
+
             if (sorter == null)
             {
                 sorter = new ItemComparer(subItemsColumn);
