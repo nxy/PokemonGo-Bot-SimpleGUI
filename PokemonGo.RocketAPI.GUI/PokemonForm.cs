@@ -258,6 +258,11 @@ namespace PokemonGo.RocketAPI.GUI
                         uniquePokemonList.Add(pokemonFamilyId.ToString());
 
                     Logger.Write($"Transferred {item.SubItems[1].Text} with {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
+
+                    // Reset Selection / Focus
+                    item.Selected = false;
+                    item.Focused = false;
+
                     pokemonListView.Items.Remove(item);
                 }
 
