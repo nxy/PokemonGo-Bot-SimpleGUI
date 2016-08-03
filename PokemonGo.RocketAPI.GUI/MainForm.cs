@@ -18,6 +18,7 @@ using PokemonGo.RocketAPI.GUI.Exceptions;
 using System.Reflection;
 using PokemonGo.RocketAPI.GUI.Navigation;
 using GeoCoordinatePortable;
+using System.Drawing;
 
 namespace PokemonGo.RocketAPI.GUI
 {  
@@ -40,8 +41,8 @@ namespace PokemonGo.RocketAPI.GUI
         private string _username;
         private string _password;
 
-        // Create Console Window
-        ConsoleForm console;
+        // Pesisting MainForm Height
+        private int originalFormHeight;
 
         private bool _isFarmingActive;
 
@@ -106,10 +107,8 @@ namespace PokemonGo.RocketAPI.GUI
         {
             try
             {
-                // Setup Console
-                console = new ConsoleForm();
-                console.StartPosition = FormStartPosition.Manual;                
-                console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);
+                // Set Default MainForm Height
+                originalFormHeight = this.Height;
 
                 // Start Loading
                 StartLogger();
@@ -196,9 +195,6 @@ namespace PokemonGo.RocketAPI.GUI
             if (!loginForm.loginSelected)
                 throw new LoginNotSelectedException("Login information was not provided. Unable to start bot without this information.");
 
-            // Display Console
-            console.Show();
-
             // Display the Main Window
             Show();
 
@@ -227,7 +223,7 @@ namespace PokemonGo.RocketAPI.GUI
         private void StartLogger()
         {
             GUILogger guiLog = new GUILogger(LogLevel.Info);
-            guiLog.setLoggingBox(console.boxConsole);
+            guiLog.setLoggingBox(consoleTextBox);
             Logger.SetLogger(guiLog);
         }
 
@@ -1163,7 +1159,7 @@ namespace PokemonGo.RocketAPI.GUI
 
         private void displayConsoleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            console.Show();
+            
         }
 
         private async void recycleItemsToolStripMenuItem_Click(object sender, EventArgs e)
