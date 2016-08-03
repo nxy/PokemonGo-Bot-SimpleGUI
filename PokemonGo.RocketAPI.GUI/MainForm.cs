@@ -18,7 +18,6 @@ using PokemonGo.RocketAPI.GUI.Exceptions;
 using System.Reflection;
 using PokemonGo.RocketAPI.GUI.Navigation;
 using GeoCoordinatePortable;
-using System.Drawing;
 
 namespace PokemonGo.RocketAPI.GUI
 {  
@@ -41,8 +40,8 @@ namespace PokemonGo.RocketAPI.GUI
         private string _username;
         private string _password;
 
-        // Pesisting MainForm Height
-        private int originalFormHeight;
+        // Create Console Window
+        ConsoleForm console;
 
         private bool _isFarmingActive;
 
@@ -107,8 +106,10 @@ namespace PokemonGo.RocketAPI.GUI
         {
             try
             {
-                // Set Default MainForm Height
-                originalFormHeight = this.Height;
+                // Setup Console
+                console = new ConsoleForm();
+                console.StartPosition = FormStartPosition.Manual;                
+                console.Location = new System.Drawing.Point((Screen.PrimaryScreen.Bounds.Width / 2) - 530, (Screen.PrimaryScreen.Bounds.Height / 2) + 310);
 
                 // Start Loading
                 StartLogger();
@@ -195,6 +196,9 @@ namespace PokemonGo.RocketAPI.GUI
             if (!loginForm.loginSelected)
                 throw new LoginNotSelectedException("Login information was not provided. Unable to start bot without this information.");
 
+            // Display Console
+            console.Show();
+
             // Display the Main Window
             Show();
 
@@ -223,7 +227,7 @@ namespace PokemonGo.RocketAPI.GUI
         private void StartLogger()
         {
             GUILogger guiLog = new GUILogger(LogLevel.Info);
-            guiLog.setLoggingBox(consoleTextBox);
+            guiLog.setLoggingBox(console.boxConsole);
             Logger.SetLogger(guiLog);
         }
 
@@ -1157,6 +1161,11 @@ namespace PokemonGo.RocketAPI.GUI
             StopBottingSession();
         }
 
+        private void displayConsoleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            console.Show();
+        }
+
         private async void recycleItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             await RecycleItems();
@@ -1219,22 +1228,9 @@ namespace PokemonGo.RocketAPI.GUI
             }
         }
 
-        private void consoleShowHideButton_Click(object sender, EventArgs e)
+        private void newLocationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (consoleTextBox.Visible)
-            {
-                var upArrowBmp = new Bitmap(PokemonGo.RocketAPI.GUI.Properties.Resources.upArrow);
-                consoleShowHideButton.Image = upArrowBmp;
-                consoleTextBox.Visible = false;
-                this.Height = originalFormHeight - consoleTextBox.Height;
-            }
-            else
-            {
-                var downArrowBmp = new Bitmap(PokemonGo.RocketAPI.GUI.Properties.Resources.downArrow);
-                consoleShowHideButton.Image = downArrowBmp;
-                consoleTextBox.Visible = true;
-                this.Height = originalFormHeight;
-            }
+            DisplayPositionSelector();
         }
     }
 }
