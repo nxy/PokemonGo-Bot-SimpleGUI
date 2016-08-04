@@ -35,13 +35,14 @@
             this.sortByCPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sortByIVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sortByNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sortByNewestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sortByIndexNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.evolveSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.powerupSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbPokeListLoading = new System.Windows.Forms.Label();
-            this.sortByNewestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sortByIndexNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.pokemonListMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +105,20 @@
             this.sortByNameToolStripMenuItem.Text = "By Name";
             this.sortByNameToolStripMenuItem.Click += new System.EventHandler(this.sortByNameToolStripMenuItem_Click);
             // 
+            // sortByNewestToolStripMenuItem
+            // 
+            this.sortByNewestToolStripMenuItem.Name = "sortByNewestToolStripMenuItem";
+            this.sortByNewestToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.sortByNewestToolStripMenuItem.Text = "By Newest";
+            this.sortByNewestToolStripMenuItem.Click += new System.EventHandler(this.sortByNewestToolStripMenuItem_Click);
+            // 
+            // sortByIndexNumberToolStripMenuItem
+            // 
+            this.sortByIndexNumberToolStripMenuItem.Name = "sortByIndexNumberToolStripMenuItem";
+            this.sortByIndexNumberToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.sortByIndexNumberToolStripMenuItem.Text = "By Index Number";
+            this.sortByIndexNumberToolStripMenuItem.Click += new System.EventHandler(this.sortByIndexNumberToolStripMenuItem_Click);
+            // 
             // actionsToolStripMenuItem
             // 
             this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -147,25 +162,20 @@
             this.lbPokeListLoading.Text = "Loading...";
             this.lbPokeListLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // sortByNewestToolStripMenuItem
+            // searchTextBox
             // 
-            this.sortByNewestToolStripMenuItem.Name = "sortByNewestToolStripMenuItem";
-            this.sortByNewestToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.sortByNewestToolStripMenuItem.Text = "By Newest";
-            this.sortByNewestToolStripMenuItem.Click += new System.EventHandler(this.sortByNewestToolStripMenuItem_Click);
-            // 
-            // sortByIndexNumberToolStripMenuItem
-            // 
-            this.sortByIndexNumberToolStripMenuItem.Name = "sortByIndexNumberToolStripMenuItem";
-            this.sortByIndexNumberToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.sortByIndexNumberToolStripMenuItem.Text = "By Index Number";
-            this.sortByIndexNumberToolStripMenuItem.Click += new System.EventHandler(this.sortByIndexNumberToolStripMenuItem_Click);
+            this.searchTextBox.Location = new System.Drawing.Point(489, 3);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(120, 22);
+            this.searchTextBox.TabIndex = 12;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // PokemonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(622, 411);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.lbPokeListLoading);
             this.Controls.Add(this.pokemonListMenuStrip);
             this.Controls.Add(this.pokemonListView);
@@ -199,5 +209,6 @@
         private System.Windows.Forms.Label lbPokeListLoading;
         private System.Windows.Forms.ToolStripMenuItem sortByNewestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sortByIndexNumberToolStripMenuItem;
+        private System.Windows.Forms.TextBox searchTextBox;
     }
 }

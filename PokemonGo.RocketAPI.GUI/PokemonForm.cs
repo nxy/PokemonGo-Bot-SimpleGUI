@@ -15,6 +15,8 @@ using System.Collections;
 using static PokemonGo.RocketAPI.GeneratedCode.EvolvePokemonOut.Types;
 using PokemonGo.RocketAPI.Logic;
 using PokemonGo.RocketAPI.GUI.Helpers;
+using PokemonGo.RocketAPI.GUI.Extensions;
+using System.Runtime.InteropServices;
 
 namespace PokemonGo.RocketAPI.GUI
 {
@@ -22,12 +24,15 @@ namespace PokemonGo.RocketAPI.GUI
     {
         private Client _client;
         private Inventory _inventory;
+        private List<ListViewItem> _pokemonListViewBackup;
 
         public PokemonForm(Client client)
         {
             _client = client;
             _inventory = new Inventory(client);
+            _pokemonListViewBackup = new List<ListViewItem>();
             InitializeComponent();
+            searchTextBox.SetWatermark("Search Pokemon...");
         }
 
         private async void PokemonForm_Load(object sender, EventArgs e)
@@ -132,6 +137,11 @@ namespace PokemonGo.RocketAPI.GUI
             pokemonListView.BeginUpdate();
             pokemonListView.Items.AddRange(pokeArray);
             pokemonListView.EndUpdate();
+
+            // Search function requires a pokemonListView backup
+            _pokemonListViewBackup.Clear();
+            foreach (ListViewItem item in pokemonListView.Items)
+                _pokemonListViewBackup.Add(item);
         }
 
         private static DateTime GetPokemonCaptureDate(ulong milliseconds)
@@ -283,6 +293,7 @@ namespace PokemonGo.RocketAPI.GUI
                     item.Focused = false;
 
                     pokemonListView.Items.Remove(item);
+                    _pokemonListViewBackup.Remove(item);
                 }
 
                 // Checker for Unique Evolved Pokemon Families
@@ -379,7 +390,7 @@ namespace PokemonGo.RocketAPI.GUI
                             uniquePokemonList.Add(pokemonFamilyId.ToString());
 
                         // Logging
-                        Logger.Write($"Powered Up {item.SubItems[1].Text} with {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
+                        Logger.Write($"Powered Up {item.SubItems[1].Text} to {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
                     }
                     else
                         MessageBox.Show($"Error: {poweredUpPokemon.Result.ToString()}");
@@ -409,6 +420,9 @@ namespace PokemonGo.RocketAPI.GUI
                         if (uniquePokemonList.Contains(pokemonFamilyId))
                             item.ToolTipText = "Candy: " + currentCandy;
                     }
+
+                    // Sort
+                    pokemonListView.Sort();
                 }
 
                 // Logging
@@ -428,6 +442,17 @@ namespace PokemonGo.RocketAPI.GUI
                     myContextMenuStrip.Items.Add("Powerup selected pokémons", null, powerupSelectedToolStripMenuItem_Click);
                     myContextMenuStrip.Show(pokemonListView, e.Location);
                 }
+            }
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (_pokemonListViewBackup.Count() != 0)
+            {
+                pokemonListView.Items.Clear();
+                pokemonListView.BeginUpdate();
+                pokemonListView.Items.AddRange(_pokemonListViewBackup.Where(i => string.IsNullOrEmpty(searchTextBox.Text) || i.SubItems[1].Text.StartsWith(searchTextBox.Text, StringComparison.OrdinalIgnoreCase)).ToArray());
+                pokemonListView.EndUpdate();
             }
         }
     }
