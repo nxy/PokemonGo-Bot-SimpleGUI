@@ -255,7 +255,7 @@ namespace PokemonGo.RocketAPI.GUI
             pokemonListViewItemSorter(4);
         }
 
-        private async Task refreshPokemonCandy(List<string> uniquePokemonList)
+        private async Task refreshPokemonCandyTips(List<string> uniquePokemonList)
         {
             // Checker for Unique Evolved Pokemon Families
             if (uniquePokemonList.Count() != 0)
@@ -323,7 +323,7 @@ namespace PokemonGo.RocketAPI.GUI
                 }
 
                 // Update Pokemon Candy Tips
-                await refreshPokemonCandy(uniquePokemonList);
+                await refreshPokemonCandyTips(uniquePokemonList);
 
                 // Logging
                 Logger.Write("Finished Transfering Pokemons.");
@@ -402,7 +402,7 @@ namespace PokemonGo.RocketAPI.GUI
                 }
 
                 // Update Pokemon Candy Tips
-                await refreshPokemonCandy(uniquePokemonList);
+                await refreshPokemonCandyTips(uniquePokemonList);
 
                 // Sort
                 pokemonListView.Sort();
