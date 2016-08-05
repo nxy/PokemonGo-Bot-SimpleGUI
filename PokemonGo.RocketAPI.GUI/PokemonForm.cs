@@ -174,28 +174,16 @@ namespace PokemonGo.RocketAPI.GUI
         private void enableButtonsAfterLoading()
         {
             // Enable Buttons
-            sortByCPToolStripMenuItem.Enabled = true;
-            sortByIVToolStripMenuItem.Enabled = true;
-            sortByNameToolStripMenuItem.Enabled = true;
-            sortByNewestToolStripMenuItem.Enabled = true;
-            sortByIndexNumberToolStripMenuItem.Enabled = true;
-            transferSelectedToolStripMenuItem.Enabled = true;
-            evolveSelectedToolStripMenuItem.Enabled = true;
-            powerupSelectedToolStripMenuItem.Enabled = true;
+            sortToolStripMenuItem.Enabled = true;
+            actionsToolStripMenuItem.Enabled = true;
             searchTextBox.Enabled = true;
         }
 
         private void disableButtonsDuringLoading()
         {
             // Disable Buttons
-            sortByCPToolStripMenuItem.Enabled = false;
-            sortByIVToolStripMenuItem.Enabled = false;
-            sortByNameToolStripMenuItem.Enabled = false;
-            sortByNewestToolStripMenuItem.Enabled = false;
-            sortByIndexNumberToolStripMenuItem.Enabled = false;
-            transferSelectedToolStripMenuItem.Enabled = false;
-            evolveSelectedToolStripMenuItem.Enabled = false;
-            powerupSelectedToolStripMenuItem.Enabled = false;
+            sortToolStripMenuItem.Enabled = false;
+            actionsToolStripMenuItem.Enabled = false;
             searchTextBox.Enabled = false;
         }
 
