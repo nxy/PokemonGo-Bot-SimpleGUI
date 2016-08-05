@@ -64,6 +64,7 @@ namespace PokemonGo.RocketAPI.GUI
 
         private async Task Execute()
         {
+            disableButtonsDuringLoading();
             resetLoadProgress();
             pokemonListView.Clear();
             pokemonListView.ShowItemToolTips = true;
@@ -161,12 +162,41 @@ namespace PokemonGo.RocketAPI.GUI
                 _pokemonListViewBackup.Add(item);
 
             pokemonListView.Sort();
+            enableButtonsAfterLoading();
         }
 
         private static DateTime GetPokemonCaptureDate(ulong milliseconds)
         {
             DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             return start.AddMilliseconds(milliseconds).ToLocalTime();
+        }
+
+        private void enableButtonsAfterLoading()
+        {
+            // Enable Buttons
+            sortByCPToolStripMenuItem.Enabled = true;
+            sortByIVToolStripMenuItem.Enabled = true;
+            sortByNameToolStripMenuItem.Enabled = true;
+            sortByNewestToolStripMenuItem.Enabled = true;
+            sortByIndexNumberToolStripMenuItem.Enabled = true;
+            transferSelectedToolStripMenuItem.Enabled = true;
+            evolveSelectedToolStripMenuItem.Enabled = true;
+            powerupSelectedToolStripMenuItem.Enabled = true;
+            searchTextBox.Enabled = true;
+        }
+
+        private void disableButtonsDuringLoading()
+        {
+            // Disable Buttons
+            sortByCPToolStripMenuItem.Enabled = false;
+            sortByIVToolStripMenuItem.Enabled = false;
+            sortByNameToolStripMenuItem.Enabled = false;
+            sortByNewestToolStripMenuItem.Enabled = false;
+            sortByIndexNumberToolStripMenuItem.Enabled = false;
+            transferSelectedToolStripMenuItem.Enabled = false;
+            evolveSelectedToolStripMenuItem.Enabled = false;
+            powerupSelectedToolStripMenuItem.Enabled = false;
+            searchTextBox.Enabled = false;
         }
 
         private void resetLoadProgress()
