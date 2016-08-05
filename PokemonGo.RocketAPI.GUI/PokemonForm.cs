@@ -416,11 +416,11 @@ namespace PokemonGo.RocketAPI.GUI
                         MessageBox.Show($"Error: {poweredUpPokemon.Result.ToString()}");
                 }
 
-                // Update Pokemon Candy Tips
-                await refreshPokemonCandyTips(uniquePokemonList);
-
                 // Sort
                 pokemonListView.Sort();
+
+                // Update Pokemon Candy Tips
+                await refreshPokemonCandyTips(uniquePokemonList);
 
                 // Logging
                 Logger.Write("Finished Powering Up Pokemons.");
