@@ -24,6 +24,7 @@ namespace PokemonGo.RocketAPI.GUI
     {
         private Client _client;
         private Inventory _inventory;
+        private ItemComparer _sorter;
         private List<ListViewItem> _pokemonListViewBackup;
 
         public PokemonForm(Client client)
@@ -32,6 +33,19 @@ namespace PokemonGo.RocketAPI.GUI
             _inventory = new Inventory(client);
             _pokemonListViewBackup = new List<ListViewItem>();
             InitializeComponent();
+
+            // Define _sorter
+            _sorter = pokemonListView.ListViewItemSorter as ItemComparer;
+
+            // Set Default Column to CP
+            _sorter = new ItemComparer(2);
+
+            // Set Default Sort
+            _sorter.Order = SortOrder.Descending;
+
+            pokemonListView.ListViewItemSorter = _sorter;
+
+            // Set Search Textbox Watermark
             searchTextBox.SetWatermark("Search Pokemon...");
         }
 
@@ -39,7 +53,6 @@ namespace PokemonGo.RocketAPI.GUI
         {
             try
             {
-                resetLoadProgress();
                 await Execute();
             }
             catch (Exception ex)
@@ -51,6 +64,7 @@ namespace PokemonGo.RocketAPI.GUI
 
         private async Task Execute()
         {
+            resetLoadProgress();
             pokemonListView.Clear();
             pokemonListView.ShowItemToolTips = true;
 
@@ -102,7 +116,11 @@ namespace PokemonGo.RocketAPI.GUI
                 }
 
                 pokemonListView.LargeImageList = imageList;
+
+                // Get Pokemon IV
                 var pokemonIv = Math.Floor(Logic.Logic.CalculatePokemonPerfection(pokemon));
+
+                // Add Extra Pokemon Info to Item
                 listViewItem.SubItems.Add(pokemon.PokemonId.ToString()); // Col 1: Name
                 listViewItem.SubItems.Add(pokemon.Cp.ToString()); // Col 2: CP
                 listViewItem.SubItems.Add(pokemonIv.ToString()); // Col 3: IV
@@ -110,11 +128,13 @@ namespace PokemonGo.RocketAPI.GUI
                 listViewItem.SubItems.Add(pokemonFamilyId.ToString()); // Col 5: Family Id
                 listViewItem.SubItems.Add(pokemonCaptureDate.ToString()); // Col 6: Capture Date
 
+                // Get Pokemon Candies
                 var currentCandy = families
                     .Where(i => (int)i.FamilyId <= pokemonIndexId)
                     .Select(f => f.Candy)
                     .First();
 
+                // Set Pokemon Item Info
                 listViewItem.ImageKey = pokemon.PokemonId.ToString();
                 listViewItem.Text = string.Format("{0}\nCP {1} IV {2}%", pokemon.PokemonId, pokemon.Cp, pokemonIv);
                 listViewItem.Tag = pokemon.Id;
@@ -139,6 +159,8 @@ namespace PokemonGo.RocketAPI.GUI
             _pokemonListViewBackup.Clear();
             foreach (ListViewItem item in pokemonListView.Items)
                 _pokemonListViewBackup.Add(item);
+
+            pokemonListView.Sort();
         }
 
         private static DateTime GetPokemonCaptureDate(ulong milliseconds)
@@ -170,8 +192,6 @@ namespace PokemonGo.RocketAPI.GUI
 
         private void pokemonListViewItemSorter(int subItemsColumn)
         {
-            ItemComparer sorter = pokemonListView.ListViewItemSorter as ItemComparer;
-
             // Deselect and remove focus on ListView items before sort.
             // We're not using pokemonListView.SelectedItems to prevent
             // sort fixated user view bugs that pop-up from time to time
@@ -181,50 +201,39 @@ namespace PokemonGo.RocketAPI.GUI
                 item.Focused = false;
             }
 
-            if (sorter == null)
-            {
-                sorter = new ItemComparer(subItemsColumn);
-
-                // Bug fix for IV & Newest(Occurs when Sort IV/Newest is selected first, as it should Descend)
-                if (subItemsColumn == 3 || subItemsColumn == 6)
-                    sorter.Order = SortOrder.Ascending;
-
-                pokemonListView.ListViewItemSorter = sorter;
-            }
-
             // If clicked column is already the column that is being sorted
-            if (subItemsColumn == sorter.Column)
+            if (subItemsColumn == _sorter.Column)
             {
                 // Reverse the current sort direction
-                if (sorter.Order == SortOrder.Ascending)
-                    sorter.Order = SortOrder.Descending;
+                if (_sorter.Order == SortOrder.Ascending)
+                    _sorter.Order = SortOrder.Descending;
                 else
-                    sorter.Order = SortOrder.Ascending;
+                    _sorter.Order = SortOrder.Ascending;
             }
             else
             {
                 // Set the column number that is to be sorted.
-                sorter.Column = subItemsColumn;
+                _sorter.Column = subItemsColumn;
 
                 // Default Sort Order for Cp
                 if (subItemsColumn == 2)
-                    sorter.Order = SortOrder.Descending;
+                    _sorter.Order = SortOrder.Descending;
 
                 // Default Sort Order for IV
                 else if (subItemsColumn == 3)
-                    sorter.Order = SortOrder.Descending;
+                    _sorter.Order = SortOrder.Descending;
 
                 // Default Sort Order for Name
                 else if (subItemsColumn == 1)
-                    sorter.Order = SortOrder.Ascending;
+                    _sorter.Order = SortOrder.Ascending;
 
                 // Default Sort Order for Newest
                 else if (subItemsColumn == 6)
-                    sorter.Order = SortOrder.Descending;
+                    _sorter.Order = SortOrder.Descending;
 
                 // Default Sort Order for Index Number
                 else if (subItemsColumn == 4)
-                    sorter.Order = SortOrder.Ascending;
+                    _sorter.Order = SortOrder.Ascending;
             }
 
             pokemonListView.Sort();
@@ -312,12 +321,14 @@ namespace PokemonGo.RocketAPI.GUI
                     if (!uniquePokemonList.Contains(pokemonFamilyId.ToString()))
                         uniquePokemonList.Add(pokemonFamilyId.ToString());
 
+                    // Logger
                     Logger.Write($"Transferred {item.SubItems[1].Text} with {item.SubItems[2].Text} CP and an IV of {item.SubItems[3].Text}.");
 
                     // Reset Selection / Focus
                     item.Selected = false;
                     item.Focused = false;
 
+                    // Remove items from both lists
                     pokemonListView.Items.Remove(item);
                     _pokemonListViewBackup.Remove(item);
                 }
@@ -340,7 +351,12 @@ namespace PokemonGo.RocketAPI.GUI
                     var newPokemon = await _client.EvolvePokemon((ulong)item.Tag);
 
                     if (newPokemon.Result == EvolvePokemonStatus.PokemonEvolvedSuccess)
+                    {
+                        // Logging
+                        Logger.Write($"Evolved {item.SubItems[1].Text} to {newPokemon.EvolvedPokemon.PokemonType.ToString()} with {newPokemon.EvolvedPokemon.Cp} CP and an IV of {item.SubItems[3].Text}.");
+
                         MessageBox.Show($"Congratulations with your new pokemon {newPokemon.EvolvedPokemon.PokemonType.ToString()} with {newPokemon.EvolvedPokemon.Cp} CP!");
+                    }
                     else if (newPokemon.Result == EvolvePokemonStatus.FailedInsufficientResources)
                         MessageBox.Show("Insufficient Resources!");
                     else
@@ -350,7 +366,7 @@ namespace PokemonGo.RocketAPI.GUI
                 // Logging
                 Logger.Write("Finished Evolving Pokemons.");
 
-                resetLoadProgress();
+                // Reload pokemonListView
                 await Execute();
             }
         }
@@ -376,7 +392,6 @@ namespace PokemonGo.RocketAPI.GUI
                         MessageBox.Show("Unable to powerup more for your current level!");
                     else if (poweredUpPokemon.Result == EvolvePokemonStatus.PokemonEvolvedSuccess)
                     {
-
                         // Get Pokemon Index Id
                         var pokemonIndexId = int.Parse(item.SubItems[4].Text);
 
