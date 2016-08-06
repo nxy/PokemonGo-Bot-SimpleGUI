@@ -16,6 +16,7 @@ using static PokemonGo.RocketAPI.GeneratedCode.EvolvePokemonOut.Types;
 using PokemonGo.RocketAPI.Logic;
 using PokemonGo.RocketAPI.GUI.Helpers;
 using PokemonGo.RocketAPI.GUI.Extensions;
+using Helpers;
 using System.Runtime.InteropServices;
 
 namespace PokemonGo.RocketAPI.GUI
@@ -25,6 +26,7 @@ namespace PokemonGo.RocketAPI.GUI
         private Client _client;
         private Inventory _inventory;
         private ItemComparer _sorter;
+        private Pokedex _pokedex;
         private List<ListViewItem> _pokemonListViewBackup;
 
         public PokemonForm(Client client)
@@ -47,6 +49,20 @@ namespace PokemonGo.RocketAPI.GUI
 
             // Set Search Textbox Watermark
             searchTextBox.SetWatermark("Search Pokemon...");
+
+            // Deserialize XML file for Pokemon Types
+            string xml = PokemonGo.RocketAPI.GUI.Properties.Resources.PokedexPokemonTypes;
+            _pokedex = xml.ParseXML<Pokedex>();
+
+            //var test = _pokedex.Pokemon.First(i => Convert.ToInt32(i.Index) == 4);
+            //Console.WriteLine(test.name);
+            /*
+            foreach (PokedexPokemon poke in _pokedex.Pokemon)
+            {
+                Console.WriteLine(poke.Index + " " + poke.name);
+                Console.WriteLine(poke.Type1 + " " + poke.Type2);
+            }
+            */
         }
 
         private async void PokemonForm_Load(object sender, EventArgs e)
@@ -128,6 +144,9 @@ namespace PokemonGo.RocketAPI.GUI
                 listViewItem.SubItems.Add(pokemonIndexId.ToString()); // Col 4: Index Number
                 listViewItem.SubItems.Add(pokemonFamilyId.ToString()); // Col 5: Family Id
                 listViewItem.SubItems.Add(pokemonCaptureDate.ToString()); // Col 6: Capture Date
+                listViewItem.SubItems.Add(_pokedex.Pokemon[pokemonIndexId-1].Type1); // Col 7: Type1
+                listViewItem.SubItems.Add(_pokedex.Pokemon[pokemonIndexId-1].Type2); // Col 8: Type2
+                listViewItem.SubItems.Add(pokemon.Nickname); // Col 9: Nickname
 
                 // Get Pokemon Candies
                 var currentCandy = families
@@ -466,7 +485,13 @@ namespace PokemonGo.RocketAPI.GUI
             {
                 pokemonListView.Items.Clear();
                 pokemonListView.BeginUpdate();
-                pokemonListView.Items.AddRange(_pokemonListViewBackup.Where(i => string.IsNullOrEmpty(searchTextBox.Text) || i.SubItems[1].Text.StartsWith(searchTextBox.Text, StringComparison.OrdinalIgnoreCase)).ToArray());
+                pokemonListView.Items.AddRange(_pokemonListViewBackup.Where(i => string.IsNullOrEmpty(searchTextBox.Text) || 
+                                    i.SubItems[1].Text.StartsWith(searchTextBox.Text, StringComparison.OrdinalIgnoreCase) ||
+                                    i.SubItems[4].Text.StartsWith(searchTextBox.Text, StringComparison.OrdinalIgnoreCase) ||
+                                    i.SubItems[7].Text.StartsWith(searchTextBox.Text, StringComparison.OrdinalIgnoreCase) ||
+                                    i.SubItems[8].Text.StartsWith(searchTextBox.Text, StringComparison.OrdinalIgnoreCase) ||
+                                    i.SubItems[9].Text.StartsWith(searchTextBox.Text, StringComparison.OrdinalIgnoreCase)
+                                    ).ToArray());
                 pokemonListView.EndUpdate();
             }
         }

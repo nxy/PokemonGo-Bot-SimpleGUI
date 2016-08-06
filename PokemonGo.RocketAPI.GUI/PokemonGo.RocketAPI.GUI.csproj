@@ -82,6 +82,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -99,6 +100,7 @@
     <Compile Include="ConsoleForm.Designer.cs">
       <DependentUpon>ConsoleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\PokedexPokemonTypes.cs" />
     <Compile Include="Exceptions\LoginNotSelectedException.cs" />
     <Compile Include="Extensions\TextBoxWatermarkExtension.cs" />
     <Compile Include="GUILogger.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Helpers\APINotifications.cs" />
     <Compile Include="Helpers\ErrorReportCreator.cs" />
     <Compile Include="Helpers\LocationUtils.cs" />
+    <Compile Include="Helpers\ParseHelpers.cs" />
     <Compile Include="LocationSelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +225,7 @@
   <ItemGroup>
     <None Include="upArrow.png" />
     <None Include="downArrow.png" />
+    <Content Include="Data\PokedexPokemonTypes.xml" />
     <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>

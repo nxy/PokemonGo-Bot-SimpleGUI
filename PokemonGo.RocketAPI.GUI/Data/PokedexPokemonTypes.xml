@@ -1,0 +1,2516 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Pokedex>
+  <Pokemon Index="001" name="Bulbasaur">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="002" name="Ivysaur">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="003" name="Venusaur">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="004" name="Charmander">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="005" name="Charmeleon">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="006" name="Charizard">
+    <Type1>Fire</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="007" name="Squirtle">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="008" name="Wartortle">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="009" name="Blastoise">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="010" name="Caterpie">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="011" name="Metapod">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="012" name="Butterfree">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="013" name="Weedle">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="014" name="Kakuna">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="015" name="Beedrill">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="016" name="Pidgey">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="017" name="Pidgeotto">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="018" name="Pidgeot">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="019" name="Rattata">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="020" name="Raticate">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="021" name="Spearow">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="022" name="Fearow">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="023" name="Ekans">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="024" name="Arbok">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="025" name="Pikachu">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="026" name="Raichu">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="027" name="Sandshrew">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="028" name="Sandslash">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="029" name="Nidoran♀">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="030" name="Nidorina">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="031" name="Nidoqueen">
+    <Type1>Poison</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="032" name="Nidoran♂">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="033" name="Nidorino">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="034" name="Nidoking">
+    <Type1>Poison</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="035" name="Clefairy">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="036" name="Clefable">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="037" name="Vulpix">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="038" name="Ninetales">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="039" name="Jigglypuff">
+    <Type1>Normal</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="040" name="Wigglytuff">
+    <Type1>Normal</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="041" name="Zubat">
+    <Type1>Poison</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="042" name="Golbat">
+    <Type1>Poison</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="043" name="Oddish">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="044" name="Gloom">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="045" name="Vileplume">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="046" name="Paras">
+    <Type1>Bug</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="047" name="Parasect">
+    <Type1>Bug</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="048" name="Venonat">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="049" name="Venomoth">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="050" name="Diglett">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="051" name="Dugtrio">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="052" name="Meowth">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="053" name="Persian">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="054" name="Psyduck">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="055" name="Golduck">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="056" name="Mankey">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="057" name="Primeape">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="058" name="Growlithe">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="059" name="Arcanine">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="060" name="Poliwag">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="061" name="Poliwhirl">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="062" name="Poliwrath">
+    <Type1>Water</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="063" name="Abra">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="064" name="Kadabra">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="065" name="Alakazam">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="066" name="Machop">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="067" name="Machoke">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="068" name="Machamp">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="069" name="Bellsprout">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="070" name="Weepinbell">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="071" name="Victreebel">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="072" name="Tentacool">
+    <Type1>Water</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="073" name="Tentacruel">
+    <Type1>Water</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="074" name="Geodude">
+    <Type1>Rock</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="075" name="Graveler">
+    <Type1>Rock</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="076" name="Golem">
+    <Type1>Rock</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="077" name="Ponyta">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="078" name="Rapidash">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="079" name="Slowpoke">
+    <Type1>Water</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="080" name="Slowbro">
+    <Type1>Water</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="081" name="Magnemite">
+    <Type1>Electric</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="082" name="Magneton">
+    <Type1>Electric</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="083" name="Farfetch'd">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="084" name="Doduo">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="085" name="Dodrio">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="086" name="Seel">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="087" name="Dewgong">
+    <Type1>Water</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="088" name="Grimer">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="089" name="Muk">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="090" name="Shellder">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="091" name="Cloyster">
+    <Type1>Water</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="092" name="Gastly">
+    <Type1>Ghost</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="093" name="Haunter">
+    <Type1>Ghost</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="094" name="Gengar">
+    <Type1>Ghost</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="095" name="Onix">
+    <Type1>Rock</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="096" name="Drowzee">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="097" name="Hypno">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="098" name="Krabby">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="099" name="Kingler">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="100" name="Voltorb">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="101" name="Electrode">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="102" name="Exeggcute">
+    <Type1>Grass</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="103" name="Exeggutor">
+    <Type1>Grass</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="104" name="Cubone">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="105" name="Marowak">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="106" name="Hitmonlee">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="107" name="Hitmonchan">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="108" name="Lickitung">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="109" name="Koffing">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="110" name="Weezing">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="111" name="Rhyhorn">
+    <Type1>Ground</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="112" name="Rhydon">
+    <Type1>Ground</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="113" name="Chansey">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="114" name="Tangela">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="115" name="Kangaskhan">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="116" name="Horsea">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="117" name="Seadra">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="118" name="Goldeen">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="119" name="Seaking">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="120" name="Staryu">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="121" name="Starmie">
+    <Type1>Water</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="122" name="Mr. Mime">
+    <Type1>Psychic</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="123" name="Scyther">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="124" name="Jynx">
+    <Type1>Ice</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="125" name="Electabuzz">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="126" name="Magmar">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="127" name="Pinsir">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="128" name="Tauros">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="129" name="Magikarp">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="130" name="Gyarados">
+    <Type1>Water</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="131" name="Lapras">
+    <Type1>Water</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="132" name="Ditto">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="133" name="Eevee">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="134" name="Vaporeon">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="135" name="Jolteon">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="136" name="Flareon">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="137" name="Porygon">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="138" name="Omanyte">
+    <Type1>Rock</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="139" name="Omastar">
+    <Type1>Rock</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="140" name="Kabuto">
+    <Type1>Rock</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="141" name="Kabutops">
+    <Type1>Rock</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="142" name="Aerodactyl">
+    <Type1>Rock</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="143" name="Snorlax">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="144" name="Articuno">
+    <Type1>Ice</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="145" name="Zapdos">
+    <Type1>Electric</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="146" name="Moltres">
+    <Type1>Fire</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="147" name="Dratini">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="148" name="Dragonair">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="149" name="Dragonite">
+    <Type1>Dragon</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="150" name="Mewtwo">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="151" name="Mew">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="152" name="Chikorita">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="153" name="Bayleef">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="154" name="Meganium">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="155" name="Cyndaquil">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="156" name="Quilava">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="157" name="Typhlosion">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="158" name="Totodile">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="159" name="Croconaw">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="160" name="Feraligatr">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="161" name="Sentret">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="162" name="Furret">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="163" name="Hoothoot">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="164" name="Noctowl">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="165" name="Ledyba">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="166" name="Ledian">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="167" name="Spinarak">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="168" name="Ariados">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="169" name="Crobat">
+    <Type1>Poison</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="170" name="Chinchou">
+    <Type1>Water</Type1>
+    <Type2>Electric</Type2>
+  </Pokemon>
+  <Pokemon Index="171" name="Lanturn">
+    <Type1>Water</Type1>
+    <Type2>Electric</Type2>
+  </Pokemon>
+  <Pokemon Index="172" name="Pichu">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="173" name="Cleffa">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="174" name="Igglybuff">
+    <Type1>Normal</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="175" name="Togepi">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="176" name="Togetic">
+    <Type1>Fairy</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="177" name="Natu">
+    <Type1>Psychic</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="178" name="Xatu">
+    <Type1>Psychic</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="179" name="Mareep">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="180" name="Flaaffy">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="181" name="Ampharos">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="182" name="Bellossom">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="183" name="Marill">
+    <Type1>Water</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="184" name="Azumarill">
+    <Type1>Water</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="185" name="Sudowoodo">
+    <Type1>Rock</Type1>
+  </Pokemon>
+  <Pokemon Index="186" name="Politoed">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="187" name="Hoppip">
+    <Type1>Grass</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="188" name="Skiploom">
+    <Type1>Grass</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="189" name="Jumpluff">
+    <Type1>Grass</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="190" name="Aipom">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="191" name="Sunkern">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="192" name="Sunflora">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="193" name="Yanma">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="194" name="Wooper">
+    <Type1>Water</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="195" name="Quagsire">
+    <Type1>Water</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="196" name="Espeon">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="197" name="Umbreon">
+    <Type1>Dark</Type1>
+  </Pokemon>
+  <Pokemon Index="198" name="Murkrow">
+    <Type1>Dark</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="199" name="Slowking">
+    <Type1>Water</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="200" name="Misdreavus">
+    <Type1>Ghost</Type1>
+  </Pokemon>
+  <Pokemon Index="201" name="Unown">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="202" name="Wobbuffet">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="203" name="Girafarig">
+    <Type1>Normal</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="204" name="Pineco">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="205" name="Forretress">
+    <Type1>Bug</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="206" name="Dunsparce">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="207" name="Gligar">
+    <Type1>Ground</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="208" name="Steelix">
+    <Type1>Steel</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="209" name="Snubbull">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="210" name="Granbull">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="211" name="Qwilfish">
+    <Type1>Water</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="212" name="Scizor">
+    <Type1>Bug</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="213" name="Shuckle">
+    <Type1>Bug</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="214" name="Heracross">
+    <Type1>Bug</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="215" name="Sneasel">
+    <Type1>Dark</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="216" name="Teddiursa">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="217" name="Ursaring">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="218" name="Slugma">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="219" name="Magcargo">
+    <Type1>Fire</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="220" name="Swinub">
+    <Type1>Ice</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="221" name="Piloswine">
+    <Type1>Ice</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="222" name="Corsola">
+    <Type1>Water</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="223" name="Remoraid">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="224" name="Octillery">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="225" name="Delibird">
+    <Type1>Ice</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="226" name="Mantine">
+    <Type1>Water</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="227" name="Skarmory">
+    <Type1>Steel</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="228" name="Houndour">
+    <Type1>Dark</Type1>
+    <Type2>Fire</Type2>
+  </Pokemon>
+  <Pokemon Index="229" name="Houndoom">
+    <Type1>Dark</Type1>
+    <Type2>Fire</Type2>
+  </Pokemon>
+  <Pokemon Index="230" name="Kingdra">
+    <Type1>Water</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="231" name="Phanpy">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="232" name="Donphan">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="233" name="Porygon2">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="234" name="Stantler">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="235" name="Smeargle">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="236" name="Tyrogue">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="237" name="Hitmontop">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="238" name="Smoochum">
+    <Type1>Ice</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="239" name="Elekid">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="240" name="Magby">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="241" name="Miltank">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="242" name="Blissey">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="243" name="Raikou">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="244" name="Entei">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="245" name="Suicune">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="246" name="Larvitar">
+    <Type1>Rock</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="247" name="Pupitar">
+    <Type1>Rock</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="248" name="Tyranitar">
+    <Type1>Rock</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="249" name="Lugia">
+    <Type1>Psychic</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="250" name="Ho-oh">
+    <Type1>Fire</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="251" name="Celebi">
+    <Type1>Psychic</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="252" name="Treecko">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="253" name="Grovyle">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="254" name="Sceptile">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="255" name="Torchic">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="256" name="Combusken">
+    <Type1>Fire</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="257" name="Blaziken">
+    <Type1>Fire</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="258" name="Mudkip">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="259" name="Marshtomp">
+    <Type1>Water</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="260" name="Swampert">
+    <Type1>Water</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="261" name="Poochyena">
+    <Type1>Dark</Type1>
+  </Pokemon>
+  <Pokemon Index="262" name="Mightyena">
+    <Type1>Dark</Type1>
+  </Pokemon>
+  <Pokemon Index="263" name="Zigzagoon">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="264" name="Linoone">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="265" name="Wurmple">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="266" name="Silcoon">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="267" name="Beautifly">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="268" name="Cascoon">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="269" name="Dustox">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="270" name="Lotad">
+    <Type1>Water</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="271" name="Lombre">
+    <Type1>Water</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="272" name="Ludicolo">
+    <Type1>Water</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="273" name="Seedot">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="274" name="Nuzleaf">
+    <Type1>Grass</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="275" name="Shiftry">
+    <Type1>Grass</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="276" name="Taillow">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="277" name="Swellow">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="278" name="Wingull">
+    <Type1>Water</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="279" name="Pelipper">
+    <Type1>Water</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="280" name="Ralts">
+    <Type1>Psychic</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="281" name="Kirlia">
+    <Type1>Psychic</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="282" name="Gardevoir">
+    <Type1>Psychic</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="283" name="Surskit">
+    <Type1>Bug</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="284" name="Masquerain">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="285" name="Shroomish">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="286" name="Breloom">
+    <Type1>Grass</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="287" name="Slakoth">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="288" name="Vigoroth">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="289" name="Slaking">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="290" name="Nincada">
+    <Type1>Bug</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="291" name="Ninjask">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="292" name="Shedinja">
+    <Type1>Bug</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="293" name="Whismur">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="294" name="Loudred">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="295" name="Exploud">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="296" name="Makuhita">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="297" name="Hariyama">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="298" name="Azurill">
+    <Type1>Normal</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="299" name="Nosepass">
+    <Type1>Rock</Type1>
+  </Pokemon>
+  <Pokemon Index="300" name="Skitty">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="301" name="Delcatty">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="302" name="Sableye">
+    <Type1>Dark</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="303" name="Mawile">
+    <Type1>Steel</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="304" name="Aron">
+    <Type1>Steel</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="305" name="Lairon">
+    <Type1>Steel</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="306" name="Aggron">
+    <Type1>Steel</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="307" name="Meditite">
+    <Type1>Fighting</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="308" name="Medicham">
+    <Type1>Fighting</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="309" name="Electrike">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="310" name="Manectric">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="311" name="Plusle">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="312" name="Minun">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="313" name="Volbeat">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="314" name="Illumise">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="315" name="Roselia">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="316" name="Gulpin">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="317" name="Swalot">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="318" name="Carvanha">
+    <Type1>Water</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="319" name="Sharpedo">
+    <Type1>Water</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="320" name="Wailmer">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="321" name="Wailord">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="322" name="Numel">
+    <Type1>Fire</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="323" name="Camerupt">
+    <Type1>Fire</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="324" name="Torkoal">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="325" name="Spoink">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="326" name="Grumpig">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="327" name="Spinda">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="328" name="Trapinch">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="329" name="Vibrava">
+    <Type1>Ground</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="330" name="Flygon">
+    <Type1>Ground</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="331" name="Cacnea">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="332" name="Cacturne">
+    <Type1>Grass</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="333" name="Swablu">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="334" name="Altaria">
+    <Type1>Dragon</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="335" name="Zangoose">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="336" name="Seviper">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="337" name="Lunatone">
+    <Type1>Rock</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="338" name="Solrock">
+    <Type1>Rock</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="339" name="Barboach">
+    <Type1>Water</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="340" name="Whiscash">
+    <Type1>Water</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="341" name="Corphish">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="342" name="Crawdaunt">
+    <Type1>Water</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="343" name="Baltoy">
+    <Type1>Ground</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="344" name="Claydol">
+    <Type1>Ground</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="345" name="Lileep">
+    <Type1>Rock</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="346" name="Cradily">
+    <Type1>Rock</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="347" name="Anorith">
+    <Type1>Rock</Type1>
+    <Type2>Bug</Type2>
+  </Pokemon>
+  <Pokemon Index="348" name="Armaldo">
+    <Type1>Rock</Type1>
+    <Type2>Bug</Type2>
+  </Pokemon>
+  <Pokemon Index="349" name="Feebas">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="350" name="Milotic">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="351" name="Castform">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="352" name="Kecleon">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="353" name="Shuppet">
+    <Type1>Ghost</Type1>
+  </Pokemon>
+  <Pokemon Index="354" name="Banette">
+    <Type1>Ghost</Type1>
+  </Pokemon>
+  <Pokemon Index="355" name="Duskull">
+    <Type1>Ghost</Type1>
+  </Pokemon>
+  <Pokemon Index="356" name="Dusclops">
+    <Type1>Ghost</Type1>
+  </Pokemon>
+  <Pokemon Index="357" name="Tropius">
+    <Type1>Grass</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="358" name="Chimecho">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="359" name="Absol">
+    <Type1>Dark</Type1>
+  </Pokemon>
+  <Pokemon Index="360" name="Wynaut">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="361" name="Snorunt">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="362" name="Glalie">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="363" name="Spheal">
+    <Type1>Ice</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="364" name="Sealeo">
+    <Type1>Ice</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="365" name="Walrein">
+    <Type1>Ice</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="366" name="Clamperl">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="367" name="Huntail">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="368" name="Gorebyss">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="369" name="Relicanth">
+    <Type1>Water</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="370" name="Luvdisc">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="371" name="Bagon">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="372" name="Shelgon">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="373" name="Salamence">
+    <Type1>Dragon</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="374" name="Beldum">
+    <Type1>Steel</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="375" name="Metang">
+    <Type1>Steel</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="376" name="Metagross">
+    <Type1>Steel</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="377" name="Regirock">
+    <Type1>Rock</Type1>
+  </Pokemon>
+  <Pokemon Index="378" name="Regice">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="379" name="Registeel">
+    <Type1>Steel</Type1>
+  </Pokemon>
+  <Pokemon Index="380" name="Latias">
+    <Type1>Dragon</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="381" name="Latios">
+    <Type1>Dragon</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="382" name="Kyogre">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="383" name="Groudon">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="384" name="Rayquaza">
+    <Type1>Dragon</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="385" name="Jirachi">
+    <Type1>Steel</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="386" name="Deoxys">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="387" name="Turtwig">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="388" name="Grotle">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="389" name="Torterra">
+    <Type1>Grass</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="390" name="Chimchar">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="391" name="Monferno">
+    <Type1>Fire</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="392" name="Infernape">
+    <Type1>Fire</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="393" name="Piplup">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="394" name="Prinplup">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="395" name="Empoleon">
+    <Type1>Water</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="396" name="Starly">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="397" name="Staravia">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="398" name="Staraptor">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="399" name="Bidoof">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="400" name="Bibarel">
+    <Type1>Normal</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="401" name="Kricketot">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="402" name="Kricketune">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="403" name="Shinx">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="404" name="Luxio">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="405" name="Luxray">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="406" name="Budew">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="407" name="Roserade">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="408" name="Cranidos">
+    <Type1>Rock</Type1>
+  </Pokemon>
+  <Pokemon Index="409" name="Rampardos">
+    <Type1>Rock</Type1>
+  </Pokemon>
+  <Pokemon Index="410" name="Shieldon">
+    <Type1>Rock</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="411" name="Bastiodon">
+    <Type1>Rock</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="412" name="Burmy">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="413" name="Wormadam">
+    <Type1>Bug</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="414" name="Mothim">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="415" name="Combee">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="416" name="Vespiquen">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="417" name="Pachirisu">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="418" name="Buizel">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="419" name="Floatzel">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="420" name="Cherubi">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="421" name="Cherrim">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="422" name="Shellos">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="423" name="Gastrodon">
+    <Type1>Water</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="424" name="Ambipom">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="425" name="Drifloon">
+    <Type1>Ghost</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="426" name="Drifblim">
+    <Type1>Ghost</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="427" name="Buneary">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="428" name="Lopunny">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="429" name="Mismagius">
+    <Type1>Ghost</Type1>
+  </Pokemon>
+  <Pokemon Index="430" name="Honchkrow">
+    <Type1>Dark</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="431" name="Glameow">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="432" name="Purugly">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="433" name="Chingling">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="434" name="Stunky">
+    <Type1>Poison</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="435" name="Skuntank">
+    <Type1>Poison</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="436" name="Bronzor">
+    <Type1>Steel</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="437" name="Bronzong">
+    <Type1>Steel</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="438" name="Bonsly">
+    <Type1>Rock</Type1>
+  </Pokemon>
+  <Pokemon Index="439" name="Mime Jr.">
+    <Type1>Psychic</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="440" name="Happiny">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="441" name="Chatot">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="442" name="Spiritomb">
+    <Type1>Ghost</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="443" name="Gible">
+    <Type1>Dragon</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="444" name="Gabite">
+    <Type1>Dragon</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="445" name="Garchomp">
+    <Type1>Dragon</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="446" name="Munchlax">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="447" name="Riolu">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="448" name="Lucario">
+    <Type1>Fighting</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="449" name="Hippopotas">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="450" name="Hippowdon">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="451" name="Skorupi">
+    <Type1>Poison</Type1>
+    <Type2>Bug</Type2>
+  </Pokemon>
+  <Pokemon Index="452" name="Drapion">
+    <Type1>Poison</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="453" name="Croagunk">
+    <Type1>Poison</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="454" name="Toxicroak">
+    <Type1>Poison</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="455" name="Carnivine">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="456" name="Finneon">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="457" name="Lumineon">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="458" name="Mantyke">
+    <Type1>Water</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="459" name="Snover">
+    <Type1>Grass</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="460" name="Abomasnow">
+    <Type1>Grass</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="461" name="Weavile">
+    <Type1>Dark</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="462" name="Magnezone">
+    <Type1>Electric</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="463" name="Lickilicky">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="464" name="Rhyperior">
+    <Type1>Ground</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="465" name="Tangrowth">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="466" name="Electivire">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="467" name="Magmortar">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="468" name="Togekiss">
+    <Type1>Fairy</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="469" name="Yanmega">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="470" name="Leafeon">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="471" name="Glaceon">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="472" name="Gliscor">
+    <Type1>Ground</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="473" name="Mamoswine">
+    <Type1>Ice</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="474" name="Porygon-Z">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="475" name="Gallade">
+    <Type1>Psychic</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="476" name="Probopass">
+    <Type1>Rock</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="477" name="Dusknoir">
+    <Type1>Ghost</Type1>
+  </Pokemon>
+  <Pokemon Index="478" name="Froslass">
+    <Type1>Ice</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="479" name="Rotom">
+    <Type1>Electric</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="480" name="Uxie">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="481" name="Mesprit">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="482" name="Azelf">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="483" name="Dialga">
+    <Type1>Steel</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="484" name="Palkia">
+    <Type1>Water</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="485" name="Heatran">
+    <Type1>Fire</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="486" name="Regigigas">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="487" name="Giratina">
+    <Type1>Ghost</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="488" name="Cresselia">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="489" name="Phione">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="490" name="Manaphy">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="491" name="Darkrai">
+    <Type1>Dark</Type1>
+  </Pokemon>
+  <Pokemon Index="492" name="Shaymin">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="493" name="Arceus">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="494" name="Victini">
+    <Type1>Psychic</Type1>
+    <Type2>Fire</Type2>
+  </Pokemon>
+  <Pokemon Index="495" name="Snivy">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="496" name="Servine">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="497" name="Serperior">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="498" name="Tepig">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="499" name="Pignite">
+    <Type1>Fire</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="500" name="Emboar">
+    <Type1>Fire</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="501" name="Oshawott">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="502" name="Dewott">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="503" name="Samurott">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="504" name="Patrat">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="505" name="Watchog">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="506" name="Lillipup">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="507" name="Herdier">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="508" name="Stoutland">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="509" name="Purrloin">
+    <Type1>Dark</Type1>
+  </Pokemon>
+  <Pokemon Index="510" name="Liepard">
+    <Type1>Dark</Type1>
+  </Pokemon>
+  <Pokemon Index="511" name="Pansage">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="512" name="Simisage">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="513" name="Pansear">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="514" name="Simisear">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="515" name="Panpour">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="516" name="Simipour">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="517" name="Munna">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="518" name="Musharna">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="519" name="Pidove">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="520" name="Tranquill">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="521" name="Unfezant">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="522" name="Blitzle">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="523" name="Zebstrika">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="524" name="Roggenrola">
+    <Type1>Rock</Type1>
+  </Pokemon>
+  <Pokemon Index="525" name="Boldore">
+    <Type1>Rock</Type1>
+  </Pokemon>
+  <Pokemon Index="526" name="Gigalith">
+    <Type1>Rock</Type1>
+  </Pokemon>
+  <Pokemon Index="527" name="Woobat">
+    <Type1>Psychic</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="528" name="Swoobat">
+    <Type1>Psychic</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="529" name="Drilbur">
+    <Type1>Ground</Type1>
+  </Pokemon>
+  <Pokemon Index="530" name="Excadrill">
+    <Type1>Ground</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="531" name="Audino">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="532" name="Timburr">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="533" name="Gurdurr">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="534" name="Conkeldurr">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="535" name="Tympole">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="536" name="Palpitoad">
+    <Type1>Water</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="537" name="Seismitoad">
+    <Type1>Water</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="538" name="Throh">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="539" name="Sawk">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="540" name="Sewaddle">
+    <Type1>Bug</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="541" name="Swadloon">
+    <Type1>Bug</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="542" name="Leavanny">
+    <Type1>Bug</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="543" name="Venipede">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="544" name="Whirlipede">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="545" name="Scolipede">
+    <Type1>Bug</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="546" name="Cottonee">
+    <Type1>Grass</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="547" name="Whimsicott">
+    <Type1>Grass</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="548" name="Petilil">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="549" name="Lilligant">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="550" name="Basculin">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="551" name="Sandile">
+    <Type1>Ground</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="552" name="Krokorok">
+    <Type1>Ground</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="553" name="Krookodile">
+    <Type1>Ground</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="554" name="Darumaka">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="555" name="Darmanitan">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="556" name="Maractus">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="557" name="Dwebble">
+    <Type1>Bug</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="558" name="Crustle">
+    <Type1>Bug</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="559" name="Scraggy">
+    <Type1>Dark</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="560" name="Scrafty">
+    <Type1>Dark</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="561" name="Sigilyph">
+    <Type1>Psychic</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="562" name="Yamask">
+    <Type1>Ghost</Type1>
+  </Pokemon>
+  <Pokemon Index="563" name="Cofagrigus">
+    <Type1>Ghost</Type1>
+  </Pokemon>
+  <Pokemon Index="564" name="Tirtouga">
+    <Type1>Water</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="565" name="Carracosta">
+    <Type1>Water</Type1>
+    <Type2>Rock</Type2>
+  </Pokemon>
+  <Pokemon Index="566" name="Archen">
+    <Type1>Rock</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="567" name="Archeops">
+    <Type1>Rock</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="568" name="Trubbish">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="569" name="Garbodor">
+    <Type1>Poison</Type1>
+  </Pokemon>
+  <Pokemon Index="570" name="Zorua">
+    <Type1>Dark</Type1>
+  </Pokemon>
+  <Pokemon Index="571" name="Zoroark">
+    <Type1>Dark</Type1>
+  </Pokemon>
+  <Pokemon Index="572" name="Minccino">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="573" name="Cinccino">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="574" name="Gothita">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="575" name="Gothorita">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="576" name="Gothitelle">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="577" name="Solosis">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="578" name="Duosion">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="579" name="Reuniclus">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="580" name="Ducklett">
+    <Type1>Water</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="581" name="Swanna">
+    <Type1>Water</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="582" name="Vanillite">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="583" name="Vanillish">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="584" name="Vanilluxe">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="585" name="Deerling">
+    <Type1>Normal</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="586" name="Sawsbuck">
+    <Type1>Normal</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="587" name="Emolga">
+    <Type1>Electric</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="588" name="Karrablast">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="589" name="Escavalier">
+    <Type1>Bug</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="590" name="Foongus">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="591" name="Amoonguss">
+    <Type1>Grass</Type1>
+    <Type2>Poison</Type2>
+  </Pokemon>
+  <Pokemon Index="592" name="Frillish">
+    <Type1>Water</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="593" name="Jellicent">
+    <Type1>Water</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="594" name="Alomomola">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="595" name="Joltik">
+    <Type1>Bug</Type1>
+    <Type2>Electric</Type2>
+  </Pokemon>
+  <Pokemon Index="596" name="Galvantula">
+    <Type1>Bug</Type1>
+    <Type2>Electric</Type2>
+  </Pokemon>
+  <Pokemon Index="597" name="Ferroseed">
+    <Type1>Grass</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="598" name="Ferrothorn">
+    <Type1>Grass</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="599" name="Klink">
+    <Type1>Steel</Type1>
+  </Pokemon>
+  <Pokemon Index="600" name="Klang">
+    <Type1>Steel</Type1>
+  </Pokemon>
+  <Pokemon Index="601" name="Klinklang">
+    <Type1>Steel</Type1>
+  </Pokemon>
+  <Pokemon Index="602" name="Tynamo">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="603" name="Eelektrik">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="604" name="Eelektross">
+    <Type1>Electric</Type1>
+  </Pokemon>
+  <Pokemon Index="605" name="Elgyem">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="606" name="Beheeyem">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="607" name="Litwick">
+    <Type1>Ghost</Type1>
+    <Type2>Fire</Type2>
+  </Pokemon>
+  <Pokemon Index="608" name="Lampent">
+    <Type1>Ghost</Type1>
+    <Type2>Fire</Type2>
+  </Pokemon>
+  <Pokemon Index="609" name="Chandelure">
+    <Type1>Ghost</Type1>
+    <Type2>Fire</Type2>
+  </Pokemon>
+  <Pokemon Index="610" name="Axew">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="611" name="Fraxure">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="612" name="Haxorus">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="613" name="Cubchoo">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="614" name="Beartic">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="615" name="Cryogonal">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="616" name="Shelmet">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="617" name="Accelgor">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="618" name="Stunfisk">
+    <Type1>Ground</Type1>
+    <Type2>Electric</Type2>
+  </Pokemon>
+  <Pokemon Index="619" name="Mienfoo">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="620" name="Mienshao">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="621" name="Druddigon">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="622" name="Golett">
+    <Type1>Ground</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="623" name="Golurk">
+    <Type1>Ground</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="624" name="Pawniard">
+    <Type1>Dark</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="625" name="Bisharp">
+    <Type1>Dark</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="626" name="Bouffalant">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="627" name="Rufflet">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="628" name="Braviary">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="629" name="Vullaby">
+    <Type1>Dark</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="630" name="Mandibuzz">
+    <Type1>Dark</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="631" name="Heatmor">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="632" name="Durant">
+    <Type1>Bug</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="633" name="Deino">
+    <Type1>Dark</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="634" name="Zweilous">
+    <Type1>Dark</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="635" name="Hydreigon">
+    <Type1>Dark</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="636" name="Larvesta">
+    <Type1>Bug</Type1>
+    <Type2>Fire</Type2>
+  </Pokemon>
+  <Pokemon Index="637" name="Volcarona">
+    <Type1>Bug</Type1>
+    <Type2>Fire</Type2>
+  </Pokemon>
+  <Pokemon Index="638" name="Cobalion">
+    <Type1>Steel</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="639" name="Terrakion">
+    <Type1>Rock</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="640" name="Virizion">
+    <Type1>Grass</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="641" name="Tornadus">
+    <Type1>Flying</Type1>
+  </Pokemon>
+  <Pokemon Index="642" name="Thundurus">
+    <Type1>Electric</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="643" name="Reshiram">
+    <Type1>Dragon</Type1>
+    <Type2>Fire</Type2>
+  </Pokemon>
+  <Pokemon Index="644" name="Zekrom">
+    <Type1>Dragon</Type1>
+    <Type2>Electric</Type2>
+  </Pokemon>
+  <Pokemon Index="645" name="Landorus">
+    <Type1>Ground</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="646" name="Kyurem">
+    <Type1>Dragon</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="647" name="Keldeo">
+    <Type1>Water</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="648" name="Meloetta">
+    <Type1>Normal</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="649" name="Genesect">
+    <Type1>Bug</Type1>
+    <Type2>Steel</Type2>
+  </Pokemon>
+  <Pokemon Index="650" name="Chespin">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="651" name="Quilladin">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="652" name="Chesnaught">
+    <Type1>Grass</Type1>
+    <Type2>Fighting</Type2>
+  </Pokemon>
+  <Pokemon Index="653" name="Fennekin">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="654" name="Braixen">
+    <Type1>Fire</Type1>
+  </Pokemon>
+  <Pokemon Index="655" name="Delphox">
+    <Type1>Fire</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="656" name="Froakie">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="657" name="Frogadier">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="658" name="Greninja">
+    <Type1>Water</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="659" name="Bunnelby">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="660" name="Diggersby">
+    <Type1>Normal</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="661" name="Fletchling">
+    <Type1>Normal</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="662" name="Fletchinder">
+    <Type1>Fire</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="663" name="Talonflame">
+    <Type1>Fire</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="664" name="Scatterbug">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="665" name="Spewpa">
+    <Type1>Bug</Type1>
+  </Pokemon>
+  <Pokemon Index="666" name="Vivillon">
+    <Type1>Bug</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="667" name="Litleo">
+    <Type1>Fire</Type1>
+    <Type2>Normal</Type2>
+  </Pokemon>
+  <Pokemon Index="668" name="Pyroar">
+    <Type1>Fire</Type1>
+    <Type2>Normal</Type2>
+  </Pokemon>
+  <Pokemon Index="669" name="Flabébé">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="670" name="Floette">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="671" name="Florges">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="672" name="Skiddo">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="673" name="Gogoat">
+    <Type1>Grass</Type1>
+  </Pokemon>
+  <Pokemon Index="674" name="Pancham">
+    <Type1>Fighting</Type1>
+  </Pokemon>
+  <Pokemon Index="675" name="Pangoro">
+    <Type1>Fighting</Type1>
+    <Type2>Dark</Type2>
+  </Pokemon>
+  <Pokemon Index="676" name="Furfrou">
+    <Type1>Normal</Type1>
+  </Pokemon>
+  <Pokemon Index="677" name="Espurr">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="678" name="Meowstic">
+    <Type1>Psychic</Type1>
+  </Pokemon>
+  <Pokemon Index="679" name="Honedge">
+    <Type1>Steel</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="680" name="Doublade">
+    <Type1>Steel</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="681" name="Aegislash">
+    <Type1>Steel</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="682" name="Spritzee">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="683" name="Aromatisse">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="684" name="Swirlix">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="685" name="Slurpuff">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="686" name="Inkay">
+    <Type1>Dark</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="687" name="Malamar">
+    <Type1>Dark</Type1>
+    <Type2>Psychic</Type2>
+  </Pokemon>
+  <Pokemon Index="688" name="Binacle">
+    <Type1>Rock</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="689" name="Barbaracle">
+    <Type1>Rock</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="690" name="Skrelp">
+    <Type1>Poison</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+  <Pokemon Index="691" name="Dragalge">
+    <Type1>Poison</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="692" name="Clauncher">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="693" name="Clawitzer">
+    <Type1>Water</Type1>
+  </Pokemon>
+  <Pokemon Index="694" name="Helioptile">
+    <Type1>Electric</Type1>
+    <Type2>Normal</Type2>
+  </Pokemon>
+  <Pokemon Index="695" name="Heliolisk">
+    <Type1>Electric</Type1>
+    <Type2>Normal</Type2>
+  </Pokemon>
+  <Pokemon Index="696" name="Tyrunt">
+    <Type1>Rock</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="697" name="Tyrantrum">
+    <Type1>Rock</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="698" name="Amaura">
+    <Type1>Rock</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="699" name="Aurorus">
+    <Type1>Rock</Type1>
+    <Type2>Ice</Type2>
+  </Pokemon>
+  <Pokemon Index="700" name="Sylveon">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="701" name="Hawlucha">
+    <Type1>Fighting</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="702" name="Dedenne">
+    <Type1>Electric</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="703" name="Carbink">
+    <Type1>Rock</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="704" name="Goomy">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="705" name="Sliggoo">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="706" name="Goodra">
+    <Type1>Dragon</Type1>
+  </Pokemon>
+  <Pokemon Index="707" name="Klefki">
+    <Type1>Steel</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="708" name="Phantump">
+    <Type1>Ghost</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="709" name="Trevenant">
+    <Type1>Ghost</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="710" name="Pumpkaboo">
+    <Type1>Ghost</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="711" name="Gourgeist">
+    <Type1>Ghost</Type1>
+    <Type2>Grass</Type2>
+  </Pokemon>
+  <Pokemon Index="712" name="Bergmite">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="713" name="Avalugg">
+    <Type1>Ice</Type1>
+  </Pokemon>
+  <Pokemon Index="714" name="Noibat">
+    <Type1>Flying</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="715" name="Noivern">
+    <Type1>Flying</Type1>
+    <Type2>Dragon</Type2>
+  </Pokemon>
+  <Pokemon Index="716" name="Xerneas">
+    <Type1>Fairy</Type1>
+  </Pokemon>
+  <Pokemon Index="717" name="Yveltal">
+    <Type1>Dark</Type1>
+    <Type2>Flying</Type2>
+  </Pokemon>
+  <Pokemon Index="718" name="Zygarde">
+    <Type1>Dragon</Type1>
+    <Type2>Ground</Type2>
+  </Pokemon>
+  <Pokemon Index="719" name="Diancie">
+    <Type1>Rock</Type1>
+    <Type2>Fairy</Type2>
+  </Pokemon>
+  <Pokemon Index="720" name="Hoopa">
+    <Type1>Psychic</Type1>
+    <Type2>Ghost</Type2>
+  </Pokemon>
+  <Pokemon Index="721" name="Volcanion">
+    <Type1>Fire</Type1>
+    <Type2>Water</Type2>
+  </Pokemon>
+</Pokedex>

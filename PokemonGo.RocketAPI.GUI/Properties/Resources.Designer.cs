@@ -71,6 +71,34 @@ namespace PokemonGo.RocketAPI.GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;
+        ///&lt;Pokedex&gt;
+        ///  &lt;Pokemon Index=&quot;001&quot; name=&quot;Bulbasaur&quot;&gt;
+        ///    &lt;Type1&gt;Grass&lt;/Type1&gt;
+        ///    &lt;Type2&gt;Poison&lt;/Type2&gt;
+        ///  &lt;/Pokemon&gt;
+        ///  &lt;Pokemon Index=&quot;002&quot; name=&quot;Ivysaur&quot;&gt;
+        ///    &lt;Type1&gt;Grass&lt;/Type1&gt;
+        ///    &lt;Type2&gt;Poison&lt;/Type2&gt;
+        ///  &lt;/Pokemon&gt;
+        ///  &lt;Pokemon Index=&quot;003&quot; name=&quot;Venusaur&quot;&gt;
+        ///    &lt;Type1&gt;Grass&lt;/Type1&gt;
+        ///    &lt;Type2&gt;Poison&lt;/Type2&gt;
+        ///  &lt;/Pokemon&gt;
+        ///  &lt;Pokemon Index=&quot;004&quot; name=&quot;Charmander&quot;&gt;
+        ///    &lt;Type1&gt;Fire&lt;/Type1&gt;
+        ///  &lt;/Pokemon&gt;
+        ///  &lt;Pokemon Index=&quot;005&quot; name=&quot;Charmeleon&quot;&gt;
+        ///    &lt;Type1&gt;Fire&lt;/Type1&gt;
+        ///  &lt;/Po [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PokedexPokemonTypes {
+            get {
+                return ResourceManager.GetString("PokedexPokemonTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap upArrow {
