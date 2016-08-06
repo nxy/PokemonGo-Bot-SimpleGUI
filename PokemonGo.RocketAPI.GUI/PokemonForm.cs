@@ -53,16 +53,6 @@ namespace PokemonGo.RocketAPI.GUI
             // Deserialize XML file for Pokemon Types
             string xml = PokemonGo.RocketAPI.GUI.Properties.Resources.PokedexPokemonTypes;
             _pokedex = xml.ParseXML<Pokedex>();
-
-            //var test = _pokedex.Pokemon.First(i => Convert.ToInt32(i.Index) == 4);
-            //Console.WriteLine(test.name);
-            /*
-            foreach (PokedexPokemon poke in _pokedex.Pokemon)
-            {
-                Console.WriteLine(poke.Index + " " + poke.name);
-                Console.WriteLine(poke.Type1 + " " + poke.Type2);
-            }
-            */
         }
 
         private async void PokemonForm_Load(object sender, EventArgs e)
